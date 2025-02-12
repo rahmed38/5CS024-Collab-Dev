@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Wolverhampton - University of Wolverhampton</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* General body styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #424867; /* Background color */
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* Top section styles */
+        .top-section {
+            padding: 50px 20px; /* Added more padding for better spacing */
+            background-color: #424867;
+            color: white;
+            text-align: center;
+        }
+
+        .welcome-text {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px; /* Added margin for spacing */
+        }
+
+        .user-name {
+            font-size: 20px;
+            color: #B0B0B0; /* Lighter color for the user name */
+        }
+
+        .search-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .search-input {
+            padding: 15px;
+            width: 100%;
+            font-size: 18px;
+            border-radius: 25px;
+            border: 1px solid #ccc;
+            background-color: white;
+            color: #424867;
+            padding-left: 40px;
+            box-sizing: border-box;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #424867;
+            font-size: 20px;
+        }
+
+        /* Section title styles */
+        .section-title {
+            font-size: 26px;
+            margin-top: 40px;
+            text-align: center;
+            color: #FFC107;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px; /* Added margin for spacing */
+        }
+
+        /* Map container styles */
+        .map-container {
+            margin: 30px 0;
+            width: 100%;
+            height: 500px;
+            position: relative;
+            border-radius: 15px; /* Rounded corners for the map container */
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Bottom navigation styles */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #FF69B4;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-radius: 25px 25px 0 0;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-item {
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .nav-item i {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        /* Hover effect for nav items */
+        .nav-item:hover {
+            background-color: #FF4081;
+            border-radius: 12px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-section">
+        <h1 class="welcome-text">Explore Wolverhampton</h1>
+        <div class="user-name" id="userName"></div>
+        <div class="search-container">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" class="search-input" placeholder="Search for a place...">
+        </div>
+    </div>
+
+    <h2 class="section-title">Explore Wolverhampton</h2>
+    <div class="map-container">
+        <!-- Embed Google Map with your API key -->
+        <iframe src="https://www.google.com/maps/embed/v1/place?q=University+of+Wolverhampton&key=AIzaSyDhnr6rppSFTCLX4paqzCkkCjgOOmHk3Aw" 
+                allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="home.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+
+        <a href="explorewolves.html" class="nav-item">
+            <i class="fas fa-search"></i>
+            <span>Explore</span>
+        </a>
+
+        <a href="savedpage.html" class="nav-item">
+            <i class="fas fa-bookmark"></i>
+            <span>Saved</span>
+        </a>
+
+        <a href="profile.html?userName=" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </a>
+    </nav>
+
+    <script>
+        // Get user name from URL parameters
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const userName = urlParams.get('userName');
+            if (userName) {
+                document.getElementById('userName').textContent = userName.toUpperCase();
+            }
+        }
+    </script>
+
+</body>
+</html>
