@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Settings - University of Wolverhampton</title>
+    <link rel="stylesheet" href="0style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+   
+</head>
+<body class="normal-text">
+    <div class="settings-container">
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <div class="profile-image" id="profileImage">
+                <i class="fas fa-user"></i>
+            </div>
+            <h2 id="userName" class="profile-name">Loading...</h2>
+            <p class="visitor-tag">Visitor</p>
+        </div>
+
+        <!-- Text Size Section -->
+        <div class="settings-section">
+            <h2 class="section-title">Text Size</h2>
+            <div class="text-size-controls">
+                <button class="text-size-btn" onclick="changeTextSize('normal')" id="normalText">A</button>
+                <button class="text-size-btn" onclick="changeTextSize('large')" id="largeText" style="font-size: 1.2em;">A</button>
+                <button class="text-size-btn" onclick="changeTextSize('larger')" id="largerText" style="font-size: 1.4em;">A</button>
+            </div>
+        </div>
+
+        <!-- Profile Settings -->
+        <div class="settings-section">
+            <a href="8editprofile.html" class="settings-link">
+                <i class="fas fa-user-edit"></i>
+                <span>Edit Profile Icon</span>
+            </a>
+        </div>
+
+        <div class="settings-section">
+            <a href="6saved.html" class="settings-link">
+                <i class="fas fa-heart"></i>
+                <span>Saved Subjects</span>
+            </a>
+        </div>
+
+        <div class="settings-section">
+            <a href="personal-details.html" class="settings-link">
+                <i class="fas fa-id-card"></i>
+                <span>Personal Details</span>
+            </a>
+        </div>
+
+        <div class="settings-section">
+            <a href="faq.html" class="settings-link">
+                <i class="fas fa-question-circle"></i>
+                <span>FAQs</span>
+            </a>
+        </div>
+
+        <div class="settings-section">
+            <a href="contact.html" class="settings-link">
+                <i class="fas fa-envelope"></i>
+                <span>Contact Us</span>
+            </a>
+        </div>
+
+        <div class="settings-section">
+            <button onclick="handleLogout()" class="logout-button">
+                <i class="fas fa-sign-out-alt"></i> Log Out
+            </button>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="4homepage.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="5explore.html" class="nav-item">
+            <i class="fas fa-search"></i>
+            <span>Explore</span>
+        </a>
+        <a href="6saved.html" class="nav-item">
+            <i class="fas fa-bookmark"></i>
+            <span>Saved</span>
+        </a>
+        <a href="7profile.html" class="nav-item active">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </a>
+    </nav>
+
+    <script>
+        function changeTextSize(size) {
+            // Remove all size classes
+            document.body.classList.remove('normal-text', 'large-text', 'larger-text');
+            
+            // Add the selected size class
+            document.body.classList.add(size + '-text');
+            
+            // Save preference
+            localStorage.setItem('textSize', size);
+            
+            // Update button states
+            updateTextSizeButtons(size);
+        }
+
+        function updateTextSizeButtons(activeSize) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.text-size-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to selected size button
+            const activeButton = document.querySelector(`#${activeSize}Text`);
+            if (activeButton) {
+                activeButton.classList.add('active');
+            }
+        }
+
+        function handleLogout() {
+            if (confirm('Are you sure you want to log out?')) {
+                localStorage.removeItem('userName');
+                localStorage.removeItem('profileIconColor');
+                // Don't remove text size preference on logout
+                window.location.href = '1welcome.html';
+            }
+        }
+
+        // Initialize everything when the page loads
+        window.onload = function() {
+            // Handle colors
+            const savedBgColor = localStorage.getItem('bgColor');
+            const savedTextColor = localStorage.getItem('textColor');
+            const savedBtnColor = localStorage.getItem('btnColor');
+            const savedProfileColor = localStorage.getItem('profileIconColor');
+
+            if (savedBgColor) {
+                document.body.style.backgroundColor = savedBgColor;
+            }
+            if (savedTextColor) {
+                document.body.style.color = savedTextColor;
+            }
+            if (savedBtnColor) {
+                const buttons = document.querySelectorAll('.nav-button, .nav-item');
+                buttons.forEach(button => button.style.backgroundColor = savedBtnColor);
+            }
+            if (savedProfileColor) {
+                updateProfileImage(savedProfileColor);
+            }
+
+            // Load saved text size preference
+            const savedTextSize = localStorage.getItem('textSize') || 'normal';
+            changeTextSize(savedTextSize);
+
+            // Handle user name
+            const userName = getUserName();
+            document.getElementById('userName').textContent = userName;
+        }
+
+        function getUserName() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlName = urlParams.get('userName');
+            const storedName = localStorage.getItem('userName');
+            return urlName || storedName || 'Guest User';
+        }
+
+        function updateProfileImage(color) {
+            const profileImage = document.getElementById('profileImage');
+            switch(color) {
+                case '#24C5F4':
+                    profileImage.style.background = 'linear-gradient(135deg, #24C5F4, #1E9CD7)';
+                    break;
+                case '#FF69B4':
+                    profileImage.style.background = 'linear-gradient(135deg, #FF69B4, #FF4081)';
+                    break;
+                case '#FFD700':
+                    profileImage.style.background = 'linear-gradient(135deg, #FFD700, #FFA500)';
+                    break;
+                case '#A2D460':
+                    profileImage.style.background = 'linear-gradient(135deg, #A2D460, #7CB342)';
+                    break;
+                default:
+                    profileImage.style.background = 'linear-gradient(135deg, #24C5F4, #1E9CD7)';
+            }
+        }
+    </script>
+</body>
+</html>

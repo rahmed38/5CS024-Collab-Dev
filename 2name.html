@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+    <title>Enter Your Name - University of Wolverhampton</title>
+    <link rel="stylesheet" href="0style.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="icon-container">
+            <img src="assets/images/user-icon.png" alt="User Icon" class="icon">
+        </div>
+        
+        <!-- Form heading and description -->
+        <h1 class="question-text">What is your name?</h1>
+        <p class="subtitle">We'll tailor your app experience</p>
+        
+        <!-- Name input fields -->
+        <input type="text" id="firstName" placeholder="First Name" class="input">
+        <input type="text" id="lastName" placeholder="Last Name" class="input">
+        
+        <!-- Navigation button -->
+        <a href="3subjectselection.html" class="button" id="continueButton">CONTINUE</a>
+    </div>
+
+    <!-- Hidden div for sanitized output display -->
+    <div id="sanitizedOutput" class="sanitized-output" style="display:none;"></div>
+
+    <!-- JavaScript for page functionality -->
+    <script>
+        // This script runs saved colors from localStorage if any
+        window.onload = function() {
+            // Retrieve previously saved color preferences from browser storage
+            const savedBgColor = localStorage.getItem('bgColor');
+            const savedTextColor = localStorage.getItem('textColor');
+            const savedBtnColor = localStorage.getItem('btnColor');
+
+            // Apply saved background color if it exists
+            if (savedBgColor) {
+                document.body.style.backgroundColor = savedBgColor;
+            }
+            // Apply saved text color if it exists
+            if (savedTextColor) {
+                document.body.style.color = savedTextColor;
+            }
+            // Apply saved button color to all buttons if it exists
+            if (savedBtnColor) {
+                const buttons = document.querySelectorAll('.nav-button, .button');
+                buttons.forEach(button => button.style.backgroundColor = savedBtnColor);
+            }
+        }
+
+        // Validates input and handles navigation to next page
+        document.getElementById('continueButton').addEventListener('click', function(e) {
+            e.preventDefault();
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            
+            // Validate and process name input
+            if (firstName) {
+                const fullName = lastName ? `${firstName} ${lastName}` : firstName;
+                // Store name in localStorage for persistence
+                localStorage.setItem('userName', fullName);
+                // Navigate to next page with name parameter
+                window.location.href = `3subjectselection.html?userName=${encodeURIComponent(fullName)}`;
+            } else {
+                alert('Please enter at least your first name');
+            }
+        });
+
+        // Checks for special characters and handles Enter key navigation
+        function validateAndNavigate(event) {
+            const inputField = document.querySelector('.input');
+            const inputValue = inputField.value;
+
+            // Regex for special character validation
+            const specialCharsPattern = /[^a-zA-Z0-9 ]/;
+
+            // Validate input for special characters
+            if (specialCharsPattern.test(inputValue)) {
+                event.preventDefault();
+                alert("Error: Please enter only letters or numbers, no special characters allowed.");
+                inputField.focus();
+                return;
+            }
+
+            // Handle Enter key navigation
+            if (event.key === 'Enter' && inputValue.trim()) {
+                localStorage.setItem('userName', inputValue.trim());
+                window.location.href = 'subjectspage.html?userName=' + encodeURIComponent(inputValue.trim());
+            }
+        }
+
+        // Add keypress event listener for input validation
+        document.addEventListener('DOMContentLoaded', () => {
+            const inputField = document.querySelector('.input');
+            inputField.addEventListener('keypress', validateAndNavigate);
+        });
+    </script>
+
+    <!--Ruqaiyyah 2336189 Code starts -->
+    <script>
+        // Function to validate input and handle navigation
+        function validateAndNavigate(event) {
+           const inputField = document.querySelector('.input');
+           const inputValue = inputField.value;
+       
+           // Regex pattern to check for special characters (anything not a letter or number)
+           const specialCharsPattern = /[^a-zA-Z0-9 ]/;
+       
+           // If the input matches the special characters pattern
+           if (specialCharsPattern.test(inputValue)) {
+               event.preventDefault(); // Prevent form submission
+               alert("Error: Please enter only letters or numbers, no special characters allowed.");
+               inputField.focus(); // Focus back on the input field
+               return;
+           }
+       
+           // If Enter key is pressed and input is not empty
+           if (event.key === 'Enter' && inputValue.trim()) {
+               // Redirect to the subject choice page with the username
+               window.location.href = 'subjects.html?userName=' + encodeURIComponent(inputValue.trim());
+           }
+       }
+       
+       // Add event listener to check input on keypress
+       document.addEventListener('DOMContentLoaded', () => {
+           const inputField = document.querySelector('.input');
+           inputField.addEventListener('keypress', validateAndNavigate);
+       });
+           </script>
+           <!--Ruqaiyyah 2336189 Code ends -->       
+
+</body>
+</html>

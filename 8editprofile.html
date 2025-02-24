@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile - University of Wolverhampton</title>
+    <link rel="stylesheet" href="0style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .page-container {
+            min-height: 100vh;
+            padding: 40px 20px 100px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .edit-profile-section {
+            width: 100%;
+            max-width: 600px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .edit-title {
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 12px;
+            color: white;
+        }
+
+        .edit-subtitle {
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .profile-preview {
+            margin: 0 auto 48px;
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #24C5F4, #1E9CD7);
+            border-radius: 50%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(36, 197, 244, 0.3);
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .profile-image i {
+            font-size: 48px;
+            color: white;
+        }
+
+        .theme-options {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 32px;
+            margin-bottom: 40px;
+        }
+
+        .color-picker {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 24px;
+            justify-items: center;
+            padding: 8px;
+        }
+
+        .color-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .color-option input[type="radio"] {
+            display: none;
+        }
+
+        .color-option label {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border: 3px solid transparent;
+        }
+
+        .color-option input[type="radio"]:checked + label {
+            transform: scale(1.1);
+            border-color: white;
+        }
+
+        .color-option label i {
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-size: 24px;
+        }
+
+        .color-option input[type="radio"]:checked + label i {
+            opacity: 1;
+        }
+
+        .color-label {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .back-button {
+            width: 100%;
+            padding: 16px 24px;
+            border: none;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #FF69B4, #FF4081);
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
+            margin: 0 10px;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 16px 24px;
+            border-radius: 12px;
+            background: #4CAF50;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateX(200%);
+            transition: transform 0.3s ease-out;
+            z-index: 1000;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        @media (max-width: 480px) {
+            .page-container {
+                padding: 20px 16px 80px 16px;
+            }
+
+            .edit-profile-section {
+                padding: 30px 20px;
+            }
+
+            .theme-options {
+                padding: 24px 16px;
+            }
+
+            .color-picker {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .profile-image {
+                width: 100px;
+                height: 100px;
+            }
+
+            .profile-image i {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <div class="edit-profile-section">
+            <h2 class="edit-title">Customise Profile Icon</h2>
+            <p class="edit-subtitle">Choose a color for your profile icon</p>
+
+            <!-- Profile Icon Preview -->
+            <div class="profile-preview">
+                <div class="profile-image" id="profileImagePreview">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+
+            <!-- Color Options -->
+            <div class="theme-options">
+                <div class="color-picker">
+                    <div class="color-option">
+                        <input type="radio" id="color1" name="color" value="#24C5F4">
+                        <label for="color1" style="background: linear-gradient(135deg, #24C5F4, #1E9CD7);">
+                            <i class="fas fa-check"></i>
+                        </label>
+                        <span class="color-label">Ocean Blue</span>
+                    </div>
+                    <div class="color-option">
+                        <input type="radio" id="color2" name="color" value="#FF69B4">
+                        <label for="color2" style="background: linear-gradient(135deg, #FF69B4, #FF4081);">
+                            <i class="fas fa-check"></i>
+                        </label>
+                        <span class="color-label">Rose Pink</span>
+                    </div>
+                    <div class="color-option">
+                        <input type="radio" id="color3" name="color" value="#FFD700">
+                        <label for="color3" style="background: linear-gradient(135deg, #FFD700, #FFA500);">
+                            <i class="fas fa-check"></i>
+                        </label>
+                        <span class="color-label">Sunshine</span>
+                    </div>
+                    <div class="color-option">
+                        <input type="radio" id="color4" name="color" value="#A2D460">
+                        <label for="color4" style="background: linear-gradient(135deg, #A2D460, #7CB342);">
+                            <i class="fas fa-check"></i>
+                        </label>
+                        <span class="color-label">Spring Green</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back Button -->
+            <a href="7profile.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Back to Profile
+            </a>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <span>Color updated!</span>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="4homepage.html" class="nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="5explore.html" class="nav-item">
+            <i class="fas fa-search"></i>
+            <span>Explore</span>
+        </a>
+        <a href="6saved.html" class="nav-item">
+            <i class="fas fa-bookmark"></i>
+            <span>Saved</span>
+        </a>
+        <a href="7profile.html" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </a>
+    </nav>
+
+    <script>
+        window.onload = function() {
+            const savedColor = localStorage.getItem('profileIconColor');
+            if (savedColor) {
+                updatePreview(savedColor);
+                const radio = document.querySelector(`input[value="${savedColor}"]`);
+                if (radio) radio.checked = true;
+            }
+        }
+
+        document.querySelectorAll('input[type="radio"]').forEach(input => {
+            input.addEventListener('change', function() {
+                updatePreview(this.value);
+                // Auto-save when color is selected
+                localStorage.setItem('profileIconColor', this.value);
+                
+                // Show notification
+                const notification = document.getElementById('notification');
+                notification.classList.add('show');
+                
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 2000);
+            });
+        });
+
+        function updatePreview(color) {
+            const preview = document.getElementById('profileImagePreview');
+            switch(color) {
+                case '#24C5F4':
+                    preview.style.background = 'linear-gradient(135deg, #24C5F4, #1E9CD7)';
+                    break;
+                case '#FF69B4':
+                    preview.style.background = 'linear-gradient(135deg, #FF69B4, #FF4081)';
+                    break;
+                case '#FFD700':
+                    preview.style.background = 'linear-gradient(135deg, #FFD700, #FFA500)';
+                    break;
+                case '#A2D460':
+                    preview.style.background = 'linear-gradient(135deg, #A2D460, #7CB342)';
+                    break;
+                default:
+                    preview.style.background = 'linear-gradient(135deg, #24C5F4, #1E9CD7)';
+            }
+        }
+    </script>
+</body>
+</html>

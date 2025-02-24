@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visit Wolverhampton - University of Wolverhampton</title>
+    <link rel="stylesheet" href="0style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Visit Wolverhampton</h1>
+        <p>Your guide to the best of Wolverhampton</p>
+    </div>
+
+    <!-- City Highlights -->
+    <div class="section-box">
+        <h2>City Highlights</h2>
+        <p>Wolverhampton is a city rich in history and culture. The heart of the city features a mixture of modern architecture and historic landmarks. Key highlights include:</p>
+        <ul>
+            <li>The Wolverhampton Art Gallery - A must-see for art lovers</li>
+            <li>The Grand Theatre - Home to a range of performances and musicals</li>
+            <li>The Mander Centre - A central shopping mall</li>
+            <li>Wolverhampton Wanderers FC - The local football team, based at Molineux Stadium</li>
+            <li>The Wolverhampton Clock Tower - A historical landmark</li>
+        </ul>
+    </div>
+
+    <!-- Transport Information -->
+    <div class="section-box">
+        <h2>Transport Information</h2>
+        <p>Wolverhampton is well-connected by multiple forms of transport:</p>
+        
+        <h3>Public Transport</h3>
+        <p>The city has excellent bus and tram services that connect all major areas, including direct routes to the University of Wolverhampton. The city also has a central railway station, making travel to and from Wolverhampton easy and convenient.</p>
+
+        <h3>Parking</h3>
+        <p>Several car parks are located near the University, including:</p>
+        <ul>
+            <li>Wolverhampton City Centre Parking - A large multi-storey car park with easy access to the main campus.</li>
+            <li>The University Car Park - Located close to the main buildings, for those visiting the University.</li>
+        </ul>
+
+        <h3>Walking Routes</h3>
+        <p>The University of Wolverhampton is within walking distance from many key city landmarks. The main campus is easily accessible via pedestrian routes, and the surrounding areas have well-maintained walking paths and pedestrian zones.</p>
+    </div>
+
+    <!-- Accommodation Options -->
+    <div class="section-box">
+        <h2>Accommodation Options</h2>
+        <p>Wolverhampton offers a range of accommodation options, from budget hotels to more luxurious stays:</p>
+        <div class="card-container">
+            <div class="card">
+                <h3>The Novotel Wolverhampton</h3>
+                <p>Modern hotel offering comfortable rooms, a fitness center, and restaurant.</p>
+                <a href="https://www.novotel.com" target="_blank">Learn More</a>
+            </div>
+            <div class="card">
+                <h3>Hampton by Hilton</h3>
+                <p>Located close to the city center with easy access to transport links.</p>
+                <a href="https://www.hilton.com" target="_blank">Learn More</a>
+            </div>
+            <div class="card">
+                <h3>The Compton Arms</h3>
+                <p>A charming local bed and breakfast offering a cozy atmosphere.</p>
+                <a href="https://www.comptonarms.com" target="_blank">Learn More</a>
+            </div>
+            <!-- Added Student Accommodation Option -->
+            <div class="card">
+                <h3>Student Accommodation</h3>
+                <p>Affordable student accommodation close to the University of Wolverhampton. Features include fully furnished rooms, 24/7 security, and communal areas for socializing and studying.</p>
+                <a href="https://www.wlv.ac.uk/university-life/accommodation/" target="_blank">Learn More</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Local Attractions -->
+    <div class="section-box">
+        <h2>Local Attractions</h2>
+        <p>Explore the rich culture of Wolverhampton with these local attractions:</p>
+        <ul>
+            <li>The Black Country Museum - A unique open-air museum showcasing the industrial heritage of the region.</li>
+            <li>West Park - A beautiful Victorian park offering plenty of space for relaxation and outdoor activities.</li>
+            <li>Wightwick Manor & Gardens - A beautiful National Trust property with exquisite gardens and a house full of pre-Raphaelite art.</li>
+        </ul>
+    </div>
+
+    <!-- Dining Options -->
+    <div class="section-box">
+        <h2>Dining Options</h2>
+        <p>Wolverhampton offers a variety of dining options, from traditional British fare to international cuisine:</p>
+        <ul>
+            <li>The Royal London - A stylish pub offering hearty British dishes.</li>
+            <li>Villa Di Roma - A popular Italian restaurant located in the city center.</li>
+            <li>Havana - A vibrant Latin American restaurant offering tapas and cocktails.</li>
+        </ul>
+    </div>
+
+    <!-- Shopping Areas -->
+    <div class="section-box">
+        <h2>Shopping Areas</h2>
+        <p>Wolverhampton is home to several shopping areas, including:</p>
+        <ul>
+            <li>The Mander Centre - A central shopping mall with popular retailers.</li>
+            <li>The Wulfrun Centre - A diverse shopping area with both high-street stores and independent boutiques.</li>
+            <li>Wolverhampton Market - A traditional market with fresh produce, goods, and local crafts.</li>
+        </ul>
+    </div>
+    
+    <script>
+// Common function to handle user name across all pages
+function handleUserName() {
+    // First check URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlName = urlParams.get('userName');
+    
+    // Then check localStorage
+    const storedName = localStorage.getItem('userName');
+    
+    // Use URL name if available, otherwise use stored name
+    const userName = urlName || storedName;
+    
+    // If we have a name from either source
+    if (userName) {
+        // Update any element with id='userName'
+        const userNameElement = document.getElementById('userName');
+        if (userNameElement) {
+            userNameElement.textContent = userName;
+        }
+        
+        // Store/update in localStorage
+        localStorage.setItem('userName', userName);
+        
+        // Return the name in case it's needed for other purposes
+        return userName;
+    }
+    
+    return null;
+}
+
+// Function to add user name to URLs when navigating
+function appendUserNameToUrl(url) {
+    const userName = localStorage.getItem('userName');
+    if (userName) {
+        const separator = url.includes('?') ? '&' : '?';
+        return `${url}${separator}userName=${encodeURIComponent(userName)}`;
+    }
+    return url;
+}
+
+// Function to update all navigation links with user name
+function updateNavigationLinks() {
+    const userName = localStorage.getItem('userName');
+    if (userName) {
+        document.querySelectorAll('a').forEach(link => {
+            // Only modify internal links that don't already have userName parameter
+            if (link.href.includes(window.location.origin) && 
+                !link.href.includes('userName=')) {
+                link.href = appendUserNameToUrl(link.href);
+            }
+        });
+    }
+}
+
+// Initialize everything when the page loads
+window.onload = function() {
+    // Handle colors (preserving existing functionality)
+    const savedBgColor = localStorage.getItem('bgColor');
+    const savedTextColor = localStorage.getItem('textColor');
+    const savedBtnColor = localStorage.getItem('btnColor');
+
+    if (savedBgColor) {
+        document.body.style.backgroundColor = savedBgColor;
+    }
+    if (savedTextColor) {
+        document.body.style.color = savedTextColor;
+    }
+    if (savedBtnColor) {
+        const buttons = document.querySelectorAll('.nav-button, .nav-item');
+        buttons.forEach(button => button.style.backgroundColor = savedBtnColor);
+    }
+
+    // Handle user name
+    handleUserName();
+    
+    // Update navigation links
+    updateNavigationLinks();
+}
+    </script>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="4homepage.html" class="nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="5explore.html" class="nav-item">
+            <i class="fas fa-search"></i>
+            <span>Explore</span>
+        </a>
+        <a href="6saved.html" class="nav-item">
+            <i class="fas fa-bookmark"></i>
+            <span>Saved</span>
+        </a>
+        <a href="7profile.html" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </a>
+    </nav>
+
+</body>
+</html>

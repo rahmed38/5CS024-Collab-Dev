@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Welcome - University of Wolverhampton</title>
+    <link rel="stylesheet" href="0style.css">
+    
+</head>
+<body>
+    <div class="container">
+        <img src="assets/images/logo.png" alt="University Logo" class="logo">
+        <p class="university-name">The University of</p>
+        <p class="wolverhampton">Wolverhampton</p>
+        
+        <p class="welcome">WELCOME!</p>
+        <p class="description">Plan your visit with the University of Wolverhampton open day app for information on tours, courses, accommodations and more.</p>
+        
+        <a href="2name.html" class="button">Get Started</a>
+    </div>
+
+        <!-- JavaScript for page functionality -->
+    <script>
+        // This script runs saved colors from localStorage if any
+        window.onload = function() {
+            // Retrieve previously saved color preferences from browser storage
+            const savedBgColor = localStorage.getItem('bgColor');
+            const savedTextColor = localStorage.getItem('textColor');
+            const savedBtnColor = localStorage.getItem('btnColor');
+
+            // Apply saved background color if it exists
+            if (savedBgColor) {
+                document.body.style.backgroundColor = savedBgColor;
+            }
+            // Apply saved text color if it exists
+            if (savedTextColor) {
+                document.body.style.color = savedTextColor;
+            }
+            // Apply saved button color to all buttons if it exists
+            if (savedBtnColor) {
+                const buttons = document.querySelectorAll('.nav-button, .button');
+                buttons.forEach(button => button.style.backgroundColor = savedBtnColor);
+            }
+        }
+    </script>
+
+</body>
+</html>

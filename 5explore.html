@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Wolverhampton - University of Wolverhampton</title>
+    <link rel="stylesheet" href="0style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+   
+</head>
+<body>
+    <body class="explore-page">
+    <div class="top-section">
+        <h1 class="welcome-text">Explore Wolverhampton</h1>
+    </div>
+
+    <div class="map-container">
+        <!-- Embed Google Map with your API key -->
+        <iframe src="https://www.google.com/maps/embed/v1/place?q=University+of+Wolverhampton&key=AIzaSyDhnr6rppSFTCLX4paqzCkkCjgOOmHk3Aw" 
+                allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="4homepage.html" class="nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="5explore.html" class="nav-item">
+            <i class="fas fa-search"></i>
+            <span>Explore</span>
+        </a>
+        <a href="6saved.html" class="nav-item">
+            <i class="fas fa-bookmark"></i>
+            <span>Saved</span>
+        </a>
+        <a href="7profile.html" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </a>
+    </nav>
+
+    <script> 
+        // Common user name handling functions
+        function handleUserName() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlName = urlParams.get('userName');
+            const storedName = localStorage.getItem('userName');
+            const userName = urlName || storedName;
+            
+            if (userName) {
+                const userNameElement = document.getElementById('userName');
+                if (userNameElement) {
+                    userNameElement.textContent = userName;
+                }
+                localStorage.setItem('userName', userName);
+            }
+        }
+        
+        function appendUserNameToUrl(url) {
+            const userName = localStorage.getItem('userName');
+            if (userName) {
+                const separator = url.includes('?') ? '&' : '?';
+                return `${url}${separator}userName=${encodeURIComponent(userName)}`;
+            }
+            return url;
+        }
+        
+        function updateNavigationLinks() {
+            const userName = localStorage.getItem('userName');
+            if (userName) {
+                document.querySelectorAll('a').forEach(link => {
+                    if (link.href.includes(window.location.origin) && 
+                        !link.href.includes('userName=')) {
+                        link.href = appendUserNameToUrl(link.href);
+                    }
+                });
+            }
+        }
+        
+        // Initialize everything when the page loads
+        window.onload = function() {
+            // Handle colors (preserving existing functionality)
+            const savedBgColor = localStorage.getItem('bgColor');
+            const savedTextColor = localStorage.getItem('textColor');
+            const savedBtnColor = localStorage.getItem('btnColor');
+        
+            if (savedBgColor) {
+                document.body.style.backgroundColor = savedBgColor;
+            }
+            if (savedTextColor) {
+                document.body.style.color = savedTextColor;
+            }
+            if (savedBtnColor) {
+                const buttons = document.querySelectorAll('.nav-button, .nav-item');
+                buttons.forEach(button => button.style.backgroundColor = savedBtnColor);
+            }
+        
+            // Handle user name
+            handleUserName();
+            
+            // Update navigation links
+            updateNavigationLinks();
+        }
+        </script>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Subject Selection - University of Wolverhampton</title>
+    <link rel="stylesheet" href="0style.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="icon-container">
+            <img src="assets/images/graduation-icon.png" alt="Graduation Icon" class="icon">
+        </div>
+        <h1 class="question-text">Which subjects are you<br>interested in?</h1>
+        <p class="subtitle">We'll tailor the experience to your choices</p>
+        <div class="subject-list">
+            <button class="subject-button" onclick="this.classList.toggle('selected')">Arts</button>
+            <button class="subject-button" onclick="this.classList.toggle('selected')">Business</button>
+            <button class="subject-button" onclick="this.classList.toggle('selected')">Social Sciences</button>
+            <button class="subject-button" onclick="this.classList.toggle('selected')">Education</button>
+            <button class="subject-button" onclick="this.classList.toggle('selected')">Health & Wellbeing</button>
+            <button class="subject-button" onclick="this.classList.toggle('selected')">Science and Engineering</button>
+        </div>
+        <a href="4homepage.html" class="button" id="continueButton">Continue to Homepage</a>
+    </div>
+
+        <!-- JavaScript for page functionality -->
+    <script>
+            // This script runs saved colors from localStorage if any
+            window.onload = function() {
+                // Retrieve previously saved color preferences from browser storage
+                const savedBgColor = localStorage.getItem('bgColor');
+                const savedTextColor = localStorage.getItem('textColor');
+                const savedBtnColor = localStorage.getItem('btnColor');
+    
+                // Apply saved background color if it exists
+                if (savedBgColor) {
+                    document.body.style.backgroundColor = savedBgColor;
+                }
+                // Apply saved text color if it exists
+                if (savedTextColor) {
+                    document.body.style.color = savedTextColor;
+                }
+                // Apply saved button color to all buttons if it exists
+                if (savedBtnColor) {
+                    const buttons = document.querySelectorAll('.nav-button, .button');
+                    buttons.forEach(button => button.style.backgroundColor = savedBtnColor);
+                }
+            }
+
+        // Get user name from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const userName = urlParams.get('userName');
+
+        // Store selected subjects
+        const selectedSubjects = [];
+
+        // Add click handlers to all subject buttons
+        document.querySelectorAll('.subject-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const subject = this.textContent;
+                const index = selectedSubjects.indexOf(subject);
+                
+                if (index > -1) {
+                    selectedSubjects.splice(index, 1);
+                } else {
+                    selectedSubjects.push(subject);
+                }
+                console.log('Selected subjects:', selectedSubjects);
+            });
+        });
+
+        // Update continue button to pass selected subjects and username to dashboard
+        document.getElementById('continueButton').addEventListener('click', function(e) {
+            e.preventDefault();
+            const subjectsParam = encodeURIComponent(JSON.stringify(selectedSubjects));
+            const userNameParam = userName ? `&userName=${encodeURIComponent(userName)}` : '';
+            window.location.href = `4homepage.html?subjects=${subjectsParam}${userNameParam}`;
+        });
+    </script>
+
+</body>
+</html>
