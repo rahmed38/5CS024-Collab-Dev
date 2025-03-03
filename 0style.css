@@ -798,6 +798,42 @@ input::placeholder {
     line-height: 1.5;
 }
 
+.input {
+    width: 100%;
+    max-width: 400px;
+    height: 56px;
+    background: white;
+    border: none;
+    border-radius: 28px;
+    padding: 0 30px;
+    font-size: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#continueButton {
+    margin-top: 30px;
+    display: inline-block; 
+    width: auto; 
+    clear: both;
+}
+
+.container {
+    text-align: center; 
+}
+
+#firstName {
+    margin-bottom: 20px;
+}
+
+#lastName {
+    margin-bottom: 30px;
+}
+
 /* =================================
    7.3 SUBJECT SELECTION PAGE
    ================================= */
