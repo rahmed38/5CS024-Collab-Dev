@@ -5,54 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>City Campus Tour - University of Wolverhampton</title>
     <link rel="stylesheet" href="0style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="city-tour">
 <header>
     <h1>City Campus Tour</h1>
 </header>
 
 <div class="container">
-
     <!-- Tour Section 1: Introduction -->
     <div class="tour-section">
-        <h2>Welcome to the City Campus</h2>
-        <img src="city-campus.jpg" alt="City Campus Image">
-        <p>Explore the vibrant and modern City Campus, home to cutting-edge facilities, green spaces, and a thriving academic community. This campus is designed to foster innovation and collaboration. Join us on this tour to discover what makes our City Campus a great place to learn, work, and grow.</p>
+        <input type="checkbox" id="tour-section-1" class="tour-toggle" checked>
+        <label for="tour-section-1" class="tour-label">
+            <h2>Welcome to the City Campus</h2>
+        </label>
+        <div class="tour-section-content">
+            <img src="assets/images/citycampus.png" alt="City Campus Image">
+            <p>Explore the vibrant and modern City Campus, home to cutting-edge facilities, green spaces, and a thriving academic community. This campus is designed to foster innovation and collaboration. Join us on this tour to discover what makes our City Campus a great place to learn, work, and grow.</p>
+        </div>
     </div>
 
     <!-- Tour Section 2: Academic Buildings -->
     <div class="tour-section">
-        <h2>Academic Buildings</h2>
-        <img src="academic-building.jpg" alt="Academic Building Image">
-        <p>Our academic buildings are state-of-the-art, with lecture halls, research labs, and collaborative spaces. These buildings house a variety of departments, ensuring a dynamic learning environment.</p>
-        <ul>
-            <li>Building A - Humanities and Social Sciences</li>
-            <li>Building B - Science and Technology</li>
-            <li>Building C - Business and Economics</li>
-        </ul>
+        <input type="checkbox" id="tour-section-2" class="tour-toggle">
+        <label for="tour-section-2" class="tour-label">
+            <h2>Academic Buildings</h2>
+        </label>
+        <div class="tour-section-content">
+            <img src="assets/images/citycampus.png" alt="Academic Building Image">
+            <p>Our academic buildings are state of the art, with lecture halls, research labs, and collaborative spaces. These buildings house a variety of departments, ensuring a dynamic learning environment.</p>
+            <ul>
+                <li>Building A - Humanities and Social Sciences</li>
+                <li>Building B - Science and Technology</li>
+                <li>Building C - Business and Economics</li>
+            </ul>
+        </div>
     </div>
 
     <!-- Tour Section 3: Campus Facilities -->
     <div class="tour-section">
-        <h2>Campus Facilities</h2>
-        <img src="campus-facilities.jpg" alt="Campus Facilities Image">
-        <p>Our campus is equipped with a wide range of facilities to support your academic and personal growth. From gyms to libraries and cafes, there's something for everyone.</p>
-        <ul>
-            <li>Sports Complex</li>
-            <li>24/7 Library</li>
-            <li>Student Cafeterias</li>
-        </ul>
+        <input type="checkbox" id="tour-section-3" class="tour-toggle">
+        <label for="tour-section-3" class="tour-label">
+            <h2>Campus Facilities</h2>
+        </label>
+        <div class="tour-section-content">
+            <img src="assets/images/citycampus.png" alt="Campus Facilities Image">
+            <p>Our campus is equipped with a wide range of facilities to support your academic and personal growth. From gyms to libraries and cafes, there's something for everyone.</p>
+            <ul>
+                <li>Sports Complex</li>
+                <li>24/7 Library</li>
+                <li>Student Cafeterias</li>
+            </ul>
+        </div>
     </div>
 
     <!-- Tour Section 4: Green Spaces and Relaxation -->
     <div class="tour-section">
-        <h2>Green Spaces and Relaxation</h2>
-        <img src="green-space.jpg" alt="Green Space Image">
-        <p>Our campus boasts several beautiful green spaces where students can relax, study, and enjoy nature. Take a walk through the park or sit by the fountains to recharge during your day.</p>
+        <input type="checkbox" id="tour-section-4" class="tour-toggle">
+        <label for="tour-section-4" class="tour-label">
+            <h2>Green Spaces and Relaxation</h2>
+        </label>
+        <div class="tour-section-content">
+            <img src="assets/images/citycampus.png" alt="Green Space Image">
+            <p>Our campus boasts several beautiful green spaces where students can relax, study, and enjoy nature. Take a walk through the park or sit by the fountains to recharge during your day.</p>
+        </div>
     </div>
 
 </div>
 
+<!-- Bottom Navigation -->
+<nav class="bottom-nav">
+    <a href="4homepage.html" class="nav-item active">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+     </a>
+     <a href="5explore.html" class="nav-item">
+        <i class="fas fa-search"></i>
+        <span>Explore</span>
+     </a>
+    <a href="6saved.html" class="nav-item">
+        <i class="fas fa-bookmark"></i>
+        <span>Saved</span>
+    </a>
+    <a href="7profile.html" class="nav-item">
+        <i class="fas fa-user"></i>
+        <span>Profile</span>
+    </a>
+</nav>
+    
 </body>
 </html>
