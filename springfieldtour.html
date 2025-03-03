@@ -3,31 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Springfield</title>
+    <title>Springfield Campus Tour - University of Wolverhampton</title>
     <link rel="stylesheet" href="0style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 
-<body>
-    <header>
-        <h1>Springfield Campus</h1>
-        <nav>
+<body class="springfield-tour">
+<header>
+    <h1>Springfield Campus Tour</h1>
+</header>
+
+<div class="container">
+    <!-- Tour Section 1: Introduction -->
+    <div class="tour-section">
+        <input type="checkbox" id="tour-section-1" class="tour-toggle" checked>
+        <label for="tour-section-1" class="tour-label">
+            <h2>Welcome to Springfield Campus</h2>
+        </label>
+        <div class="tour-section-content">
+            <img src="assets/images/springfield.png" alt="Springfield Campus Image">
+            <p>Welcome to Springfield Campus, where innovation meets tradition. With a rich history and modern amenities, Springfield offers a unique blend of academic excellence, vibrant student life, and beautiful surroundings. Join us as we take you through a tour of our dynamic campus.</p>
+        </div>
+    </div>
+
+    <!-- Tour Section 2: Academic Buildings -->
+    <div class="tour-section">
+        <input type="checkbox" id="tour-section-2" class="tour-toggle">
+        <label for="tour-section-2" class="tour-label">
+            <h2>Academic Buildings</h2>
+        </label>
+        <div class="tour-section-content">
+            <img src="assets/images/springfield.png" alt="Springfield Academic Building Image">
+            <p>The academic buildings at Springfield are home to a wide range of courses and disciplines. Whether you're interested in the sciences, arts, or business, you'll find modern classrooms, research facilities, and dedicated spaces for every field of study.</p>
             <ul>
-                <li><a href="city-campus-tour.html">City Campus Tour</a></li>
-                <li><a href="telford.html">Telford</a></li>
-                <li><a href="walsall.html">Walsall</a></li>
+                <li>Building A - Science and Technology</li>
+                <li>Building B - Arts and Humanities</li>
+                <li>Building C - Business and Law</li>
             </ul>
-        </nav>
-    </header>
+        </div>
+    </div>
 
-    <section>
-        <h2>Welcome to Springfield Campus</h2>
-        <p>Discover everything Springfield campus has to offer, from academic programs to student life. Take a look at the various amenities here.</p>
-        <img src="springfield-campus.jpg" alt="Springfield Campus">
-        <p>We provide an environment that fosters learning and personal growth, with a rich history and active campus community.</p>
-    </section>
+    <!-- Tour Section 3: Campus Facilities -->
+    <div class="tour-section">
+        <input type="checkbox" id="tour-section-3" class="tour-toggle">
+        <label for="tour-section-3" class="tour-label">
+            <h2>Campus Facilities</h2>
+        </label>
+        <div class="tour-section-content">
+            <img src="assets/images/springfield.png" alt="Springfield Campus Facilities Image">
+            <p>At Springfield, we provide state-of-the-art facilities to support both academic and recreational needs. From well-equipped laboratories and libraries to sports complexes and study lounges, we ensure that every student has access to the resources they need to thrive.</p>
+            <ul>
+                <li>Fitness Center</li>
+                <li>24-Hour Library</li>
+                <li>On-Campus Cafeteria and Restaurants</li>
+            </ul>
+        </div>
+    </div>
 
-    <footer>
-        <p>&copy; 2025 Campus Tours. All Rights Reserved.</p>
-    </footer>
+    <!-- Tour Section 4: Green Spaces and Relaxation Areas -->
+    <div class="tour-section">
+        <input type="checkbox" id="tour-section-4" class="tour-toggle">
+        <label for="tour-section-4" class="tour-label">
+            <h2>Green Spaces and Relaxation Areas</h2>
+        </label>
+        <div class="tour-section-content">
+            <img src="assets/images/springfield.png" alt="Springfield Green Space Image">
+            <p>The Springfield Campus offers a variety of green spaces for relaxation and outdoor study. Whether it's enjoying a sunny day in the campus park or taking a break by the pond, our natural spaces provide a refreshing environment for students to recharge.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Bottom Navigation -->
+<nav class="bottom-nav">
+    <a href="4homepage.html" class="nav-item active">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+     </a>
+     <a href="5explore.html" class="nav-item">
+        <i class="fas fa-search"></i>
+        <span>Explore</span>
+     </a>
+    <a href="6saved.html" class="nav-item">
+        <i class="fas fa-bookmark"></i>
+        <span>Saved</span>
+    </a>
+    <a href="7profile.html" class="nav-item">
+        <i class="fas fa-user"></i>
+        <span>Profile</span>
+    </a>
+</nav>
+    
 </body>
 </html>
