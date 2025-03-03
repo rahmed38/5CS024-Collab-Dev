@@ -739,109 +739,138 @@ input::placeholder {
    ================================= */
 
 /* =================================
-   7.1 WELCOME PAGE
+   7.1 WELCOME PAGE - added directly onto html page
    ================================= */
-.logo {
-    width: 90px;
-    height: auto;
-    margin-bottom: 20px;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-}
-
-.university-name {
-    font-size: 24px;
-    font-weight: 500;
-    margin-bottom: 4px;
-    letter-spacing: 0.5px;
-    opacity: 0.9;
-}
-
-.wolverhampton {
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 80px;
-    letter-spacing: -0.5px;
-}
-
-.welcome {
-    font-size: 48px;
-    font-weight: bold;
-    margin-bottom: 40px;
-    letter-spacing: -0.5px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.description {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 60px;
-    max-width: 440px;
-    margin-left: auto;
-    margin-right: auto;
-    opacity: 0.9;
-}
 
 /* =================================
    7.2 NAME ENTRY PAGE
    ================================= */
-.question-text {
-    font-size: 32px;
+   .question-text {
+    font-size: 38px;
     font-weight: bold;
     margin-bottom: 16px;
     letter-spacing: -0.5px;
 }
 
 .subtitle {
-    font-size: 16px;
+    font-size: 18px;
     opacity: 0.8;
     margin-bottom: 40px;
     line-height: 1.5;
 }
 
-.input {
-    width: 100%;
-    max-width: 400px;
-    height: 56px;
-    background: white;
-    border: none;
-    border-radius: 28px;
-    padding: 0 30px;
-    font-size: 16px;
-    margin-bottom: 16px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.2s ease;
-    display: block; 
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#continueButton {
-    margin-top: 30px;
-    display: inline-block; 
-    width: auto; 
-    clear: both;
-}
-
-.container {
-    text-align: center; 
-}
-
-#firstName {
-    margin-bottom: 20px;
-}
-
-#lastName {
-    margin-bottom: 30px;
-}
-
 /* =================================
    7.3 SUBJECT SELECTION PAGE
    ================================= */
-.subject-list {
+   .subject-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-bottom: 32px;
+    gap: 14px;
+    margin-bottom: 40px;
+}
+
+.subject-button {
+    width: 100%;
+    height: 60px;
+    background: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    color: #424867;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.subject-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.subject-button.selected {
+    background: linear-gradient(135deg, #FF69B4, #FF4081);
+    color: white;
+}
+
+body:not(.homepage) .container {
+    width: 100%;
+    max-width: 550px;
+    text-align: center;
+    padding: 40px 30px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    backdrop-filter: blur(10px);
+    margin: 20px auto;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.button {
+    display: inline-block;
+    background: linear-gradient(135deg, #FFC107, #FFB300);
+    color: #333;
+    padding: 18px 48px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    min-width: 200px;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Inputs styling for name entry */
+input {
+    width: 100%;
+    max-width: 400px;
+    height: 60px;
+    background: white;
+    border: none;
+    border-radius: 30px;
+    padding: 0 30px;
+    font-size: 18px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+}
+
+input::placeholder {
+    color: #666;
+    font-size: 18px;
+}
+
+/* Updated icon container */
+.icon-container {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #FF69B4, #FF4081);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 32px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    filter: brightness(0) invert(1);
 }
 
 /* =================================
