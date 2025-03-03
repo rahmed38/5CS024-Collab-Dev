@@ -12,7 +12,7 @@ USE `mydb` ;
 CREATE TABLE IF NOT EXISTS `mydb`.`User` (
   `user_id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(50) NOT NULL,
-  `password` VARCHAR(255) NOT NULL,
+  `password` VARBINARY(255) NOT NULL, --Changed the VARCHAR to VARBINARY to store encrypted data--
   `arts` TINYINT NOT NULL DEFAULT 0,
   `business` TINYINT NOT NULL DEFAULT 0,
   `engineering` TINYINT NOT NULL DEFAULT 0,
@@ -26,6 +26,13 @@ CREATE TABLE IF NOT EXISTS `mydb`.`User` (
   PRIMARY KEY (`user_id`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE)
 ENGINE = InnoDB;
+
+-- Ruqaiyyah 2336189 Encryption code --
+INSERT INTO `mydb`.`User`(`username`,`password`)
+VALUES ('encrypt_user',AES_ENCRYPT('encrypt_password','secret_key'));
+SELECT `username`, AES_DECRYPT(`password`, 'secret_key') AS `password`
+FROM `mydb`.`User`;
+-- Ruqaiyyah 2336189 Encryption code -- 
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
