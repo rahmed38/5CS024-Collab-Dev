@@ -103,34 +103,48 @@
 
     <!--Ruqaiyyah 2336189 Code starts -->
     <script>
-        // Function to validate input and handle navigation
         function validateAndNavigate(event) {
-           const inputField = document.querySelector('.input');
-           const inputValue = inputField.value;
-       
-           // Regex pattern to check for special characters (anything not a letter or number)
-           const specialCharsPattern = /[^a-zA-Z0-9 ]/;
-       
-           // If the input matches the special characters pattern
-           if (specialCharsPattern.test(inputValue)) {
-               event.preventDefault(); // Prevent form submission
-               alert("Error: Please enter only letters or numbers, no special characters allowed.");
-               inputField.focus(); // Focus back on the input field
-               return;
-           }
-       
-           // If Enter key is pressed and input is not empty
-           if (event.key === 'Enter' && inputValue.trim()) {
-               // Redirect to the subject choice page with the username
-               window.location.href = 'subjects.html?userName=' + encodeURIComponent(inputValue.trim());
-           }
-       }
-       
-       // Add event listener to check input on keypress
-       document.addEventListener('DOMContentLoaded', () => {
-           const inputField = document.querySelector('.input');
-           inputField.addEventListener('keypress', validateAndNavigate);
-       });
+        const firstNameField = document.getElementById('firstName');
+        const lastNameField = document.getElementById('lastName');
+        const firstNameValue = firstNameField.value;
+        const lastNameValue = lastNameField.value;
+
+        // Regex pattern to check for special characters (anything not a letter or number)
+        const specialCharsPattern = /[^a-zA-Z0-9 ]/;
+
+        // If the first name contains special characters
+        if (specialCharsPattern.test(firstNameValue)) {
+            event.preventDefault(); // Prevent form submission
+            alert("Error: Please do not use special characters");
+            firstNameField.focus(); // Focus back on the first name input field
+            return;
+        }
+
+        // If the last name contains special characters
+        if (specialCharsPattern.test(lastNameValue)) {
+            event.preventDefault(); // Prevent form submission
+            alert("Error: Please do not use special characters");
+            lastNameField.focus(); // Focus back on the last name input field
+            return;
+        }
+
+        // If Enter key is pressed and both names are valid
+        if (event.key === 'Enter' && (firstNameValue.trim() && lastNameValue.trim())) {
+            const fullName = `${firstNameValue.trim()} ${lastNameValue.trim()}`;
+            // Store name in localStorage for persistence
+            localStorage.setItem('userName', fullName);
+            // Redirect to the subject choice page with the full name
+            window.location.href = `3subjectselection.html?userName=${encodeURIComponent(fullName)}`;
+        }
+    }
+
+    // Add event listener to check input on keypress
+    document.addEventListener('DOMContentLoaded', () => {
+        const inputFields = document.querySelectorAll('.input');
+        inputFields.forEach(inputField => {
+            inputField.addEventListener('keypress', validateAndNavigate);
+        });
+    });
            </script>
            <!--Ruqaiyyah 2336189 Code ends -->       
 
