@@ -67,22 +67,43 @@
             const card = document.createElement('div');
             card.classList.add('saved-card');
 
+            // Subject details with appropriate descriptions
             const subjectDetails = {
-                'Arts': 'Explore the world of creative expression through fine arts, digital media, and visual communication.',
-                'Business': 'Learn business management, marketing, finance, and more to prepare for the business world.',
-                'Engineering': 'Understand the fundamentals of engineering, from civil to mechanical, and innovate for the future.',
-                'Health': 'Study medical practices, nursing, and health management to contribute to the well-being of society.',
-                'Law': 'Master the legal system, focusing on criminal law, corporate law, and international legal principles.',
-                'Science': 'Dive into the world of biology, chemistry, physics, and environmental sciences to understand the world better.',
-                'Dance': 'Express yourself through dance while exploring various forms and techniques in the performing arts.',
-                'Computer Science': 'Study the fundamentals of computer programming, software development, and data management.',
-                'Psychology': 'Explore the human mind and behavior, learning about mental processes and how they affect our actions.',
-                'Marketing': 'Learn strategies for promoting businesses, products, and services, using both traditional and digital methods.'
+                'arts': 'Explore the world of creative expression through fine arts, digital media, and visual communication.',
+                'business': 'Learn business management, marketing, finance, and more to prepare for the business world.',
+                'engineering': 'Understand the fundamentals of engineering, from civil to mechanical, and innovate for the future.',
+                'health': 'Study medical practices, nursing, and health management to contribute to the well-being of society.',
+                'law': 'Master the legal system, focusing on criminal law, corporate law, and international legal principles.',
+                'science': 'Dive into the world of biology, chemistry, physics, and environmental sciences to understand the world better.',
+                'dance': 'Express yourself through dance while exploring various forms and techniques in the performing arts.',
+                'computer science': 'Study the fundamentals of computer programming, software development, and data management.',
+                'psychology': 'Explore the human mind and behavior, learning about mental processes and how they affect our actions.',
+                'marketing': 'Learn strategies for promoting businesses, products, and services, using both traditional and digital methods.',
+                
+                // Additional descriptions for the required subjects
+                'education': 'Dive into the field of education, exploring teaching methods, curriculum development, and educational psychology.',
+                'health and wellbeing': 'Focus on promoting physical and mental health, studying nutrition, exercise, and wellness practices.',
+                'social sciences': 'Explore human society, behavior, and relationships, including sociology, anthropology, and political science.',
+                'science and engineering': 'Combine the study of scientific principles with practical engineering applications to innovate and solve complex problems.'
             };
 
+            // Normalize the subjectName to match the subjectDetails keys
+            const subjectMap = {
+                'Education': 'education',
+                'Health and Wellbeing': 'health and wellbeing',
+                'Social Sciences': 'social sciences',
+                'Science and Engineering': 'science and engineering'
+            };
+
+            const normalizedSubject = subjectMap[subjectName] || subjectName.toLowerCase();
+
+            // Get the description from subjectDetails based on the normalized subject name
+            const description = subjectDetails[normalizedSubject] || 'Description not available for this subject.';
+
+            // Update the card content
             card.innerHTML = `
                 <h3>${subjectName}</h3>
-                <p>${subjectDetails[subjectName]}</p>
+                <p>${description}</p>
                 <a href="#">Learn More</a>
                 <button class="remove-btn" onclick="removeSavedSubject('${subjectName}')">Remove</button>
             `;
