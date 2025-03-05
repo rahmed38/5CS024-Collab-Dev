@@ -53,6 +53,12 @@
             background-color: #45a049;
         }
 
+        .password-policy {
+            font-size: 14px;
+            color: #777;
+            margin-top: 10px;
+        }
+
         .bottom-nav {
             position: fixed;
             bottom: 0;
@@ -90,6 +96,17 @@
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" placeholder="Enter your password" required>
 
+            <div class="password-policy">
+                <p>Password must meet the following criteria:</p>
+                <ul>
+                    <li>At least 8 characters long</li>
+                    <li>Include at least one uppercase letter</li>
+                    <li>Include at least one lowercase letter</li>
+                    <li>Include at least one number</li>
+                    <li>Include at least one special character (e.g., @, #, $, etc.)</li>
+                </ul>
+            </div>
+
             <button type="submit" class="btn-submit">Save Changes</button>
         </form>
     </div>
@@ -123,13 +140,20 @@
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
+            // Password validation
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if (!passwordRegex.test(password)) {
+                alert('Password must be at least 8 characters long, include at least one uppercase letter, one lowercase letter, one number, and one special character.');
+                return;
+            }
+
             // Simple validation
             if (!name || !email || !password) {
                 alert('Please fill in all fields.');
                 return;
             }
 
-            // You can add functionality to save or send this data to a server, for example:
+            // Save user data (or send it to the server)
             localStorage.setItem('userName', name);
             localStorage.setItem('userEmail', email);
             localStorage.setItem('userPassword', password);
