@@ -22,6 +22,7 @@
       7.12 Visit Wolverhampton Page
       7.13 Tour Pages
       7.14 Subject Pages
+      7.15 Personal Details Page
    8. UTILITIES
    9. MEDIA QUERIES
    ================================= */
@@ -1897,6 +1898,108 @@ input::placeholder {
         padding: 15px;
         font-size: 14px;
     }
+}
+
+/* =================================
+   7.15 PERSONAL DETAILS PAGE
+   ================================= */
+   .personal-details-container {
+    width: 90%;
+    max-width: 550px;
+    margin: 20px auto 100px;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.personal-details-header {
+    background: #24C5F4;
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+    margin: -30px -30px 30px -30px;
+    border-radius: 20px 20px 0 0;
+    letter-spacing: 1px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-label {
+    display: block;
+    color: white;
+    font-size: 18px;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.form-input {
+    width: 100%;
+    height: 60px;
+    background: white;
+    border: none;
+    border-radius: 30px;
+    padding: 0 20px;
+    font-size: 17px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-input:focus {
+    outline: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.password-policy {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.password-policy p {
+    color: white;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.password-policy ul {
+    padding-left: 30px;
+    margin: 0;
+}
+
+.password-policy li {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.save-button {
+    display: block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: #FF69B4;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
+}
+
+.save-button:hover {
+    background: #FF4081;
+    box-shadow: 0 6px 16px rgba(255, 105, 180, 0.3);
 }
 
 /* =================================
