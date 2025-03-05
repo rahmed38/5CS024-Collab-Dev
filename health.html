@@ -6,11 +6,35 @@
     <title>Health and Wellbeing Subject Page</title>
     <link rel="stylesheet" href="0style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Heart icon style */
+        .heart-icon {
+            font-size: 30px;
+            color: #ccc;
+            cursor: pointer;
+        }
+
+        .heart-icon.hearted {
+            color: #FF69B4; /* Heart-filled color */
+        }
+
+        /* Optional: Add some padding and space for the heart */
+        .subject-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
 </head>
 
 <body class="health-page">
     <div class="container">
-        <h2>Health and Wellbeing</h2>
+        <!-- Subject header with heart icon -->
+        <div class="subject-header">
+            <h2>Health and Wellbeing</h2>
+            <i class="fa-regular fa-heart heart-icon" onclick="toggleHeart(this, 'Health and Wellbeing')"></i>
+        </div>
+
         <p>Study programs designed to equip students with the knowledge and practical experience necessary for careers in healthcare, rehabilitation, and public health. Prepare to make a difference in improving health and wellbeing worldwide.</p>
         
         <ul class="course-list">
@@ -67,6 +91,29 @@
             <span>Profile</span>
         </a>
     </nav>
-    
+
+    <script>
+        // Toggle heart icon and save the subject to localStorage
+        function toggleHeart(heartIcon, subjectName) {
+            const isHearted = heartIcon.classList.contains('hearted');
+            const savedSubjects = JSON.parse(localStorage.getItem('savedSubjects')) || [];
+
+            if (isHearted) {
+                heartIcon.classList.remove('hearted');
+                const index = savedSubjects.indexOf(subjectName);
+                if (index !== -1) {
+                    savedSubjects.splice(index, 1); // Remove subject from saved list
+                }
+            } else {
+                heartIcon.classList.add('hearted');
+                if (!savedSubjects.includes(subjectName)) {
+                    savedSubjects.push(subjectName); // Add subject to saved list
+                }
+            }
+
+            // Save updated list of subjects to localStorage
+            localStorage.setItem('savedSubjects', JSON.stringify(savedSubjects));
+        }
+    </script>
 </body>
 </html>

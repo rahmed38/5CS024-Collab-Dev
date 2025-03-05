@@ -6,7 +6,6 @@
     <title>Saved Subjects - University of Wolverhampton</title>
     <link rel="stylesheet" href="0style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  
 </head>
 <body>
 
@@ -44,84 +43,6 @@
     </nav>
 
     <script>
-        // Common function to handle user name across all pages
-function handleUserName() {
-    // First check URL parameters
-    const urlParams = new URLSearchParams(window.location.search);
-    const urlName = urlParams.get('userName');
-    
-    // Then check localStorage
-    const storedName = localStorage.getItem('userName');
-    
-    // Use URL name if available, otherwise use stored name
-    const userName = urlName || storedName;
-    
-    // If we have a name from either source
-    if (userName) {
-        // Update any element with id='userName'
-        const userNameElement = document.getElementById('userName');
-        if (userNameElement) {
-            userNameElement.textContent = userName;
-        }
-        
-        // Store/update in localStorage
-        localStorage.setItem('userName', userName);
-        
-        // Return the name in case it's needed for other purposes
-        return userName;
-    }
-    
-    return null;
-}
-
-// Function to add user name to URLs when navigating
-function appendUserNameToUrl(url) {
-    const userName = localStorage.getItem('userName');
-    if (userName) {
-        const separator = url.includes('?') ? '&' : '?';
-        return `${url}${separator}userName=${encodeURIComponent(userName)}`;
-    }
-    return url;
-}
-
-// Function to update all navigation links with user name
-function updateNavigationLinks() {
-    const userName = localStorage.getItem('userName');
-    if (userName) {
-        document.querySelectorAll('a').forEach(link => {
-            // Only modify internal links that don't already have userName parameter
-            if (link.href.includes(window.location.origin) && 
-                !link.href.includes('userName=')) {
-                link.href = appendUserNameToUrl(link.href);
-            }
-        });
-    }
-}
-
-// Initialize everything when the page loads
-window.onload = function() {
-    // Handle colors (preserving existing functionality)
-    const savedBgColor = localStorage.getItem('bgColor');
-    const savedTextColor = localStorage.getItem('textColor');
-    const savedBtnColor = localStorage.getItem('btnColor');
-
-    if (savedBgColor) {
-        document.body.style.backgroundColor = savedBgColor;
-    }
-    if (savedTextColor) {
-        document.body.style.color = savedTextColor;
-    }
-    if (savedBtnColor) {
-        const buttons = document.querySelectorAll('.nav-button, .nav-item');
-        buttons.forEach(button => button.style.backgroundColor = savedBtnColor);
-    }
-
-    // Handle user name
-    handleUserName();
-    
-    // Update navigation links
-    updateNavigationLinks();
-}
         // Function to load saved subjects from localStorage and display them
         function loadSavedSubjects() {
             const savedSubjects = JSON.parse(localStorage.getItem('savedSubjects')) || [];
@@ -163,13 +84,108 @@ window.onload = function() {
                 <h3>${subjectName}</h3>
                 <p>${subjectDetails[subjectName]}</p>
                 <a href="#">Learn More</a>
+                <button class="remove-btn" onclick="removeSavedSubject('${subjectName}')">Remove</button>
             `;
 
             return card;
         }
 
-        // Call the function to load saved subjects when the page loads
-        window.onload = loadSavedSubjects;
+        // Function to remove a saved subject
+        function removeSavedSubject(subjectName) {
+            let savedSubjects = JSON.parse(localStorage.getItem('savedSubjects')) || [];
+
+            // Filter out the subject that needs to be removed
+            savedSubjects = savedSubjects.filter(subject => subject !== subjectName);
+
+            // Update localStorage with the modified list
+            localStorage.setItem('savedSubjects', JSON.stringify(savedSubjects));
+
+            // Reload the saved subjects
+            document.getElementById('saved-card-container').innerHTML = ''; // Clear existing cards
+            loadSavedSubjects(); // Reload and update the displayed list
+        }
+
+        // Function to handle user name across all pages
+        function handleUserName() {
+            // First check URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlName = urlParams.get('userName');
+            
+            // Then check localStorage
+            const storedName = localStorage.getItem('userName');
+            
+            // Use URL name if available, otherwise use stored name
+            const userName = urlName || storedName;
+            
+            // If we have a name from either source
+            if (userName) {
+                // Update any element with id='userName'
+                const userNameElement = document.getElementById('userName');
+                if (userNameElement) {
+                    userNameElement.textContent = userName;
+                }
+                
+                // Store/update in localStorage
+                localStorage.setItem('userName', userName);
+                
+                // Return the name in case it's needed for other purposes
+                return userName;
+            }
+            
+            return null;
+        }
+
+        // Function to add user name to URLs when navigating
+        function appendUserNameToUrl(url) {
+            const userName = localStorage.getItem('userName');
+            if (userName) {
+                const separator = url.includes('?') ? '&' : '?';
+                return `${url}${separator}userName=${encodeURIComponent(userName)}`;
+            }
+            return url;
+        }
+
+        // Function to update all navigation links with user name
+        function updateNavigationLinks() {
+            const userName = localStorage.getItem('userName');
+            if (userName) {
+                document.querySelectorAll('a').forEach(link => {
+                    // Only modify internal links that don't already have userName parameter
+                    if (link.href.includes(window.location.origin) && 
+                        !link.href.includes('userName=')) {
+                        link.href = appendUserNameToUrl(link.href);
+                    }
+                });
+            }
+        }
+
+        // Initialize everything when the page loads
+        window.onload = function() {
+            // Handle colors (preserving existing functionality)
+            const savedBgColor = localStorage.getItem('bgColor');
+            const savedTextColor = localStorage.getItem('textColor');
+            const savedBtnColor = localStorage.getItem('btnColor');
+
+            if (savedBgColor) {
+                document.body.style.backgroundColor = savedBgColor;
+            }
+            if (savedTextColor) {
+                document.body.style.color = savedTextColor;
+            }
+            if (savedBtnColor) {
+                const buttons = document.querySelectorAll('.nav-button, .nav-item');
+                buttons.forEach(button => button.style.backgroundColor = savedBtnColor);
+            }
+
+            // Handle user name
+            handleUserName();
+            
+            // Update navigation links
+            updateNavigationLinks();
+
+            // Load saved subjects
+            loadSavedSubjects();
+        };
     </script>
 
 </body>
