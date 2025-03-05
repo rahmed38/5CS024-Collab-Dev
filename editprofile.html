@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile - University of Wolverhampton</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* General body styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #424867;
+            color: white;
+        }
+
+        .edit-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .edit-section h2 {
+            color: #FFC107;
+        }
+
+        .color-picker {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .color-picker input[type="radio"] {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .color-picker label {
+            cursor: pointer;
+        }
+
+        .save-button, .clear-button {
+            background-color: #24C5F4;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .save-button:hover, .clear-button:hover {
+            background-color: #20a0d6;
+        }
+
+        /* Logo Image container */
+        .logo-container {
+            width: 150px;
+            height: 150px;
+            background-color: #24C5F4; /* Default background */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-container img {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+        }
+
+        .back-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #FF69B4;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background-color: #f05a8a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="edit-section">
+        <h2>Edit Profile</h2>
+
+        <!-- Logo Image -->
+        <div class="logo-container" id="logoContainer">
+            <img src="assets/images/logo.png" alt="University Logo">
+        </div>
+
+        <!-- Color Pickers (Radio buttons for color choices) -->
+        <div class="color-picker">
+            <div>
+                <input type="radio" id="color1" name="color" value="#24C5F4" checked>
+                <label for="color1" style="background-color: #24C5F4;"></label>
+            </div>
+            <div>
+                <input type="radio" id="color2" name="color" value="#F45393">
+                <label for="color2" style="background-color: #F45393;"></label>
+            </div>
+            <div>
+                <input type="radio" id="color3" name="color" value="#FFD700">
+                <label for="color3" style="background-color: #FFD700;"></label>
+            </div>
+            <div>
+                <input type="radio" id="color4" name="color" value="#A2D460">
+                <label for="color4" style="background-color: #A2D460;"></label>
+            </div>
+        </div>
+
+        <button class="save-button" onclick="saveColor()">Save Changes</button>
+
+        <!-- Clear All LocalStorage Button -->
+        <button class="clear-button" onclick="clearAllLocalStorage()">Clear All Preferences</button>
+
+        <!-- Back Button -->
+        <a href="dashboard.html" class="back-button">Back to Dashboard</a>
+    </div>
+
+    <script>
+        // Function to save selected color and apply it to the logo
+        function saveColor() {
+            // Get the selected color
+            const selectedColor = document.querySelector('input[name="color"]:checked').value;
+            
+            // Apply the selected color to the logo's background
+            const logoContainer = document.getElementById('logoContainer');
+            logoContainer.style.backgroundColor = selectedColor;
+
+            // Save the selected color to localStorage
+            localStorage.setItem('logoColor', selectedColor);
+        }
+
+        // Function to clear all preferences from localStorage
+        function clearAllLocalStorage() {
+            // Remove all items from localStorage
+            localStorage.clear();
+            
+            // Reset the logo background to its default color
+            const logoContainer = document.getElementById('logoContainer');
+            logoContainer.style.backgroundColor = '#24C5F4'; // Default color
+
+            // Deselect all radio buttons
+            const radioButtons = document.querySelectorAll('input[name="color"]');
+            radioButtons.forEach(button => button.checked = false);
+
+            // Re-check the default color radio button
+            document.getElementById('color1').checked = true;
+        }
+
+        // Load saved color from localStorage when the page is loaded
+        window.onload = function() {
+            const savedColor = localStorage.getItem('logoColor');
+            if (savedColor) {
+                const logoContainer = document.getElementById('logoContainer');
+                logoContainer.style.backgroundColor = savedColor;
+                // Set the correct radio button based on the saved color
+                document.querySelector(`input[value="${savedColor}"]`).checked = true;
+            }
+        }
+    </script>
+
+</body>
+</html>

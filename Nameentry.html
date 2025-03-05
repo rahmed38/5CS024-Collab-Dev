@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Your Name</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <img src="assets/images/logo.png" alt="University Logo" class="logo">
+        <p class="university-name">The University of</p>
+        <p class="wolverhampton">Wolverhampton</p>
+        
+        <div class="input-container">
+            <p class="question-text">What's your name?</p>
+            <p class="subtitle">We'll personalise your experience</p>
+            <input 
+                type="text" 
+                class="input" 
+                placeholder="Enter name" 
+                required
+                onkeypress="if(event.key === 'Enter' && this.value.trim()) window.location.href='subjectspage.html?userName=' + encodeURIComponent(this.value.trim())"
+            >
+        </div>
+    </div>
+
+    <script>
+        // Load saved colors from localStorage if any
+        window.onload = function() {
+            const savedBgColor = localStorage.getItem('bgColor');
+            const savedTextColor = localStorage.getItem('textColor');
+            const savedBtnColor = localStorage.getItem('btnColor');
+
+            if (savedBgColor) {
+                document.body.style.backgroundColor = savedBgColor;
+            }
+            if (savedTextColor) {
+                document.body.style.color = savedTextColor;
+            }
+            if (savedBtnColor) {
+                const buttons = document.querySelectorAll('.nav-button');
+                buttons.forEach(button => button.style.backgroundColor = savedBtnColor);
+            }
+        }
+    </script>
+
+    <div id="sanitizedOutput" class="sanitized-output" style="display:none;"></div> <!-- Added div to show sanitized output -->
+    <!--Ruqaiyyah 2336189 Code starts -->
+   <script>
+ // Function to validate input and handle navigation
+ function validateAndNavigate(event) {
+    const inputField = document.querySelector('.input');
+    const inputValue = inputField.value;
+
+    // Regex pattern to check for special characters (anything not a letter or number)
+    const specialCharsPattern = /[^a-zA-Z0-9 ]/;
+
+    // If the input matches the special characters pattern
+    if (specialCharsPattern.test(inputValue)) {
+        event.preventDefault(); // Prevent form submission
+        alert("Error: Please enter only letters or numbers, no special characters allowed.");
+        inputField.focus(); // Focus back on the input field
+        return;
+    }
+
+    // If Enter key is pressed and input is not empty
+    if (event.key === 'Enter' && inputValue.trim()) {
+        // Redirect to the subject choice page with the username
+        window.location.href = 'subjectspage.html?userName=' + encodeURIComponent(inputValue.trim());
+    }
+}
+
+// Add event listener to check input on keypress
+document.addEventListener('DOMContentLoaded', () => {
+    const inputField = document.querySelector('.input');
+    inputField.addEventListener('keypress', validateAndNavigate);
+});
+    </script>
+    <!--Ruqaiyyah 2336189 Code ends -->
+
+</body>
+</html>

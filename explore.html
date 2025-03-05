@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore - University of Wolverhampton</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* General body styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #424867;
+            color: white;
+        }
+
+        .top-section {
+            padding: 40px;
+            background-color: #424867;
+            text-align: center;
+        }
+
+        .explore-title {
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .subject-card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .subject-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 280px;
+            text-align: center;
+            color: #424867;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .subject-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #FFC107;
+        }
+
+        .subject-card p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .subject-card a {
+            text-decoration: none;
+            color: #24C5F4;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* Heart icon style */
+        .heart-icon {
+            font-size: 30px;
+            color: #ccc;
+            cursor: pointer;
+        }
+
+        .heart-icon.hearted {
+            color: #FF69B4; /* Heart-filled color */
+        }
+
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #FF69B4;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-radius: 25px 25px 0 0;
+        }
+
+        .nav-item {
+            text-align: center;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-item i {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-section">
+        <h1 class="explore-title">Explore Subjects</h1>
+    </div>
+
+    <!-- Subject Cards -->
+    <div class="subject-card-container">
+        <div class="subject-card" data-subject="Arts">
+            <h3>Arts</h3>
+            <p>Explore the world of creative expression through fine arts, digital media, and visual communication.</p>
+            <a href="#">Learn More</a>
+            <i class="fa-regular fa-heart heart-icon" onclick="toggleHeart(this, 'Arts')"></i>
+        </div>
+        <div class="subject-card" data-subject="Business">
+            <h3>Business</h3>
+            <p>Learn business management, marketing, finance, and more to prepare for the business world.</p>
+            <a href="#">Learn More</a>
+            <i class="fa-regular fa-heart heart-icon" onclick="toggleHeart(this, 'Business')"></i>
+        </div>
+        <div class="subject-card" data-subject="Engineering">
+            <h3>Engineering</h3>
+            <p>Understand the fundamentals of engineering, from civil to mechanical, and innovate for the future.</p>
+            <a href="#">Learn More</a>
+            <i class="fa-regular fa-heart heart-icon" onclick="toggleHeart(this, 'Engineering')"></i>
+        </div>
+        <div class="subject-card" data-subject="Health">
+            <h3>Health</h3>
+            <p>Study medical practices, nursing, and health management to contribute to the well-being of society.</p>
+            <a href="#">Learn More</a>
+            <i class="fa-regular fa-heart heart-icon" onclick="toggleHeart(this, 'Health')"></i>
+        </div>
+        <div class="subject-card" data-subject="Law">
+            <h3>Law</h3>
+            <p>Master the legal system, focusing on criminal law, corporate law, and international legal principles.</p>
+            <a href="#">Learn More</a>
+            <i class="fa-regular fa-heart heart-icon" onclick="toggleHeart(this, 'Law')"></i>
+        </div>
+        <div class="subject-card" data-subject="Science">
+            <h3>Science</h3>
+            <p>Dive into the world of biology, chemistry, physics, and environmental sciences to understand the world better.</p>
+            <a href="#">Learn More</a>
+            <i class="fa-regular fa-heart heart-icon" onclick="toggleHeart(this, 'Science')"></i>
+        </div>
+        <div class="subject-card" data-subject="Dance">
+            <h3>Dance</h3>
+            <p>Express yourself through dance while exploring various forms and techniques in the performing arts.</p>
+            <a href="#">Learn More</a>
+            <i class="fa-regular fa-heart heart-icon" onclick="toggleHeart(this, 'Dance')"></i>
+        </div>
+        <div class="subject-card" data-subject="Computer Science">
+            <h3>Computer Science</h3>
+            <p>Study the fundamentals of computer programming, software development, and data management.</p>
+            <a href="#">Learn More</a>
+            <i class="fa-regular fa-heart heart-icon" onclick="toggleHeart(this, 'Computer Science')"></i>
+        </div>
+        <div class="subject-card" data-subject="Psychology">
+            <h3>Psychology</h3>
+            <p>Explore the human mind and behavior, learning about mental processes and how they affect our actions.</p>
+            <a href="#">Learn More</a>
+            <i class="fa-regular fa-heart heart-icon" onclick="toggleHeart(this, 'Psychology')"></i>
+        </div>
+        <div class="subject-card" data-subject="Marketing">
+            <h3>Marketing</h3>
+            <p>Learn strategies for promoting businesses, products, and services, using both traditional and digital methods.</p>
+            <a href="#">Learn More</a>
+            <i class="fa-regular fa-heart heart-icon" onclick="toggleHeart(this, 'Marketing')"></i>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="home.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="explore.html" class="nav-item">
+            <i class="fas fa-search"></i>
+            <span>Explore</span>
+        </a>
+        <a href="savedpage.html" class="nav-item">
+            <i class="fas fa-bookmark"></i>
+            <span>Saved</span>
+        </a>
+        <a href="profile.html" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </a>
+    </nav>
+
+    <script>
+        // Toggle heart icon and save the subject to localStorage
+        function toggleHeart(heartIcon, subjectName) {
+            const isHearted = heartIcon.classList.contains('hearted');
+            const savedSubjects = JSON.parse(localStorage.getItem('savedSubjects')) || [];
+
+            if (isHearted) {
+                heartIcon.classList.remove('hearted');
+                const index = savedSubjects.indexOf(subjectName);
+                if (index !== -1) {
+                    savedSubjects.splice(index, 1); // Remove subject from saved list
+                }
+            } else {
+                heartIcon.classList.add('hearted');
+                if (!savedSubjects.includes(subjectName)) {
+                    savedSubjects.push(subjectName); // Add subject to saved list
+                }
+            }
+
+            // Save updated list of subjects to localStorage
+            localStorage.setItem('savedSubjects', JSON.stringify(savedSubjects));
+        }
+    </script>
+
+</body>
+</html>

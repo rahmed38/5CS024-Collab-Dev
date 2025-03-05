@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - University of Wolverhampton</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* General body styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #424867; /* Background color */
+            color: white;
+        }
+
+        /* Top section styles */
+        .top-section {
+            padding: 40px; /* Increased padding for a larger header */
+            background-color: #424867; /* Match the background color */
+            color: white;
+            text-align: center;
+        }
+
+        .welcome-text {
+            font-size: 48px; /* Increased font size for a larger welcome text */
+            font-weight: bold;
+        }
+
+        .user-name {
+            font-size: 20px;
+            color: #666;
+        }
+
+        .search-container {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-input {
+            padding: 15px; /* Increased padding for better visibility */
+            width: 100%; /* Increased width for a longer search bar */
+            font-size: 18px; /* Slightly larger text for better visibility */
+            border-radius: 25px;
+            border: 1px solid #ccc; /* Light border for the search input */
+            background-color: white; /* Set background color to white */
+            color: #424867; /* Dark text color for contrast */
+            padding-left: 40px; /* Add some padding to account for the icon */
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #424867; /* Icon color matches the text */
+            font-size: 20px;
+        }
+
+        /* Section title styles */
+        .section-title {
+            font-size: 22px;
+            margin-top: 20px;
+            text-align: center;
+            color: #FFC107; /* Adjusted title color */
+        }
+
+        /* Cards container styles */
+        .cards-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            gap: 15px;
+            padding: 0 20px;
+            overflow-x: auto;
+        }
+
+        /* General card styles */
+        .card {
+            padding: 20px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            text-align: center;
+            width: 280px; /* Fixed width for better consistency */
+            color: #424867; /* Adjusted text color */
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #FFC107; /* Title color */
+        }
+
+        /* Course card details */
+        .course-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .course-details {
+            display: none;
+            margin-top: 10px;
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .course-details ul {
+            list-style-type: none;
+            padding-left: 0;
+            color: #424867;
+        }
+
+        /* Bottom navigation styles */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #FF69B4;
+            padding: 10px;
+            position: fixed;
+
+            bottom: 0;
+            width: 100%;
+            border-radius: 25px 25px 0 0;
+        }
+
+        .nav-item {
+            text-align: center;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-item i {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-section">
+        <h1 class="welcome-text">Welcome!</h1>
+        <div class="user-name" id="userName"></div>
+        <div class="search-container">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" class="search-input" placeholder="Search your destination..">
+        </div>
+    </div>
+
+    <h2 class="section-title">Self Guided Tours</h2>
+    <div class="cards-container">
+        <div class="card tour-card" onclick="window.location.href='https://www.google.com/maps?q=Wulfruna+St,+Wolverhampton+WV1+1LY'">
+            <h3 class="card-title">CITY CAMPUS</h3>
+            <p class="card-address">Wulfruna St, Wolverhampton WV1 1LY</p>
+        </div>
+        <div class="card tour-card" onclick="window.location.href='https://www.google.com/maps?q=Telford+TF2+9NN'">
+            <h3 class="card-title">TELFORD CAMPUS</h3>
+            <p class="card-address">Telford TF2 9NN&nbsp;</p>
+        </div>
+    </div>
+
+    <h2 class="section-title">Course Information</h2>
+    <div class="course-card" onclick="toggleCourseDetails(this)" data-category="Arts">
+        <h3>Arts</h3>
+        <div class="course-details">
+            <ul>
+                <li>- Fine Arts</li>
+                <li>- Digital Media</li>
+                <li>- Visual Communication</li>
+            </ul>
+        </div>
+    </div>
+    <div class="course-card" onclick="toggleCourseDetails(this)" data-category="Business">
+        <h3>Business</h3>
+        <div class="course-details">
+            <ul>
+                <li>- Business Management</li>
+                <li>- Marketing</li>
+                <li>- Finance</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2 class="section-title">Visitor Information</h2>
+    <div class="cards-container">
+<a href="visitwolvo.html">
+    <div class="card visitor-card">
+        <span>VISIT WOLVERHAMPTON</span>
+    </div>
+</a>
+
+        <div class="card visitor-card">
+            <span>AMENITIES</span>
+        </div>
+    </div>
+
+    <h2 class="section-title">Events Coming Up</h2>
+    <div class="cards-container">
+        <div class="card">
+            <h3 class="card-title">Open Day</h3>
+            <p class="card-address">Saturday, 15th March 2025</p>
+        </div>
+        <div class="card">
+            <h3 class="card-title">Campus Tour</h3>
+            <p class="card-address">Wednesday, 20th March 2025</p>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="home.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+
+<a href="explore.html" class="nav-item">
+    <i class="fas fa-search"></i>
+    <span>Explore</span>
+</a>
+
+<a href="savedpage.html" class="nav-item">
+    <i class="fas fa-bookmark"></i>
+    <span>Saved</span>
+</a>
+
+        <a href="profile.html?userName=" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </a>
+    </nav>
+
+    <script>
+        // Load saved colors from localStorage if any
+        window.onload = function() {
+            const savedBgColor = localStorage.getItem('bgColor');
+            const savedTextColor = localStorage.getItem('textColor');
+            const savedBtnColor = localStorage.getItem('btnColor');
+
+            if (savedBgColor) {
+                document.body.style.backgroundColor = savedBgColor;
+            }
+            if (savedTextColor) {
+                document.body.style.color = savedTextColor;
+            }
+            if (savedBtnColor) {
+                const buttons = document.querySelectorAll('.nav-item');
+                buttons.forEach(button => button.style.backgroundColor = savedBtnColor);
+            }
+
+            // Get user name from URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const userName = urlParams.get('userName');
+            if (userName) {
+                document.getElementById('userName').textContent = userName.toUpperCase();
+            }
+        }
+
+        // Toggle course details
+        function toggleCourseDetails(element) {
+            const details = element.querySelector('.course-details');
+            if (details.style.display === 'none' || details.style.display === '') {
+                details.style.display = 'block';
+            } else {
+                details.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Subjects - University of Wolverhampton</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* General body styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #424867;
+            color: white;
+        }
+
+        .top-section {
+            padding: 40px;
+            background-color: #424867;
+            text-align: center;
+        }
+
+        .saved-title {
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .saved-card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .saved-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 280px;
+            text-align: center;
+            color: #424867;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .saved-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #FFC107;
+        }
+
+        .saved-card p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .saved-card a {
+            text-decoration: none;
+            color: #24C5F4;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #FF69B4;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-radius: 25px 25px 0 0;
+        }
+
+        .nav-item {
+            text-align: center;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-item i {
+            font-size: 24px;
+        }
+
+        .no-saved-message {
+            font-size: 20px;
+            color: white;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-section">
+        <h1 class="saved-title">Saved Subjects</h1>
+    </div>
+
+    <!-- Saved Cards will be dynamically added here -->
+    <div class="saved-card-container" id="saved-card-container">
+        <!-- Saved subjects will appear here -->
+    </div>
+
+    <div class="no-saved-message" id="no-saved-message">
+        <p>No saved subjects. Start exploring and heart your favorites!</p>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="home.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="explore.html" class="nav-item">
+            <i class="fas fa-search"></i>
+            <span>Explore</span>
+        </a>
+        <a href="savedpage.html" class="nav-item">
+            <i class="fas fa-bookmark"></i>
+            <span>Saved</span>
+        </a>
+        <a href="profile.html" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </a>
+    </nav>
+
+    <script>
+        // Function to load saved subjects from localStorage and display them
+        function loadSavedSubjects() {
+            const savedSubjects = JSON.parse(localStorage.getItem('savedSubjects')) || [];
+
+            const savedCardContainer = document.getElementById('saved-card-container');
+            const noSavedMessage = document.getElementById('no-saved-message');
+
+            // If there are saved subjects, display them
+            if (savedSubjects.length > 0) {
+                savedSubjects.forEach(subject => {
+                    const card = createSavedSubjectCard(subject);
+                    savedCardContainer.appendChild(card);
+                });
+                noSavedMessage.style.display = 'none'; // Hide "No saved subjects" message
+            } else {
+                noSavedMessage.style.display = 'block'; // Show message if no subjects are saved
+            }
+        }
+
+        // Function to create saved subject card
+        function createSavedSubjectCard(subjectName) {
+            const card = document.createElement('div');
+            card.classList.add('saved-card');
+
+            const subjectDetails = {
+                'Arts': 'Explore the world of creative expression through fine arts, digital media, and visual communication.',
+                'Business': 'Learn business management, marketing, finance, and more to prepare for the business world.',
+                'Engineering': 'Understand the fundamentals of engineering, from civil to mechanical, and innovate for the future.',
+                'Health': 'Study medical practices, nursing, and health management to contribute to the well-being of society.',
+                'Law': 'Master the legal system, focusing on criminal law, corporate law, and international legal principles.',
+                'Science': 'Dive into the world of biology, chemistry, physics, and environmental sciences to understand the world better.',
+                'Dance': 'Express yourself through dance while exploring various forms and techniques in the performing arts.',
+                'Computer Science': 'Study the fundamentals of computer programming, software development, and data management.',
+                'Psychology': 'Explore the human mind and behavior, learning about mental processes and how they affect our actions.',
+                'Marketing': 'Learn strategies for promoting businesses, products, and services, using both traditional and digital methods.'
+            };
+
+            card.innerHTML = `
+                <h3>${subjectName}</h3>
+                <p>${subjectDetails[subjectName]}</p>
+                <a href="#">Learn More</a>
+            `;
+
+            return card;
+        }
+
+        // Call the function to load saved subjects when the page loads
+        window.onload = loadSavedSubjects;
+    </script>
+
+</body>
+</html>

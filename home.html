@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University of Wolverhampton</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Add any specific styles you may have or override here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #424867; /* Default background color */
+            color: white; /* Default text color */
+        }
+
+        .navigation {
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .nav-button {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 18px;
+            border-radius: 5px;
+            background-color: #5561a2;
+        }
+
+        .nav-button:hover {
+            background-color: #1a1d6c;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .logo {
+            width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .university-name {
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .wolverhampton {
+            font-size: 36px;
+            font-weight: bold;
+            color: #FFC107;
+        }
+
+        .welcome {
+            font-size: 48px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .description {
+            font-size: 20px;
+            margin-top: 20px;
+            color: #b0b0b0;
+        }
+
+        .button {
+            background-color: #FFC107;
+            padding: 15px 30px;
+            margin-top: 40px;
+            font-size: 20px;
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #e0a400;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navigation">
+        <a href="home.html" class="nav-button">Welcome</a>
+        <a href="nameentry.html" class="nav-button">Name Entry</a>
+        <a href="subjectspage.html" class="nav-button">Subjects</a>
+    </nav>
+
+    <div class="container">
+        <img src="assets/images/logo.png" alt="University Logo" class="logo">
+        <p class="university-name">The University of</p>
+        <p class="wolverhampton">Wolverhampton</p>
+        <p class="welcome">WELCOME!</p>
+        <p class="description">
+            Plan your visit with the University of Wolverhampton Open Day app and find your way around when you are here.
+        </p>
+        <a href="nameentry.html" class="button">Get Started</a>
+    </div>
+
+    <script>
+        // Load saved colors from localStorage if any
+        window.onload = function() {
+            const savedBgColor = localStorage.getItem('bgColor');
+            const savedTextColor = localStorage.getItem('textColor');
+            const savedBtnColor = localStorage.getItem('btnColor');
+
+            if (savedBgColor) {
+                document.body.style.backgroundColor = savedBgColor;
+            }
+            if (savedTextColor) {
+                document.body.style.color = savedTextColor;
+            }
+            if (savedBtnColor) {
+                const buttons = document.querySelectorAll('.nav-button, .button');
+                buttons.forEach(button => button.style.backgroundColor = savedBtnColor);
+            }
+        }
+    </script>
+
+</body>
+</html>

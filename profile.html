@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - University of Wolverhampton</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* General body styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #424867; /* Same background color as previous pages */
+            color: white; /* Text color to match the color scheme */
+        }
+
+        /* Profile section */
+        .profile-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 50px;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #24C5F4; /* Default color for the profile image */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            color: white;
+        }
+
+        .user-name {
+            font-size: 24px;
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+            color: #FFC107; /* Color to match the previous page's theme */
+        }
+
+        .edit-button, .saved-pages-button {
+            background-color: #24C5F4; /* Match the color of the button with the header color */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .edit-button:hover, .saved-pages-button:hover {
+            background-color: #20a0d6; /* Slightly darker on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-section">
+        <!-- Profile Image -->
+        <div class="profile-image" id="profileImage">
+            <i class="fas fa-user"></i>
+        </div>
+
+        <!-- User's Name -->
+        <div class="user-name" id="profileUserName"></div>
+
+        <!-- Edit Button -->
+        <button class="edit-button" onclick="window.location.href='editprofile.html'">Edit Profile</button>
+
+        <!-- Saved Pages Button -->
+        <button class="saved-pages-button" onclick="window.location.href='savedpage.html'">Saved Pages</button>
+
+    </div>
+
+    <script>
+        // Load saved colors from localStorage if any
+        window.onload = function() {
+            const savedBgColor = localStorage.getItem('bgColor');
+            const savedTextColor = localStorage.getItem('textColor');
+            const savedBtnColor = localStorage.getItem('btnColor');
+            const savedLogoColor = localStorage.getItem('logoColor'); // Get saved logo color
+
+            // Apply saved background color
+            if (savedBgColor) {
+                document.body.style.backgroundColor = savedBgColor;
+            }
+
+            // Apply saved text color
+            if (savedTextColor) {
+                document.body.style.color = savedTextColor;
+            }
+
+            // Apply saved button color
+            if (savedBtnColor) {
+                const buttons = document.querySelectorAll('.edit-button, .saved-pages-button');
+                buttons.forEach(button => button.style.backgroundColor = savedBtnColor);
+            }
+
+            // Apply saved logo color
+            if (savedLogoColor) {
+                const profileImage = document.getElementById('profileImage');
+                profileImage.style.backgroundColor = savedLogoColor; // Change logo image background color
+            }
+
+            // Get user name from URL parameters (if any)
+            const urlParams = new URLSearchParams(window.location.search);
+            const userName = urlParams.get('userName');
+            if (userName) {
+                document.getElementById('profileUserName').textContent = userName;
+            } else {
+                // Default name if not found
+                document.getElementById('profileUserName').textContent = 'Guest';
+            }
+        }
+    </script>
+
+</body>
+</html>
