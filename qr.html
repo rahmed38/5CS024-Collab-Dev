@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prize Cards System</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #FF7A00, #FF4B99); /* Vibrant gradient */
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        /* Title Section */
+        .title {
+            font-size: 36px;
+            color: #fff;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+            margin-bottom: 40px;
+        }
+
+        /* Prize Card Section */
+        .prize-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        .prize {
+            background-color: #fff;
+            color: #333;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+        }
+
+        /* Hover Effects for Prize Cards */
+        .prize:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .prize h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #FF7A00;
+        }
+
+        .prize-info {
+            font-size: 16px;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        /* Hidden Prize Information */
+        #prize-message {
+            display: none;
+            background-color: #FF4B99;
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            font-size: 22px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            margin-top: 40px;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        /* Prize Images (Icons) */
+        .prize-icon {
+            font-size: 40px;
+            color: #FF7A00;
+            margin-bottom: 15px;
+        }
+
+        /* Background effects */
+        .background-effects {
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            opacity: 0.15;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="background-effects">
+        <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="50" fill="rgba(255, 255, 255, 0.1)" />
+            <circle cx="200" cy="200" r="100" fill="rgba(255, 255, 255, 0.1)" />
+        </svg>
+    </div>
+
+    <div class="container">
+        <h1 class="title">Unlock Your Exciting Prizes!</h1>
+
+        <div class="prize-list">
+            <!-- Prize 1 -->
+            <div class="prize" onclick="unlockPrize('You won a Discount Voucher! Enjoy your meal at participating restaurants.')">
+                <div class="prize-icon">🍔</div>
+                <h3>Prize 1: Discount Voucher</h3>
+                <p class="prize-info">Unlock a special discount voucher for local restaurants!</p>
+            </div>
+
+            <!-- Prize 2 -->
+            <div class="prize" onclick="unlockPrize('You won a Free Event Ticket! Enjoy the event.')">
+                <div class="prize-icon">🎉</div>
+                <h3>Prize 2: Free Event Ticket</h3>
+                <p class="prize-info">Get a free ticket for an upcoming campus event!</p>
+            </div>
+
+            <!-- Prize 3 -->
+            <div class="prize" onclick="unlockPrize('You won Campus Merchandise! Pick up your prize at the store.')">
+                <div class="prize-icon">🎁</div>
+                <h3>Prize 3: Campus Merchandise</h3>
+                <p class="prize-info">Win exclusive campus merchandise!</p>
+            </div>
+
+            <!-- Prize 4 -->
+            <div class="prize" onclick="unlockPrize('You won a Free Coffee! Enjoy a cup at the campus café.')">
+                <div class="prize-icon">☕</div>
+                <h3>Prize 4: Free Coffee</h3>
+                <p class="prize-info">Get a free coffee at the campus café!</p>
+            </div>
+
+            <!-- Prize 5 -->
+            <div class="prize" onclick="unlockPrize('You won a Movie Ticket! Catch the latest film at the theater.')">
+                <div class="prize-icon">🍿</div>
+                <h3>Prize 5: Movie Ticket</h3>
+                <p class="prize-info">Enjoy a free movie ticket for your next outing!</p>
+            </div>
+
+            <!-- Prize 6 -->
+            <div class="prize" onclick="unlockPrize('You won a Merchandise Voucher! Choose your favorite item from the campus store.')">
+                <div class="prize-icon">🛍️</div>
+                <h3>Prize 6: Merchandise Voucher</h3>
+                <p class="prize-info">Unlock a voucher for merchandise in the campus store!</p>
+            </div>
+        </div>
+
+        <!-- Hidden Prize Information: This section would be revealed after clicking a prize -->
+        <div id="prize-message">
+            <h2>🎉 Prize Unlocked! 🎉</h2>
+            <p id="message"></p>
+        </div>
+    </div>
+
+    <script>
+        // Function to display prize information when a card is clicked
+        function unlockPrize(prizeMessage) {
+            // Display the prize message
+            document.getElementById("message").innerText = prizeMessage;
+            document.getElementById("prize-message").style.display = "block";
+            document.getElementById("prize-message").style.opacity = 1;
+        }
+    </script>
+
+</body>
+</html>
