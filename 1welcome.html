@@ -1,11 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
-<head>
+<head>  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Welcome - University of Wolverhampton</title>
     <style>
+        /* Nadeem 2347788 Code starts */
         body {
             background: linear-gradient(135deg, #424867, #363b54);
             color: white;
@@ -15,10 +16,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: center; 
             font-family: Arial, sans-serif;
         }
-        
+
         .welcome-container {
             width: 90%;
             max-width: 520px;
@@ -30,6 +31,8 @@
             margin: 20px auto;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
+
+        /* Nadeem 2347788 Code ends */
         
         .logo {
             width: 90px;
@@ -85,7 +88,8 @@
         }
     </style>
 </head>
-<body>
+<body> 
+    <!-- Nadeem 2347788 Code starts -->
     <div class="welcome-container">
         <img src="assets/images/logo.png" alt="University Logo" class="logo">
         <p class="university-name">The University of</p>
@@ -96,8 +100,10 @@
         
         <a href="2name.html" class="start-button">GET STARTED</a>
     </div>
+    <!-- Nadeem 2347788 Code ends -->
 
     <script>
+        // Nadeem 2347788 Code starts
         // This script runs saved colors from localStorage if any
         window.onload = function() {
             // Retrieve previously saved color preferences from browser storage
@@ -108,7 +114,7 @@
             // Apply saved background color if it exists
             if (savedBgColor) {
                 document.body.style.backgroundColor = savedBgColor;
-            }
+            } 
             // Apply saved text color if it exists
             if (savedTextColor) {
                 document.body.style.color = savedTextColor;
@@ -119,6 +125,7 @@
                 buttons.forEach(button => button.style.backgroundColor = savedBtnColor);
             }
         }
+        // Nadeem 2347788 Code ends
     </script>
 </body>
 </html>

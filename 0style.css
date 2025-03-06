@@ -1,3 +1,4 @@
+/* Sharefa 2403038 Code starts
 /* =================================
    TABLE OF CONTENTS
    =================================
@@ -30,6 +31,7 @@
 /* =================================
    1. RESET & BASE STYLES
    ================================= */
+
    * {
     margin: 0;
     padding: 0;
@@ -2122,3 +2124,5 @@ input::placeholder {
         padding: 24px 20px 20px;
     }
 }
+
+/* Sharefa 2403038 Code ends
