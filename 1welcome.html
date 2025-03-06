@@ -84,21 +84,19 @@
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
         }
     </style>
-    
 </head>
 <body>
-    <div class="container">
+    <div class="welcome-container">
         <img src="assets/images/logo.png" alt="University Logo" class="logo">
         <p class="university-name">The University of</p>
         <p class="wolverhampton">Wolverhampton</p>
         
-        <p class="welcome">WELCOME!</p>
+        <p class="welcome-text">WELCOME!</p>
         <p class="description">Plan your visit with the University of Wolverhampton open day app for information on tours, courses, accommodations and more.</p>
         
-        <a href="2name.html" class="button">Get Started</a>
+        <a href="2name.html" class="start-button">GET STARTED</a>
     </div>
 
-        <!-- JavaScript for page functionality -->
     <script>
         // This script runs saved colors from localStorage if any
         window.onload = function() {
@@ -117,11 +115,10 @@
             }
             // Apply saved button color to all buttons if it exists
             if (savedBtnColor) {
-                const buttons = document.querySelectorAll('.nav-button, .button');
+                const buttons = document.querySelectorAll('.start-button');
                 buttons.forEach(button => button.style.backgroundColor = savedBtnColor);
             }
         }
     </script>
-
 </body>
 </html>
