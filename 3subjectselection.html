@@ -1,27 +1,21 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Subject Selection - University of Wolverhampton</title>
+    <!-- Sharefa 2403038: Added stylesheet link -->
     <link rel="stylesheet" href="0style.css">
 
+<!-- Nadeem 2347788 Code starts -->
 </head>
 <body>
     <div class="container">
         <div class="icon-container">
             <img src="assets/images/graduation-icon.png" alt="Graduation Icon" class="icon">
         </div>
-        
-        <!-- Form heading and description -->
-        <!-- Nadeem 2347788 Code starts -->
         <h1 class="question-text">Which subjects are you<br>interested in?</h1>
         <p class="subtitle">We'll tailor the experience to your choices</p>
-        <!-- Nadeem 2347788 Code ends -->
-
-        <!-- Subject selection buttons -->
-        <!-- Nadeem 2347788 Code starts -->
         <div class="subject-list">
             <button class="subject-button" onclick="this.classList.toggle('selected')">Arts</button>
             <button class="subject-button" onclick="this.classList.toggle('selected')">Business</button>
@@ -30,51 +24,22 @@
             <button class="subject-button" onclick="this.classList.toggle('selected')">Health & Wellbeing</button>
             <button class="subject-button" onclick="this.classList.toggle('selected')">Science and Engineering</button>
         </div>
-        <!-- Nadeem 2347788 Code ends -->
-
-        <!-- Continue button -->
-        <!-- Nadeem 2347788 Code starts -->
+        <!-- Sharefa 2403038: Added Navigation button -->
         <a href="4homepage.html" class="button" id="continueButton">Continue to Homepage</a>
-        <!-- Nadeem 2347788 Code ends -->
     </div>
 
-    <!-- JavaScript for page functionality -->
-    <script> 
-        // This script runs saved colors from localStorage if any
-        window.onload = function() {
-            // Retrieve previously saved color preferences from browser storage
-            const savedBgColor = localStorage.getItem('bgColor');
-            const savedTextColor = localStorage.getItem('textColor');
-            const savedBtnColor = localStorage.getItem('btnColor');
-
-            // Apply saved background color if it exists
-            if (savedBgColor) {
-                document.body.style.backgroundColor = savedBgColor;
-            }
-            // Apply saved text color if it exists
-            if (savedTextColor) {
-                document.body.style.color = savedTextColor;
-            }
-            // Apply saved button color to all buttons if it exists
-            if (savedBtnColor) {
-                const buttons = document.querySelectorAll('.nav-button, .button');
-                buttons.forEach(button => button.style.backgroundColor = savedBtnColor);
-            }
-        }
+        <!-- JavaScript for page functionality -->
+    <script>
+            
 
         // Get user name from URL parameters
-        // Nadeem 2347788 Code starts
         const urlParams = new URLSearchParams(window.location.search);
         const userName = urlParams.get('userName');
-        // Nadeem 2347788 Code ends
 
         // Store selected subjects
-        // Nadeem 2347788 Code starts
         const selectedSubjects = [];
-        // Nadeem 2347788 Code ends
 
         // Add click handlers to all subject buttons
-        // Nadeem 2347788 Code starts
         document.querySelectorAll('.subject-button').forEach(button => {
             button.addEventListener('click', function() {
                 const subject = this.textContent;
@@ -88,18 +53,16 @@
                 console.log('Selected subjects:', selectedSubjects);
             });
         });
-        // Nadeem 2347788 Code ends
 
         // Update continue button to pass selected subjects and username to dashboard
-        // Nadeem 2347788 Code starts
         document.getElementById('continueButton').addEventListener('click', function(e) {
             e.preventDefault();
             const subjectsParam = encodeURIComponent(JSON.stringify(selectedSubjects));
             const userNameParam = userName ? `&userName=${encodeURIComponent(userName)}` : '';
             window.location.href = `4homepage.html?subjects=${subjectsParam}${userNameParam}`;
         });
-        // Nadeem 2347788 Code ends
     </script>
 
 </body>
 </html>
+<!-- Nadeem 2347788 Code ends -->
