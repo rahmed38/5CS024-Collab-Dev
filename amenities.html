@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Health and Wellbeing - University of Wolverhampton</title>
+    <!-- Sharefa 2403038: Added stylesheet link -->
     <link rel="stylesheet" href="0style.css">
+    <!-- Sharefa 2403038: Added Font Awesome for icons used in navigation -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-
 </head>
 <body>
 
@@ -51,8 +52,8 @@
         </a>
     </div>
 
-   <script> 
-        // Common user name handling functions
+ <script> 
+        // User name handling functions
         function handleUserName() {
             const urlParams = new URLSearchParams(window.location.search);
             const urlName = urlParams.get('userName');
@@ -89,9 +90,9 @@
             }
         }
         
-        // Initialize everything when the page loads
+        // Initialises everything when the page loads
         window.onload = function() {
-            // Handle colors (preserving existing functionality)
+            // Preserves colours 
             const savedBgColor = localStorage.getItem('bgColor');
             const savedTextColor = localStorage.getItem('textColor');
             const savedBtnColor = localStorage.getItem('btnColor');
@@ -107,15 +108,15 @@
                 buttons.forEach(button => button.style.backgroundColor = savedBtnColor);
             }
         
-            // Handle user name
+            // Handles user name
             handleUserName();
             
-            // Update navigation links
+            // Updates navigation links
             updateNavigationLinks();
         }
-        </script>
+    </script>
         
-    <!-- Bottom Navigation -->
+    <!-- Sharefa 2403038: Added bottom navigation bar -->
     <nav class="bottom-nav">
         <a href="4homepage.html" class="nav-item active">
             <i class="fas fa-home"></i>
