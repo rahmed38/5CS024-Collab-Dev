@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive University Map - Advanced</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Leaflet Draw CSS (for drawing tools) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-draw/dist/leaflet.draw.css" />
+    <!-- Leaflet Search Plugin CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-search/dist/leaflet-search.min.css" />
+    <style>
+        #map {
+            height: 800px;
+            width: 100%;
+        }
+        .leaflet-popup-content img {
+            width: 200px;
+        }
+        .leaflet-draw-section {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>University of Wolverhampton Advanced Interactive Campus Map</h1>
+    <div id="map"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- Leaflet Draw JS (for drawing tools) -->
+    <script src="https://unpkg.com/leaflet-draw/dist/leaflet.draw.js"></script>
+    <!-- Leaflet Search Plugin -->
+    <script src="https://unpkg.com/leaflet-search/dist/leaflet-search.min.js"></script>
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([52.5872, -2.1284], 13); // University main campus
+
+        // Add OpenStreetMap tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Add user location feature (geolocation)
+        map.locate({ setView: true, maxZoom: 16 });
+
+        map.on('locationfound', function(e) {
+            L.marker(e.latlng)
+                .addTo(map)
+                .bindPopup("You are here!")
+                .openPopup();
+        });
+
+        map.on('locationerror', function() {
+            alert("Unable to retrieve your location.");
+        });
+
+        // Define custom icons for markers
+        var libraryIcon = L.icon({
+            iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Books_icon.svg',
+            iconSize: [32, 32],
+            iconAnchor: [16, 32],
+            popupAnchor: [0, -32]
+        });
+
+        var sportsIcon = L.icon({
+            iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/7/79/Sports_Icon.png',
+            iconSize: [32, 32],
+            iconAnchor: [16, 32],
+            popupAnchor: [0, -32]
+        });
+
+        // University Building Locations
+        var buildings = [
+            {
+                name: 'Library',
+                coords: [52.5872, -2.1284],
+                icon: libraryIcon,
+                description: 'Visit the university library for all your research needs.',
+                image: 'https://upload.wikimedia.org/wikipedia/commons/a/aa/University_of_Wolverhampton_Entrance.jpg',
+                events: ['Research Conference (March 10)', 'Workshop on Digital Literacy (March 12)']
+            },
+            {
+                name: 'Sports Centre',
+                coords: [52.5890, -2.1300],
+                icon: sportsIcon,
+                description: 'The Sports Centre offers gym facilities and organizes various sports events.',
+                image: 'https://upload.wikimedia.org/wikipedia/commons/1/1f/Sports_Hall.jpg',
+                events: ['Football Match (March 8)', 'Yoga Class (March 9)']
+            }
+            // Add more locations as required...
+        ];
+
+        buildings.forEach(function(building) {
+            var marker = L.marker(building.coords, { icon: building.icon }).addTo(map);
+            var popupContent = `<b>${building.name}</b><br>
+                <img src="${building.image}" alt="${building.name}" /><br>
+                <p>${building.description}</p>
+                <h3>Upcoming Events:</h3><ul>`;
+            
+            building.events.forEach(function(event) {
+                popupContent += `<li>${event}</li>`;
+            });
+            popupContent += `</ul>
+                <form id="feedback-form">
+                    <label for="feedback">Your Feedback:</label><br>
+                    <textarea id="feedback" rows="3" cols="20"></textarea><br>
+                    <button type="button" onclick="submitFeedback()">Submit Feedback</button>
+                </form>`;
+
+            marker.bindPopup(popupContent);
+        });
+
+        // Add Drawing Tools for users to draw on the map
+        var drawnItems = new L.FeatureGroup();
+        map.addLayer(drawnItems);
+
+        var drawControl = new L.Control.Draw({
+            edit: {
+                featureGroup: drawnItems
+            },
+            draw: {
+                polygon: true,
+                circle: true,
+                rectangle: true,
+                marker: true
+            }
+        });
+
+        map.addControl(drawControl);
+
+        map.on('draw:created', function (e) {
+            var layer = e.layer;
+            drawnItems.addLayer(layer);
+            // Handle drawing event (you can log the drawn shape or show info)
+        });
+
+        // Enable searching for campus locations
+        var searchControl = new L.Control.Search({
+            layer: drawnItems,  // You can add any specific layers for searching
+            initial: false,
+            zoom: 15
+        });
+        map.addControl(searchControl);
+
+        // Adding multiple layers to toggle
+        var overlayMaps = {
+            "Campus Locations": drawnItems,
+            "Parking": L.layerGroup([]),  // Add parking locations here
+            "Pathways": L.layerGroup([])  // Add pathways or other layers here
+        };
+        L.control.layers(null, overlayMaps).addTo(map);
+
+        // Handle feedback form submission (could be saved to a database in a real app)
+        function submitFeedback() {
+            var feedback = document.getElementById('feedback').value;
+            if (feedback) {
+                alert("Thank you for your feedback!");
+                // Store feedback or send to the server via AJAX, etc.
+            } else {
+                alert("Please enter your feedback before submitting.");
+            }
+        }
+    </script>
+</body>
+</html>
