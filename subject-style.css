@@ -1,0 +1,289 @@
+/* 
+   SUBJECT PAGES CSS
+   This file contains specific styles for all subject pages:
+   - arts.html
+   - business.html
+   - education.html
+   - health.html
+   - science.html
+   - social.html
+*/
+
+/* Base Styles */
+body {
+    background: linear-gradient(135deg, #424867, #363b54);
+    color: white;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased; /* Smoother text rendering */
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex-direction: column; /* Stack elements vertically */
+    padding-bottom: 80px; /* Space for bottom navigation */
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* Container for page content */
+.container {
+    max-width: 800px;
+    width: 90%;
+    margin: 20px auto;
+    padding: 30px 20px 80px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center all flex children horizontally */
+    position: relative; /* For absolute positioning context */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Add subtle shadow */
+}
+
+.container h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.container > p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 0 10px;
+}
+
+/* Subject header with heart icon */
+.subject-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Ensure full width within the container */
+    max-width: 90%; /* Limit width to create some margin */
+    margin-bottom: 10px;
+}
+
+/* Heart icon style */
+.heart-icon {
+    font-size: 30px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.heart-icon.hearted {
+    color: #FF69B4; /* Heart-filled color */
+}
+
+/* Course list */
+.course-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 90%; /* Match subject header width */
+}
+
+.course-item {
+    margin-bottom: 20px;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.course-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.course-toggle {
+    display: none;
+}
+
+.course-label {
+    display: flex;
+    justify-content: center; /* Center the text horizontally */
+    align-items: center; /* Center the text vertically */
+    padding: 20px 40px 20px 20px; /* Extra padding on right for the arrow */
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #24C5F4, #1E9CD7);
+    cursor: pointer;
+    position: relative;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.course-label::after {
+    content: "▼";
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.course-toggle:checked + .course-label::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.course-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    will-change: max-height, opacity; /* Optimize for animations */
+}
+
+.course-toggle:checked ~ .course-content {
+    max-height: 500px;
+    opacity: 1;
+}
+
+.course-description {
+    padding: 20px;
+    color: #505779;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    border-top: 1px solid #eee;
+    text-align: center; /* Center the course description text */
+}
+
+/* Subject-specific colorings */
+.arts-page .course-label {
+    background: linear-gradient(135deg, #FF6B6B, #FF4081);
+}
+
+.business-page .course-label {
+    background: linear-gradient(135deg, #FFC107, #FF9800);
+}
+
+.education-page .course-label {
+    background: linear-gradient(135deg, #4CAF50, #388E3C);
+}
+
+.health-page .course-label {
+    background: linear-gradient(135deg, #2196F3, #1976D2);
+}
+
+.science-page .course-label {
+    background: linear-gradient(135deg, #9C27B0, #7B1FA2);
+}
+
+.social-page .course-label {
+    background: linear-gradient(135deg, #FF5722, #E64A19);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 25px 15px 80px 15px;
+        margin: 0 auto; /* Center container */
+        width: 90%; /* Set width for better control */
+    }
+    
+    .subject-header,
+    .course-list {
+        max-width: 95%; /* Slightly wider on mobile */
+    }
+    
+    .container h2 {
+        font-size: 28px;
+        margin-bottom: 15px;
+        text-align: center; /* Ensure centered text */
+    }
+    
+    .container > p {
+        font-size: 16px;
+        margin-bottom: 25px;
+        padding: 0 5px;
+        text-align: center; /* Ensure centered text */
+    }
+    
+    .course-label {
+        font-size: 18px;
+        padding: 15px 40px 15px 15px; /* Adjusted padding for the dropdown icon */
+        min-height: 55px; /* Ensure adequate touch target height */
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Center text */
+    }
+    
+    .course-description {
+        padding: 15px;
+        font-size: 15px;
+        text-align: center; /* Ensure centered text */
+    }
+}
+    
+@media (max-width: 480px) {
+    .container {
+        padding: 20px 10px 70px 10px;
+        margin: 0 auto;
+        width: 95%;
+        border-radius: 15px; /* Slightly smaller radius for small screens */
+    }
+    
+    .subject-header,
+    .course-list {
+        max-width: 98%; /* Almost full width on smallest screens */
+    }
+    
+    .container h2 {
+        font-size: 24px;
+        margin-bottom: 12px;
+        padding: 0 5px;
+    }
+    
+    .container > p {
+        font-size: 15px;
+        margin-bottom: 20px;
+        padding: 0 8px;
+        text-align: center;
+    }
+    
+    .course-item {
+        margin-bottom: 15px;
+    }
+    
+    .course-label {
+        font-size: 16px;
+        padding: 16px 40px 16px 16px; /* More padding on right for the dropdown icon */
+        min-height: 60px; /* Even larger touch target for smaller screens */
+        text-align: center;
+    }
+    
+    .course-label::after {
+        right: 15px;
+        font-size: 10px;
+    }
+    
+    .course-description {
+        padding: 15px;
+        font-size: 14px;
+        text-align: center;
+    }
+    
+    .heart-icon {
+        font-size: 26px;
+        padding: 12px; /* Even larger touch target */
+        margin: -12px;
+    }
+}

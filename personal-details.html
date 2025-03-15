@@ -5,11 +5,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Details - University of Wolverhampton</title>
-    <!-- Sharefa 2403038: Added stylesheet link -->
-    <link rel="stylesheet" href="0style.css">
+    <!-- Sharefa 2403038: Added stylesheet links -->
+    <link rel="stylesheet" href="navigation.css">
     <!-- Sharefa 2403038: Added Font Awesome for icons used in navigation -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">  
 </head>
+<style> 
+    body {
+        background: linear-gradient(135deg, #424867, #363b54);
+        color: white;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0 0 100px 0; /* Add padding at bottom for navigation */
+        display: flex;
+        flex-direction: column;
+        font-family: Arial, sans-serif;
+        box-sizing: border-box;
+    }
+    
+    /* Top Section */
+    .top-section {
+        background: linear-gradient(135deg, #1E9CD7, #24C5F4);
+        padding: 30px 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .welcome-text {
+        font-size: 32px;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        width: 100%;
+        margin: 0;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Personal Details Container */
+    .personal-details-container {
+        width: 100%;
+        max-width: 450px;
+        padding: 45px;
+        margin: 0 auto;
+        background-color: rgba(58, 63, 90, 0.9);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Form Styles */
+    .personal-details-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .form-group {
+        width: 100%;
+    }
+    
+    .form-label {
+        display: block;
+        color: white;
+        margin-bottom: 8px;
+        font-size: 14px;
+    }
+    
+    .form-input {
+        width: 92%;
+        height: 45px;
+        background: white;
+        border: none;
+        border-radius: 10px;
+        padding: 0 15px;
+        font-size: 15px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s ease;
+    }
+    
+    .form-input:focus {
+        outline: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Password Policy */
+    .password-policy {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 5px;
+    }
+    
+    .password-policy p {
+        color: white;
+        margin-bottom: 8px;
+        font-size: 13px;
+    }
+    
+    .password-policy ul {
+        color: rgba(255, 255, 255, 0.8);
+        padding-left: 20px;
+        font-size: 13px;
+        margin: 0;
+    }
+    
+    .password-policy ul li {
+        margin-bottom: 5px;
+    }
+    
+    /* Save Button */
+    .save-button {
+        background: linear-gradient(135deg, #FF69B4, #FF4081);
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 10px;
+        font-size: 15px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        width: 100%;
+        margin-top: 15px;
+    }
+    
+    .save-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 480px) {
+        .personal-details-container {
+            width: 90%;
+            max-width: 320px;
+            padding: 20px;
+        }
+    
+        @media (max-width: 480px) {
+            .welcome-text {
+                font-size: 28px;
+            }
+        }
+    }
+    
+</style> 
+ 
 <body>
     <div class="top-section">
         <h1 class="welcome-text">Personal Details</h1>
@@ -101,5 +244,126 @@
         });
     </script>
 <!-- Nadeem 2347788 Code ends -->
+
+<script> 
+    // Common user name handling functions
+    function handleUserName() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlName = urlParams.get('userName');
+        const storedName = localStorage.getItem('userName');
+        const userName = urlName || storedName;
+        
+        if (userName) {
+            const userNameElement = document.getElementById('userName');
+            if (userNameElement) {
+                userNameElement.textContent = userName;
+            }
+            localStorage.setItem('userName', userName);
+        }
+    }
+    
+    function appendUserNameToUrl(url) {
+        const userName = localStorage.getItem('userName');
+        if (userName) {
+            const separator = url.includes('?') ? '&' : '?';
+            return `${url}${separator}userName=${encodeURIComponent(userName)}`;
+        }
+        return url;
+    }
+    
+    function updateNavigationLinks() {
+        const userName = localStorage.getItem('userName');
+        if (userName) {
+            document.querySelectorAll('a').forEach(link => {
+                if (link.href.includes(window.location.origin) && 
+                    !link.href.includes('userName=')) {
+                    link.href = appendUserNameToUrl(link.href);
+                }
+            });
+        }
+    }
+    
+    // Initialise everything when the page loads
+    window.onload = function() {
+        // Handle colors (preserving existing functionality)
+        const savedBgColor = localStorage.getItem('bgColor');
+        const savedTextColor = localStorage.getItem('textColor');
+        const savedBtnColor = localStorage.getItem('btnColor');
+    
+        if (savedBgColor) {
+            document.body.style.backgroundColor = savedBgColor;
+        }
+        if (savedTextColor) {
+            document.body.style.color = savedTextColor;
+        }
+        if (savedBtnColor) {
+            const buttons = document.querySelectorAll('.nav-button, .nav-item');
+            buttons.forEach(button => button.style.backgroundColor = savedBtnColor);
+        }
+    
+        // Handle user name
+        handleUserName();
+        
+        // Update navigation links
+        updateNavigationLinks();
+    }
+    
+        // Profile Icon Color Management
+        const profileIcon = document.querySelector('.profile-icon');
+        const savedColor = localStorage.getItem('profileIconColor');
+
+        // Apply saved profile icon color gradient if it exists
+        if (savedColor) {
+        switch(savedColor) {
+            case '#24C5F4':
+                profileIcon.style.background = 'linear-gradient(135deg, #24C5F4, #1E9CD7)';
+                break;
+            case '#FF69B4':
+                profileIcon.style.background = 'linear-gradient(135deg, #FF69B4, #FF4081)';
+                break;
+            case '#FFD700':
+                profileIcon.style.background = 'linear-gradient(135deg, #FFD700, #FFA500)';
+                break;
+            case '#A2D460':
+                profileIcon.style.background = 'linear-gradient(135deg, #A2D460, #7CB342)';
+                break;
+        }
+    }
+    
+    // Sharefa 2403038: Added function to highlight the active navigation item based on current page
+    function setActiveNavItem() {
+    // Get current page filename from URL
+    const currentPath = window.location.pathname;
+    const filename = currentPath.split('/').pop();
+    
+    // Remove active class from all nav items
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove('active');
+    });
+    
+    // Apply active class based on current filename
+    if (filename.includes('homepage') || filename === '' || filename === 'index.html') {
+        document.querySelector('.nav-item[href*="homepage"]').classList.add('active');
+    } else if (filename.includes('explore')) {
+        document.querySelector('.nav-item[href*="explore"]').classList.add('active');
+    } else if (filename.includes('saved')) {
+        document.querySelector('.nav-item[href*="saved"]').classList.add('active');
+    } else if (filename.includes('profile')) {
+        document.querySelector('.nav-item[href*="profile"]').classList.add('active');
+    } else if (filename.includes('arts') || filename.includes('business') || 
+              filename.includes('education') || filename.includes('health') || 
+              filename.includes('science') || filename.includes('social') ||
+              filename.includes('tour') || filename.includes('contact') ||
+              filename.includes('faq') || filename.includes('visitwolvo') ||
+              filename.includes('amenities')) {
+        // For content pages, keep Home as active
+        document.querySelector('.nav-item[href*="homepage"]').classList.add('active');
+    }
+}
+
+    // Call the function when page loads
+    document.addEventListener('DOMContentLoaded', setActiveNavItem);
+</script>
+
 </body>
 </html>

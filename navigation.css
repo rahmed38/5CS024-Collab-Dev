@@ -1,0 +1,102 @@
+/* 
+   BOTTOM NAVIGATION STYLES
+   This file contains standardized styles for the bottom navigation bar 
+   used across all pages of the University of Wolverhampton Open Day app
+*/
+
+/* Bottom Navigation */
+.bottom-nav {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    background: linear-gradient(90deg, #FF69B4, #FF4081); 
+    padding: 16px 25px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 30px;
+    z-index: 1000;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    max-width: none;
+    margin: 0;
+}
+
+.nav-item {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    padding: 5px 8px;
+    border-radius: 12px;
+    width: 60px;
+    -webkit-tap-highlight-color: transparent; /* Remove touch highlight */
+    touch-action: manipulation; /* Better touch responsiveness */
+}
+
+.nav-item.active {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.nav-item i {
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+
+.nav-item span {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.nav-item:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Bottom navigation responsive styles */
+@media (max-width: 768px) {
+    .bottom-nav {
+        padding: 14px 20px;
+    }
+    
+    .nav-item i {
+        font-size: 22px;
+    }
+    
+    .nav-item span {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 576px) {
+    .bottom-nav {
+        width: 92%;
+        padding: 12px 15px;
+        bottom: 15px;
+    }
+    
+    .nav-item {
+        width: 50px;
+    }
+    
+    .nav-item i {
+        font-size: 20px;
+    }
+    
+    .nav-item span {
+        font-size: 10px;
+    }
+}
+
+/* Fix for notch phones and safe areas */
+@supports (padding: max(0px)) {
+    .bottom-nav {
+        padding-bottom: max(16px, env(safe-area-inset-bottom));
+        bottom: max(10px, env(safe-area-inset-bottom));
+    }
+}

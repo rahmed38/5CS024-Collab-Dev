@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage - University of Wolverhampton</title>
-    <!-- Sharefa 2403038: Added stylesheet link -->
-    <link rel="stylesheet" href="0style.css">
+    <!-- Sharefa 2403038: Added stylesheet links -->
+    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="navigation.css">
     <!-- Sharefa 2403038: Added Font Awesome for icons used in navigation -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-
 </head>
+
 <body class="homepage">
     <!-- Sharefa 2403038 Code starts -->
     <div class="top-section">
@@ -18,7 +19,6 @@
                 <img src="assets/images/logo.png" alt="University Logo" class="header-logo">
                 <div class="welcome-container">
                     <h1 class="welcome-text">Welcome!</h1>
-                    <!-- Sharefa 2403038: Added user name display -->
                     <div id="userName" class="user-name"></div>
                 </div>
             </div>
@@ -27,12 +27,8 @@
                 <i class="fas fa-user"></i>
             </a>
         </div>
-        
-        <!-- Search bar with icon -->
-        <div class="search-container">
-            <i class="fas fa-search search-icon"></i>
-            <input type="text" class="search-input" placeholder="Search your destination here...">
-        </div>
+        <!-- Top section color gradient placeholder -->
+        <div class="top-section-gradient"></div>
     </div>
 
     <!-- Main content section -->
@@ -294,14 +290,75 @@
         </a>
     </nav>
 
-    <!-- JavaScript for page functionality -->
-    <script>
-        // Profile Icon Color Management
-        const profileIcon = document.querySelector('.profile-icon');
-        const savedColor = localStorage.getItem('profileIconColor');
+    <script> 
+        // Common user name handling functions
+        function handleUserName() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlName = urlParams.get('userName');
+            const storedName = localStorage.getItem('userName');
+            const userName = urlName || storedName;
+            
+            if (userName) {
+                const userNameElement = document.getElementById('userName');
+                if (userNameElement) {
+                    userNameElement.textContent = userName;
+                }
+                localStorage.setItem('userName', userName);
+            }
+        }
+        
+        function appendUserNameToUrl(url) {
+            const userName = localStorage.getItem('userName');
+            if (userName) {
+                const separator = url.includes('?') ? '&' : '?';
+                return `${url}${separator}userName=${encodeURIComponent(userName)}`;
+            }
+            return url;
+        }
+        
+        function updateNavigationLinks() {
+            const userName = localStorage.getItem('userName');
+            if (userName) {
+                document.querySelectorAll('a').forEach(link => {
+                    if (link.href.includes(window.location.origin) && 
+                        !link.href.includes('userName=')) {
+                        link.href = appendUserNameToUrl(link.href);
+                    }
+                });
+            }
+        }
+        
+        // Initialise everything when the page loads
+        window.onload = function() {
+            // Handle colors (preserving existing functionality)
+            const savedBgColor = localStorage.getItem('bgColor');
+            const savedTextColor = localStorage.getItem('textColor');
+            const savedBtnColor = localStorage.getItem('btnColor');
+        
+            if (savedBgColor) {
+                document.body.style.backgroundColor = savedBgColor;
+            }
+            if (savedTextColor) {
+                document.body.style.color = savedTextColor;
+            }
+            if (savedBtnColor) {
+                const buttons = document.querySelectorAll('.nav-button, .nav-item');
+                buttons.forEach(button => button.style.backgroundColor = savedBtnColor);
+            }
+        
+            // Handle user name
+            handleUserName();
+            
+            // Update navigation links
+            updateNavigationLinks();
+        }
+        
+            // Profile Icon Color Management
+            const profileIcon = document.querySelector('.profile-icon');
+            const savedColor = localStorage.getItem('profileIconColor');
 
-        // Apply saved profile icon color gradient if it exists
-        if (savedColor) {
+            // Apply saved profile icon color gradient if it exists
+            if (savedColor) {
             switch(savedColor) {
                 case '#24C5F4':
                     profileIcon.style.background = 'linear-gradient(135deg, #24C5F4, #1E9CD7)';
@@ -317,41 +374,41 @@
                     break;
             }
         }
-            // Load saved colors from localStorage if any
-            window.onload = function() {
-                const savedBgColor = localStorage.getItem('bgColor');
-                const savedTextColor = localStorage.getItem('textColor');
-                const savedBtnColor = localStorage.getItem('btnColor');
+        
+        // Sharefa 2403038: Added function to highlight the active navigation item based on current page
+        function setActiveNavItem() {
+        // Get current page filename from URL
+        const currentPath = window.location.pathname;
+        const filename = currentPath.split('/').pop();
+        
+        // Remove active class from all nav items
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.classList.remove('active');
+        });
+        
+        // Apply active class based on current filename
+        if (filename.includes('homepage') || filename === '' || filename === 'index.html') {
+            document.querySelector('.nav-item[href*="homepage"]').classList.add('active');
+        } else if (filename.includes('explore')) {
+            document.querySelector('.nav-item[href*="explore"]').classList.add('active');
+        } else if (filename.includes('saved')) {
+            document.querySelector('.nav-item[href*="saved"]').classList.add('active');
+        } else if (filename.includes('profile')) {
+            document.querySelector('.nav-item[href*="profile"]').classList.add('active');
+        } else if (filename.includes('arts') || filename.includes('business') || 
+                  filename.includes('education') || filename.includes('health') || 
+                  filename.includes('science') || filename.includes('social') ||
+                  filename.includes('tour') || filename.includes('contact') ||
+                  filename.includes('faq') || filename.includes('visitwolvo') ||
+                  filename.includes('amenities')) {
+            // For content pages, keep Home as active
+            document.querySelector('.nav-item[href*="homepage"]').classList.add('active');
+        }
+    }
     
-                if (savedBgColor) {
-                    document.body.style.backgroundColor = savedBgColor;
-                }
-                if (savedTextColor) {
-                    document.body.style.color = savedTextColor;
-                }
-                if (savedBtnColor) {
-                    const buttons = document.querySelectorAll('.nav-item');
-                    buttons.forEach(button => button.style.backgroundColor = savedBtnColor);
-                }
-    
-                // Get user name from URL parameters
-                const urlParams = new URLSearchParams(window.location.search);
-                const userName = urlParams.get('userName');
-                if (userName) {
-                    document.getElementById('userName').textContent = userName.toUpperCase();
-                }
-            }
-    
-            // Toggle course details
-            function toggleCourseDetails(element) {
-                const details = element.querySelector('.course-details');
-                if (details.style.display === 'none' || details.style.display === '') {
-                    details.style.display = 'block';
-                } else {
-                    details.style.display = 'none';
-                }
-            }
+    // Call the function when page loads
+    document.addEventListener('DOMContentLoaded', setActiveNavItem);
         </script>
-<!-- Sharefa 2403038 Code ends -->
+        
 </body>
 </html>

@@ -1,0 +1,311 @@
+/* 
+   TOUR PAGES CSS
+   This file contains specific styles for all tour pages:
+   - citytour.html
+   - springfieldtour.html
+   - telfordtour.html
+   - walsalltour.html
+*/
+
+/* Base Styles */
+body {
+    background: linear-gradient(135deg, #414769, #323652);
+    color: white;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased; /* Smoother text rendering */
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    display: flex;
+    justify-content: flex-start; /* Align to top */
+    align-items: center; /* Center horizontally */
+    flex-direction: column; /* Stack elements vertically */
+    padding-bottom: 100px; /* Space for bottom navigation */
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    margin: 40px 0 30px 0;
+    padding: 0;
+    width: 100%;
+}
+
+header h1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 0;
+}
+
+/* Container for page content */
+.container {
+    max-width: 800px;
+    width: 85%;
+    margin: 0 auto 30px auto;
+    padding: 25px 20px 30px 20px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center all flex children horizontally */
+    position: relative; /* For absolute positioning context */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Add subtle shadow */
+}
+
+/* Tour Section Styles */
+.tour-section {
+    background: transparent;
+    border-radius: 15px;
+    margin-bottom: 15px;  
+    overflow: hidden;
+    transition: all 0.3s ease;
+    max-width: 100%;
+    width: 100%;
+}
+
+.tour-section:last-child {
+    margin-bottom: 0;
+}
+
+/* Tour Section Headers */
+.tour-section h2 {
+    padding: 18px 50px 18px 20px;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    background: linear-gradient(90deg, #62B8FB, #3678E5);
+    cursor: pointer;
+    position: relative;
+    margin: 0;
+    transition: all 0.3s ease;
+    line-height: 1.4;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.tour-section h2::after {
+    content: "▼";
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+/* Tour Section Images */
+.tour-section img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;  
+    object-fit: cover;
+    display: block;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+/* Tour Section Content */
+.tour-section p, 
+.tour-section ul {
+    padding: 20px;  
+    color: white;
+    margin: 0;
+    line-height: 1.6;
+    text-align: center;
+    font-size: 16px;
+}
+
+.tour-section ul {
+    list-style-position: inside;
+    padding-top: 5px;
+    padding-bottom: 20px;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.tour-section ul li {
+    padding: 10px 0;  
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tour-section ul li:last-child {
+    border-bottom: none;
+}
+
+.tour-section-content {
+    max-height: 2000px;  
+    transition: max-height 0.5s ease, opacity 0.3s ease;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    margin-top: 8px;
+    padding: 5px 15px 15px 15px;
+}
+
+/* Accordion Toggle */
+.tour-toggle {
+    display: none;
+}
+
+.tour-label {
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin: 0;
+}
+
+.tour-toggle:not(:checked) ~ .tour-section-content {
+    max-height: 0;
+    opacity: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.tour-toggle:checked ~ .tour-label h2::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* First section is open by default */
+#tour-section-1:checked ~ .tour-section-content {
+    opacity: 1;
+}
+
+/* Campus-specific colors for headers */
+.city-tour .tour-section h2 {
+    background: linear-gradient(90deg, #62B8FB, #3678E5);
+}
+
+.springfield-tour .tour-section h2 {
+    background: linear-gradient(90deg, #4CAF50, #2E7D32);
+}
+
+.telford-tour .tour-section h2 {
+    background: linear-gradient(90deg, #FF9800, #E65100);
+}
+
+.walsall-tour .tour-section h2 {
+    background: linear-gradient(90deg, #BA68C8, #7B1FA2);
+}
+
+/* Touch-friendly improvements */
+.tour-label {
+    -webkit-tap-highlight-color: transparent; /* Remove touch highlight */
+    touch-action: manipulation; /* Better touch responsiveness */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .container {
+        width: 85%;
+        padding: 22px 20px 25px 20px;
+    }
+    
+    .tour-section h2 {
+        font-size: 18px;
+        padding: 16px 50px 16px 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        margin: 30px 0 25px 0;
+    }
+    
+    header h1 {
+        font-size: 28px;
+    }
+    
+    .container {
+        width: 90%;
+        padding: 18px 15px 20px 15px;
+    }
+    
+    .tour-section {
+        margin-bottom: 12px;
+    }
+    
+    .tour-section h2 {
+        font-size: 17px;
+        padding: 15px 45px 15px 15px;
+    }
+    
+    .tour-section-content {
+        padding: 5px 12px 12px 12px;
+    }
+    
+    .tour-section p, 
+    .tour-section ul {
+        padding: 15px;
+    }
+    
+    .tour-section img {
+        max-height: 250px;
+    }
+}
+
+@media (max-width: 576px) {
+    header {
+        margin: 25px 0 20px 0;
+    }
+    
+    header h1 {
+        font-size: 24px;
+    }
+    
+    .container {
+        width: 92%;
+        padding: 15px 12px 15px 12px;
+    }
+    
+    .tour-section {
+        margin-bottom: 10px;
+    }
+    
+    .tour-section h2 {
+        font-size: 16px;
+        padding: 14px 40px 14px 14px;
+    }
+    
+    .tour-section h2::after {
+        font-size: 10px;
+        right: 14px;
+    }
+    
+    .tour-section-content {
+        padding: 4px 10px 10px 10px;
+    }
+    
+    .tour-section p, 
+    .tour-section ul {
+        padding: 12px;
+        font-size: 15px;
+    }
+    
+    .tour-section ul li {
+        padding: 8px 0;
+    }
+    
+    .tour-section img {
+        max-height: 200px;
+    }
+}
+
+/* Touch-friendly improvements */
+.tour-label {
+    -webkit-tap-highlight-color: transparent; /* Remove touch highlight */
+    touch-action: manipulation; /* Better touch responsiveness */
+}

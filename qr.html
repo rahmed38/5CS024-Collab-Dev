@@ -171,5 +171,42 @@
         }
     </script>
 <!-- Nadeem 2347788 Code ends -->
+
+<script>
+            // Sharefa 2403038: Added function to highlight the active navigation item based on current page
+            function setActiveNavItem() {
+        // Get current page filename from URL
+        const currentPath = window.location.pathname;
+        const filename = currentPath.split('/').pop();
+        
+        // Remove active class from all nav items
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.classList.remove('active');
+        });
+        
+        // Apply active class based on current filename
+        if (filename.includes('homepage') || filename === '' || filename === 'index.html') {
+            document.querySelector('.nav-item[href*="homepage"]').classList.add('active');
+        } else if (filename.includes('explore')) {
+            document.querySelector('.nav-item[href*="explore"]').classList.add('active');
+        } else if (filename.includes('saved')) {
+            document.querySelector('.nav-item[href*="saved"]').classList.add('active');
+        } else if (filename.includes('profile')) {
+            document.querySelector('.nav-item[href*="profile"]').classList.add('active');
+        } else if (filename.includes('arts') || filename.includes('business') || 
+                  filename.includes('education') || filename.includes('health') || 
+                  filename.includes('science') || filename.includes('social') ||
+                  filename.includes('tour') || filename.includes('contact') ||
+                  filename.includes('faq') || filename.includes('visitwolvo') ||
+                  filename.includes('amenities')) {
+            // For content pages, keep Home as active
+            document.querySelector('.nav-item[href*="homepage"]').classList.add('active');
+        }
+    }
+    
+    // Call the function when page loads
+    document.addEventListener('DOMContentLoaded', setActiveNavItem);
+</script>
+
 </body>
 </html>

@@ -1,0 +1,268 @@
+/* 
+   EXPLORE PAGE CSS
+   This file contains specific styles for the explore page (5explore.html)
+   Focused on mobile responsiveness and professional appearance
+*/
+
+/* Base Styles */
+body.explore-page {
+    background: linear-gradient(135deg, #424867, #363b54);
+    color: white;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased; /* Smoother text rendering */
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* Top Section Header */
+.explore-page .top-section {
+    background: linear-gradient(135deg, #1E9CD7, #24C5F4);
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    width: 100%; /* Ensure full width */
+    box-sizing: border-box; /* Include padding in width calculation */
+    border-radius: 0; /* Remove any border radius */
+    margin: 0 0 30px 0; /* Remove side margins */
+    /* Ensure no curved corners */
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+}
+
+.explore-page .welcome-text {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Search section removed */
+
+/* Map Container */
+.explore-page .map-container {
+    width: 90%;
+    max-width: 1000px;
+    height: 400px;
+    margin: 0 auto 80px auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.explore-page .map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Points of Interest Section */
+.explore-page .points-section {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 25px 20px;
+    backdrop-filter: blur(10px);
+}
+
+.explore-page .section-title {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.explore-page .points-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.explore-page .point-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.explore-page .point-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.explore-page .point-image {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+}
+
+.explore-page .point-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.explore-page .point-card:hover .point-image img {
+    transform: scale(1.05);
+}
+
+.explore-page .point-content {
+    padding: 20px;
+}
+
+.explore-page .point-content h3 {
+    color: #424867;
+    font-size: 18px;
+    margin: 0 0 10px 0;
+}
+
+.explore-page .point-content p {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Directions Section */
+.explore-page .directions-section {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto 100px auto;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 25px 20px;
+    backdrop-filter: blur(10px);
+}
+
+.explore-page .directions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.explore-page .direction-item {
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    color: #424867;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.explore-page .direction-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.explore-page .direction-icon {
+    font-size: 24px;
+    color: #1E9CD7;
+    width: 40px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.explore-page .direction-content {
+    flex-grow: 1;
+}
+
+.explore-page .direction-content h4 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+}
+
+.explore-page .direction-content p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .explore-page .top-section {
+        padding: 25px 15px;
+        border-radius: 0 !important; /* Force override any border-radius */
+        -webkit-border-radius: 0 !important;
+        -moz-border-radius: 0 !important;
+    }
+    
+    .explore-page .welcome-text {
+        font-size: 28px;
+    }
+    
+    /* Search elements removed */
+    
+    .explore-page .map-container {
+        height: 350px;
+    }
+    
+    .explore-page .section-title {
+        font-size: 22px;
+    }
+    
+    .explore-page .points-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .explore-page .top-section {
+        padding: 20px 15px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+    
+    .explore-page .welcome-text {
+        font-size: 24px;
+    }
+    
+    /* Search elements removed */
+    
+    .explore-page .map-container {
+        height: 300px;
+        width: 92%;
+    }
+    
+    .explore-page .points-section, 
+    .explore-page .directions-section {
+        width: 92%;
+        padding: 20px 15px;
+    }
+    
+    .explore-page .section-title {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .explore-page .points-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .explore-page .point-image {
+        height: 140px;
+    }
+    
+    .explore-page .point-content {
+        padding: 15px;
+    }
+}

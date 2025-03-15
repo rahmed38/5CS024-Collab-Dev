@@ -1,0 +1,810 @@
+/* Animation for accordion */
+.accordion-btn.active::after {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+/* Add smooth scrolling for page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Dark mode optimization */
+@media (prefers-color-scheme: dark) {
+    .section-box, .wellbeing-content, .contact-form, .social-links a {
+        background: rgba(58, 63, 90, 0.9);
+    }
+    
+    .section-box:hover, .wellbeing-content:hover, .contact-form:hover, .social-links a:hover {
+        background: rgba(67, 73, 104, 0.95);
+    }
+    
+    /* Keep cards white even in dark mode, but slightly dimmed */
+    .card {
+        background: rgba(255, 255, 255, 0.9);
+    }
+    
+    .card:hover {
+        background: rgba(248, 248, 248, 0.95);
+    }
+}
+
+/* Print styles for better document printing */
+@media print {
+    body {
+        background: white;
+        color: black;
+        padding: 0;
+    }
+    
+    .top-section, .header {
+        background: none;
+        color: black;
+        box-shadow: none;
+        padding: 20px 0;
+        border-bottom: 2px solid #ccc;
+    }
+    
+    .section-box, .wellbeing-content, .card, .contact-form {
+        background: white;
+        border: 1px solid #ccc;
+        box-shadow: none;
+        color: black;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+    
+    .section-box p, .wellbeing-content p, .card p, .contact-info p {
+        color: black;
+    }
+    
+    .bottom-nav {
+        display: none;
+    }
+    
+    a {
+        color: #1E9CD7 !important;
+        text-decoration: underline !important;
+    }
+    
+    .section-box h2, .wellbeing-content h2, .section-title, .card h3 {
+        color: black;
+    }
+}
+
+/* 
+   VISITOR INFORMATION PAGES CSS - IMPROVED VERSION
+   This file contains enhanced styles for visitor information pages:
+   - visitwolvo.html
+   - amenities.html
+   - contact.html
+   - faq.html
+   
+   Features improved design, accessibility, and mobile responsiveness
+*/
+
+/* Base Styles */
+body {
+    background: linear-gradient(135deg, #424867, #363b54);
+    color: white;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0 0 100px 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* Enhanced Top Section & Header Styles */
+.top-section, .header {
+    background: linear-gradient(135deg, #1E9CD7, #24C5F4);
+    padding: 40px 25px;
+    text-align: center;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    margin: 0 0 35px 0;
+}
+
+/* Add subtle design element to header */
+.top-section:after, .header:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.4), rgba(255,255,255,0.1));
+}
+
+.welcome-text, .header h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+    margin: 0 0 10px 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    letter-spacing: -0.5px;
+}
+
+.header p {
+    font-size: 18px;
+    opacity: 0.9;
+    margin: 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Improved Section Boxes & Wellbeing Content */
+.section-box, .wellbeing-content {
+    background: rgba(66, 72, 103, 0.85);
+    border-radius: 20px;
+    padding: 35px 30px;
+    margin: 0 auto 35px auto;
+    max-width: 800px;
+    width: 90%;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 5px solid #24C5F4;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add subtle gradient overlay to sections */
+.section-box:before, .wellbeing-content:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0) 100%);
+    pointer-events: none;
+}
+
+/* Card gradient decoration - lighter for white cards */
+.card:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(36, 197, 244, 0.05), transparent 70%);
+    pointer-events: none;
+}
+
+.section-box:hover, .wellbeing-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* Enhanced Headings */
+.section-box h2, .wellbeing-content h2, .section-title {
+    color: white;
+    font-size: 26px;
+    margin-top: 0;
+    margin-bottom: 25px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+    position: relative;
+}
+
+/* Add accent line to headings */
+.section-box h2:after, .wellbeing-content h2:after, .section-title:after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 80px;
+    height: 2px;
+    background: #24C5F4;
+}
+
+.section-box h3, .wellbeing-content h3 {
+    color: white;
+    font-size: 22px;
+    margin: 28px 0 14px;
+    font-weight: 600;
+}
+
+/* Improved paragraph text */
+.section-box p, .wellbeing-content p, .contact-info p {
+    color: rgba(255, 255, 255, 0.92);
+    line-height: 1.7;
+    margin-bottom: 18px;
+    font-size: 16px;
+}
+
+/* Better Lists */
+.section-box ul, .wellbeing-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 22px 0;
+}
+
+.section-box ul li, .wellbeing-content ul li {
+    color: rgba(255, 255, 255, 0.92);
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    line-height: 1.5;
+    position: relative;
+    padding-left: 28px;
+}
+
+/* Add icon to list items */
+.section-box ul li:before, .wellbeing-content ul li:before {
+    content: "•";
+    position: absolute;
+    left: 8px;
+    top: 13px;
+    color: #24C5F4;
+    font-size: 20px;
+}
+
+.section-box ul li:last-child, .wellbeing-content ul li:last-child {
+    border-bottom: none;
+}
+
+/* Enhanced Card Container and Cards */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 30px auto;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-left: 5px solid #24C5F4;
+    position: relative;
+    overflow: hidden;
+    height: 100%; /* Ensure equal height cards */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Card hover effect */
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+    background: #f8f8f8;
+}
+
+.card h3 {
+    color: #333;
+    font-size: 22px;
+    margin-bottom: 18px;
+    margin-top: 0;
+    font-weight: 600;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.card p {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    flex-grow: 1; /* Allow text to expand */
+}
+
+.card a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #24C5F4, #1E9CD7);
+    border-radius: 30px;
+    margin-top: auto; /* Push button to bottom */
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    align-self: flex-start; /* Align button to left */
+}
+
+.card a:hover {
+    background: linear-gradient(135deg, #1E9CD7, #0E75B0);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Improved Contact Form */
+.contact-form-container {
+    padding: 20px;
+    max-width: 650px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.contact-form {
+    background: rgba(66, 72, 103, 0.85);
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+    margin-bottom: 40px;
+    border-left: 5px solid #24C5F4;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Form decoration */
+.contact-form:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0) 100%);
+    pointer-events: none;
+}
+
+.contact-form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.22);
+}
+
+.contact-form label {
+    display: block;
+    color: white;
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 22px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form textarea {
+    min-height: 160px;
+    resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 2px rgba(36, 197, 244, 0.25);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.contact-form button {
+    background: linear-gradient(135deg, #24C5F4, #1E9CD7);
+    color: white;
+    padding: 16px 30px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.contact-form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #1E9CD7, #0E75B0);
+}
+
+/* Enhanced Contact Info Section */
+.contact-info {
+    padding: 20px;
+    max-width: 650px;
+    margin: 0 auto 40px auto;
+    text-align: center;
+    width: 90%;
+}
+
+/* Better Social Links */
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(66, 72, 103, 0.85);
+    color: white;
+    padding: 16px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border-left: 4px solid #24C5F4;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Social link hover effect */
+.social-links a:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    background: rgba(74, 81, 118, 0.9);
+}
+
+/* Social link decoration */
+.social-links a:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(36, 197, 244, 0.1), transparent 70%);
+    pointer-events: none;
+}
+
+.social-links a i {
+    font-size: 22px;
+    color: #24C5F4;
+    min-width: 24px;
+    text-align: center;
+}
+
+/* Improved Instagram Section */
+.instagram-section {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    text-align: center;
+    width: 90%;
+}
+
+.instagram-container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 540px;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+    border: 4px solid rgba(66, 72, 103, 0.9);
+}
+
+.instagram-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Enhanced FAQ Accordion */
+.faq-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto 100px;
+    width: 90%;
+}
+
+.accordion-btn {
+    width: 100%;
+    padding: 18px 50px 18px 22px;
+    background: rgba(255, 255, 255, 0.08);
+    border: none;
+    border-radius: 12px;
+    text-align: left;
+    font-size: 16px;
+    color: white;
+    margin-bottom: 14px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.accordion-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+.accordion-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(36, 197, 244, 0.5), 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+.accordion-btn::after {
+    content: '+';
+    position: absolute;
+    right: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.accordion-content {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 22px;
+    margin-top: -8px;
+    margin-bottom: 20px;
+    border-radius: 0 0 12px 12px;
+    color: rgba(255, 255, 255, 0.92);
+    line-height: 1.7;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced Wellness & Health Page Specific */
+.wellbeing-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.links-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 18px;
+    padding: 0 20px;
+    max-width: 800px;
+    margin: 0 auto 100px;
+}
+
+.links-section a {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    padding: 18px 22px;
+    border-radius: 12px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Link decoration */
+.links-section a:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(36, 197, 244, 0.1), transparent 70%);
+    pointer-events: none;
+}
+
+.links-section a:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+    background: rgba(36, 197, 244, 0.15);
+}
+
+.links-section a i {
+    font-size: 22px;
+    color: #24C5F4;
+    min-width: 24px;
+    text-align: center;
+}
+
+/* Enhanced Section Title */
+.section-title {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    padding-bottom: 15px;
+    position: relative;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: #24C5F4;
+    border-radius: 2px;
+}
+
+/* Enhanced Responsive Adjustments */
+@media (max-width: 992px) {
+    .card-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .top-section, .header {
+        padding: 30px 20px;
+    }
+    
+    .welcome-text, .header h1 {
+        font-size: 30px;
+    }
+    
+    .header p {
+        font-size: 16px;
+    }
+    
+    .section-box, .wellbeing-content, .contact-form {
+        padding: 25px 22px;
+        width: 92%;
+    }
+    
+    .section-box h2, .wellbeing-content h2, .section-title {
+        font-size: 24px;
+    }
+    
+    .section-box h3, .wellbeing-content h3 {
+        font-size: 20px;
+    }
+    
+    .card-container {
+        grid-template-columns: 1fr;
+        width: 92%;
+    }
+    
+    .links-section {
+        grid-template-columns: 1fr;
+        width: 92%;
+    }
+    
+    .accordion-btn {
+        padding: 16px 45px 16px 18px;
+        font-size: 15px;
+    }
+    
+    .instagram-container {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        padding-bottom: 90px; /* Adjust for smaller nav bar */
+    }
+    
+    .top-section, .header {
+        padding: 25px 15px;
+        margin-bottom: 25px;
+    }
+    
+    .welcome-text, .header h1 {
+        font-size: 26px;
+    }
+    
+    .header p {
+        font-size: 15px;
+    }
+    
+    .section-box, .wellbeing-content, .contact-form {
+        padding: 22px 18px;
+        width: 94%;
+        margin-bottom: 25px;
+        border-radius: 16px;
+    }
+    
+    .section-box h2, .wellbeing-content h2, .section-title {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+    
+    .section-box h3, .wellbeing-content h3 {
+        font-size: 18px;
+        margin: 22px 0 12px;
+    }
+    
+    .section-box p, .wellbeing-content p, .contact-info p {
+        font-size: 15px;
+    }
+    
+    .accordion-btn {
+        padding: 15px 40px 15px 15px;
+        font-size: 15px;
+        border-radius: 10px;
+    }
+    
+    .accordion-content {
+        padding: 18px 15px;
+    }
+    
+    .accordion-btn::after {
+        right: 15px;
+        font-size: 20px;
+    }
+    
+    .social-links a {
+        padding: 14px 18px;
+    }
+    
+    .links-section {
+        padding: 0 15px;
+        gap: 14px;
+    }
+    
+    .links-section a {
+        padding: 14px 18px;
+    }
+    
+    .links-section a i {
+        font-size: 20px;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        padding: 14px;
+        font-size: 15px;
+    }
+    
+    .contact-form button {
+        padding: 14px 15px;
+        font-size: 15px;
+    }
+    
+    .section-title {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+    
+    .card {
+        padding: 22px 18px;
+    }
+    
+    .card h3 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .card p {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .card a {
+        padding: 10px 20px;
+        font-size: 14px;
+        width: 100%;
+        text-align: center;
+    }
+}

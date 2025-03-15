@@ -2,34 +2,113 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Explore Wolverhampton - University of Wolverhampton</title>
-    <!-- Sharefa 2403038: Added stylesheet link -->
-    <link rel="stylesheet" href="0style.css">
-    <!-- Sharefa 2403038: Added Font Awesome for icons used in navigation -->
+    <!-- Sharefa 2403038: Added stylesheet links -->
+    <link rel="stylesheet" href="explore-style.css">
+    <link rel="stylesheet" href="navigation.css">
+    <!-- Font Awesome for icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-   
 </head>
-<body>
-    <!-- Nadeem 2347788 Code starts -->
-    <body class="explore-page">
+
+<body class="explore-page">
+    <!-- Top section with header -->
     <div class="top-section">
-        <h1 class="welcome-text">Explore Wolverhampton</h1>
+        <h1 class="welcome-text">EXPLORE WOLVERHAMPTON</h1>
     </div>
 
+    <!-- Map container -->
     <div class="map-container">
-        <!-- Embed Google Map with your API key -->
+        <!-- Embed Google Map with API key -->
         <iframe src="https://www.google.com/maps/embed/v1/place?q=University+of+Wolverhampton&key=AIzaSyDhnr6rppSFTCLX4paqzCkkCjgOOmHk3Aw" 
                 allowfullscreen="" loading="lazy"></iframe>
     </div>
 
+    <!-- Points of Interest section -->
+    <div class="points-section">
+        <h2 class="section-title">Campus Points of Interest</h2>
+        <div class="points-grid">
+            <!-- Point of Interest 1 -->
+            <div class="point-card">
+                <div class="point-image">
+                    <img src="assets/images/maincampus.png" alt="City Campus">
+                </div>
+                <div class="point-content">
+                    <h3>Main Building</h3>
+                    <p>Home to administrative offices and central facilities for students.</p>
+                </div>
+            </div>
+
+            <!-- Point of Interest 2 -->
+            <div class="point-card">
+                <div class="point-image">
+                    <img src="assets/images/library.png" alt="Library">
+                </div>
+                <div class="point-content">
+                    <h3>University Library</h3>
+                    <p>Modern library with extensive resources and study spaces.</p>
+                </div>
+            </div>
+
+            <!-- Point of Interest 3 -->
+            <div class="point-card">
+                <div class="point-image">
+                    <img src="assets/images/studentunion.png" alt="Springfield Building">
+                </div>
+                <div class="point-content">
+                    <h3>Student Union</h3>
+                    <p>Center for student activities, events, and support services.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Directions section -->
+    <div class="directions-section">
+        <h2 class="section-title">Getting to Campus</h2>
+        <div class="directions-container">
+            <!-- Direction 1 -->
+            <div class="direction-item">
+                <div class="direction-icon">
+                    <i class="fas fa-bus"></i>
+                </div>
+                <div class="direction-content">
+                    <h4>By Bus</h4>
+                    <p>Routes 1, 2, and 3 stop directly outside the campus.</p>
+                </div>
+            </div>
+
+            <!-- Direction 2 -->
+            <div class="direction-item">
+                <div class="direction-icon">
+                    <i class="fas fa-train"></i>
+                </div>
+                <div class="direction-content">
+                    <h4>By Train</h4>
+                    <p>Wolverhampton Station is a 10-minute walk from the campus.</p>
+                </div>
+            </div>
+
+            <!-- Direction 3 -->
+            <div class="direction-item">
+                <div class="direction-icon">
+                    <i class="fas fa-car"></i>
+                </div>
+                <div class="direction-content">
+                    <h4>By Car</h4>
+                    <p>Parking available at City Campus Car Park (postcode WV1 1LY).</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bottom Navigation -->
     <nav class="bottom-nav">
-        <a href="4homepage.html" class="nav-item active">
+        <a href="4homepage.html" class="nav-item">
             <i class="fas fa-home"></i>
             <span>Home</span>
         </a>
-        <a href="5explore.html" class="nav-item">
+        <a href="5explore.html" class="nav-item active">
             <i class="fas fa-search"></i>
             <span>Explore</span>
         </a>
@@ -81,7 +160,7 @@
             }
         }
         
-        // Initialize everything when the page loads
+        // Initialise everything when the page loads
         window.onload = function() {
             // Handle colors (preserving existing functionality)
             const savedBgColor = localStorage.getItem('bgColor');
@@ -105,7 +184,63 @@
             // Update navigation links
             updateNavigationLinks();
         }
-        </script>
-<!-- Nadeem 2347788 Code ends -->
+        
+            // Profile Icon Color Management
+            const profileIcon = document.querySelector('.profile-icon');
+            const savedColor = localStorage.getItem('profileIconColor');
+
+            // Apply saved profile icon color gradient if it exists
+            if (savedColor) {
+            switch(savedColor) {
+                case '#24C5F4':
+                    profileIcon.style.background = 'linear-gradient(135deg, #24C5F4, #1E9CD7)';
+                    break;
+                case '#FF69B4':
+                    profileIcon.style.background = 'linear-gradient(135deg, #FF69B4, #FF4081)';
+                    break;
+                case '#FFD700':
+                    profileIcon.style.background = 'linear-gradient(135deg, #FFD700, #FFA500)';
+                    break;
+                case '#A2D460':
+                    profileIcon.style.background = 'linear-gradient(135deg, #A2D460, #7CB342)';
+                    break;
+            }
+        }
+        
+        // Sharefa 2403038: Added function to highlight the active navigation item based on current page
+        function setActiveNavItem() {
+        // Get current page filename from URL
+        const currentPath = window.location.pathname;
+        const filename = currentPath.split('/').pop();
+        
+        // Remove active class from all nav items
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.classList.remove('active');
+        });
+        
+        // Apply active class based on current filename
+        if (filename.includes('homepage') || filename === '' || filename === 'index.html') {
+            document.querySelector('.nav-item[href*="homepage"]').classList.add('active');
+        } else if (filename.includes('explore')) {
+            document.querySelector('.nav-item[href*="explore"]').classList.add('active');
+        } else if (filename.includes('saved')) {
+            document.querySelector('.nav-item[href*="saved"]').classList.add('active');
+        } else if (filename.includes('profile')) {
+            document.querySelector('.nav-item[href*="profile"]').classList.add('active');
+        } else if (filename.includes('arts') || filename.includes('business') || 
+                  filename.includes('education') || filename.includes('health') || 
+                  filename.includes('science') || filename.includes('social') ||
+                  filename.includes('tour') || filename.includes('contact') ||
+                  filename.includes('faq') || filename.includes('visitwolvo') ||
+                  filename.includes('amenities')) {
+            // For content pages, keep Home as active
+            document.querySelector('.nav-item[href*="homepage"]').classList.add('active');
+        }
+    }
+    
+        // Call the function when page loads
+        document.addEventListener('DOMContentLoaded', setActiveNavItem);
+    </script>
+        
 </body>
 </html>

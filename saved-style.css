@@ -1,0 +1,252 @@
+/* 
+   SAVED SUBJECTS PAGE CSS
+   This file contains specific styles for the saved subjects page (6saved.html)
+   Excluding navigation which is handled by navigation.css
+*/
+
+/* Base Styles */
+body {
+    background: linear-gradient(135deg, #424867, #363b54);
+    color: white;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Top section with header */
+.top-section {
+    background: linear-gradient(135deg, #1E9CD7, #24C5F4);
+    padding: 30px 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.saved-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Saved cards container */
+.saved-card-container {
+    padding: 10px 20px 100px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Individual saved subject card styling */
+.saved-card {
+    background: white;
+    padding: 25px 30px;
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    color: #424867;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border-left: 5px solid #24C5F4;
+}
+
+.saved-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+}
+
+.saved-card h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 22px;
+    color: #333;
+    font-weight: 700;
+}
+
+.saved-card p {
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+/* Card action buttons container */
+.card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+/* Learn More link styling */
+.saved-card a {
+    display: inline-block;
+    color: #24C5F4;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(36, 197, 244, 0.1);
+    font-size: 14px;
+}
+
+.saved-card a:hover {
+    color: #1E9CD7;
+    background: rgba(36, 197, 244, 0.2);
+}
+
+/* Remove button styling */
+.remove-btn {
+    background: transparent;
+    color: #FF4081;
+    border: 2px solid #FF4081;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+}
+
+.remove-btn:hover {
+    background: #FF4081;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 64, 129, 0.3);
+}
+
+.remove-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(255, 64, 129, 0.3);
+}
+
+/* No saved items message */
+.no-saved-message {
+    text-align: center;
+    padding: 60px 20px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 18px;
+    max-width: 500px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    line-height: 1.6;
+}
+
+/* Subject category indicators */
+.saved-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background: #F5F5F5;
+    transform: rotate(45deg) translate(15px, -30px);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Category-specific styling */
+.saved-card.arts {
+    border-left-color: #FF6B6B;
+}
+
+.saved-card.business {
+    border-left-color: #FFC107;
+}
+
+.saved-card.education {
+    border-left-color: #4CAF50;
+}
+
+.saved-card.health {
+    border-left-color: #2196F3;
+}
+
+.saved-card.science {
+    border-left-color: #9C27B0;
+}
+
+.saved-card.social {
+    border-left-color: #FF5722;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .saved-card-container {
+        padding: 10px 15px 100px 15px;
+    }
+    
+    .saved-card {
+        padding: 20px 25px;
+    }
+    
+    .saved-card h3 {
+        font-size: 20px;
+    }
+    
+    .saved-title {
+        font-size: 28px;
+    }
+    
+    .top-section {
+        padding: 25px 15px;
+    }
+    
+    .no-saved-message {
+        padding: 40px 15px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    
+    .saved-card a, 
+    .remove-btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 0;
+    }
+    
+    .saved-card {
+        padding: 18px 20px;
+    }
+    
+    .saved-card h3 {
+        font-size: 18px;
+    }
+    
+    .saved-card p {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+    
+    .saved-title {
+        font-size: 24px;
+    }
+    
+    .top-section {
+        padding: 20px 15px;
+    }
+    
+    .no-saved-message {
+        font-size: 15px;
+        padding: 30px 15px;
+    }
+}
