@@ -14,11 +14,11 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     box-sizing: border-box;
-    -webkit-font-smoothing: antialiased; /* Smoother text rendering */
+    -webkit-font-smoothing: antialiased; 
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-    -webkit-text-size-adjust: 100%; /* Prevent automatic text resizing */
-    touch-action: manipulation; /* Improve responsiveness on touch devices */
+    overflow-x: hidden; 
+    -webkit-text-size-adjust: 100%; 
+    touch-action: manipulation; 
 }
 
 *, *:before, *:after {
@@ -30,7 +30,7 @@ body {
     padding: 20px;
     max-width: 800px;
     margin: 0 auto;
-    padding-bottom: 100px; /* Space for bottom navigation */
+    padding-bottom: 100px; 
 }
 
 /* Profile Header */
@@ -83,7 +83,7 @@ body {
     font-size: 14px;
 }
 
-/* Settings Sections - Improved Look */
+/* Settings Sections */
 .settings-section {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
@@ -112,7 +112,7 @@ body {
 
 .settings-link i {
     margin-right: 15px;
-    min-width: 20px; /* Ensure fixed width for icon */
+    min-width: 20px; 
     text-align: center;
     font-size: 18px;
 }
@@ -156,7 +156,7 @@ body.larger-text {
     font-size: 24px;
 }
 
-/* Logout Button - Improved Look */
+/* Logout Button */
 .logout-button {
     background: linear-gradient(to right, #FF4081, #FF1A55);
     color: white;
@@ -186,7 +186,7 @@ body.larger-text {
     box-shadow: 0 5px 15px rgba(255, 64, 129, 0.4);
 }
 
-/* Section Title - Improved */
+/* Section Title */
 .section-title {
     color: white;
     font-size: 24px;
@@ -197,7 +197,7 @@ body.larger-text {
     text-align: center;
 }
 
-/* Edit Profile Page - Improved Spacing */
+/* Edit Profile Page */
 .page-container {
     min-height: 100vh;
     padding: 20px 20px 100px 20px;
@@ -323,7 +323,7 @@ body.larger-text {
 @media (max-width: 480px) {
     .color-picker {
         grid-template-columns: repeat(2, 1fr);
-        gap: 15px 25px; /* More horizontal space between columns */
+        gap: 15px 25px; 
         max-width: 280px;
         padding: 5px;
     }
