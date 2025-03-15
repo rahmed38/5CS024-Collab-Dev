@@ -18,14 +18,14 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     box-sizing: border-box;
-    -webkit-font-smoothing: antialiased; /* Smoother text rendering */
+    -webkit-font-smoothing: antialiased; 
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-x: hidden; 
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    flex-direction: column; /* Stack elements vertically */
-    padding-bottom: 80px; /* Space for bottom navigation */
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column; 
+    padding-bottom: 80px; 
 }
 
 *, *:before, *:after {
@@ -43,9 +43,9 @@ body {
     backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center all flex children horizontally */
-    position: relative; /* For absolute positioning context */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Add subtle shadow */
+    align-items: center; 
+    position: relative; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .container h2 {
@@ -71,20 +71,27 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%; /* Ensure full width within the container */
-    max-width: 90%; /* Limit width to create some margin */
+    width: 100%; 
+    max-width: 90%; 
     margin-bottom: 10px;
 }
 
 /* Heart icon style */
 .heart-icon {
-    font-size: 30px;
-    color: #ccc;
     cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 24px;
+    color: #ccc;
 }
 
 .heart-icon.hearted {
-    color: #FF69B4; /* Heart-filled color */
+    color: #FF4081;
+    font-weight: 900;
+}
+
+.heart-icon.hearted:before {
+    content: "\f004";
+    font-family: "Font Awesome 6 Free";
 }
 
 /* Course list */
@@ -93,7 +100,7 @@ body {
     padding: 0;
     margin: 0;
     width: 100%;
-    max-width: 90%; /* Match subject header width */
+    max-width: 90%; 
 }
 
 .course-item {
@@ -116,9 +123,9 @@ body {
 
 .course-label {
     display: flex;
-    justify-content: center; /* Center the text horizontally */
-    align-items: center; /* Center the text vertically */
-    padding: 20px 40px 20px 20px; /* Extra padding on right for the arrow */
+    justify-content: center; 
+    align-items: center; 
+    padding: 20px 40px 20px 20px; 
     color: white;
     font-size: 20px;
     font-weight: 600;
@@ -148,7 +155,7 @@ body {
     overflow: hidden;
     transition: max-height 0.3s ease, opacity 0.3s ease;
     opacity: 0;
-    will-change: max-height, opacity; /* Optimize for animations */
+    will-change: max-height, opacity; 
 }
 
 .course-toggle:checked ~ .course-content {
@@ -163,7 +170,7 @@ body {
     line-height: 1.6;
     margin: 0;
     border-top: 1px solid #eee;
-    text-align: center; /* Center the course description text */
+    text-align: center; 
 }
 
 /* Subject-specific colorings */
@@ -195,41 +202,41 @@ body {
 @media (max-width: 768px) {
     .container {
         padding: 25px 15px 80px 15px;
-        margin: 0 auto; /* Center container */
-        width: 90%; /* Set width for better control */
+        margin: 0 auto; 
+        width: 90%; 
     }
     
     .subject-header,
     .course-list {
-        max-width: 95%; /* Slightly wider on mobile */
+        max-width: 95%; 
     }
     
     .container h2 {
         font-size: 28px;
         margin-bottom: 15px;
-        text-align: center; /* Ensure centered text */
+        text-align: center; 
     }
     
     .container > p {
         font-size: 16px;
         margin-bottom: 25px;
         padding: 0 5px;
-        text-align: center; /* Ensure centered text */
+        text-align: center; 
     }
     
     .course-label {
         font-size: 18px;
-        padding: 15px 40px 15px 15px; /* Adjusted padding for the dropdown icon */
-        min-height: 55px; /* Ensure adequate touch target height */
+        padding: 15px 40px 15px 15px; 
+        min-height: 55px; 
         display: flex;
         align-items: center;
-        justify-content: center; /* Center text */
+        justify-content: center; 
     }
     
     .course-description {
         padding: 15px;
         font-size: 15px;
-        text-align: center; /* Ensure centered text */
+        text-align: center; 
     }
 }
     
@@ -238,12 +245,12 @@ body {
         padding: 20px 10px 70px 10px;
         margin: 0 auto;
         width: 95%;
-        border-radius: 15px; /* Slightly smaller radius for small screens */
+        border-radius: 15px; 
     }
     
     .subject-header,
     .course-list {
-        max-width: 98%; /* Almost full width on smallest screens */
+        max-width: 98%; 
     }
     
     .container h2 {
@@ -265,8 +272,8 @@ body {
     
     .course-label {
         font-size: 16px;
-        padding: 16px 40px 16px 16px; /* More padding on right for the dropdown icon */
-        min-height: 60px; /* Even larger touch target for smaller screens */
+        padding: 16px 40px 16px 16px; 
+        min-height: 60px; 
         text-align: center;
     }
     
@@ -283,7 +290,7 @@ body {
     
     .heart-icon {
         font-size: 26px;
-        padding: 12px; /* Even larger touch target */
+        padding: 12px; 
         margin: -12px;
     }
 }
