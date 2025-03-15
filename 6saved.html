@@ -188,30 +188,33 @@
                 }
             }
             
-            // Initialise everything when the page loads
-            window.onload = function() {
-                // Handle colors (preserving existing functionality)
-                const savedBgColor = localStorage.getItem('bgColor');
-                const savedTextColor = localStorage.getItem('textColor');
-                const savedBtnColor = localStorage.getItem('btnColor');
-            
-                if (savedBgColor) {
-                    document.body.style.backgroundColor = savedBgColor;
-                }
-                if (savedTextColor) {
-                    document.body.style.color = savedTextColor;
-                }
-                if (savedBtnColor) {
-                    const buttons = document.querySelectorAll('.nav-button, .nav-item');
-                    buttons.forEach(button => button.style.backgroundColor = savedBtnColor);
-                }
-            
-                // Handle user name
-                handleUserName();
-                
-                // Update navigation links
-                updateNavigationLinks();
-            }
+// Initialise everything when the page loads
+window.onload = function() {
+    // First, load saved subjects
+    loadSavedSubjects();
+
+    // Handle colors (preserving existing functionality)
+    const savedBgColor = localStorage.getItem('bgColor');
+    const savedTextColor = localStorage.getItem('textColor');
+    const savedBtnColor = localStorage.getItem('btnColor');
+
+    if (savedBgColor) {
+        document.body.style.backgroundColor = savedBgColor;
+    }
+    if (savedTextColor) {
+        document.body.style.color = savedTextColor;
+    }
+    if (savedBtnColor) {
+        const buttons = document.querySelectorAll('.nav-button, .nav-item');
+        buttons.forEach(button => button.style.backgroundColor = savedBtnColor);
+    }
+
+    // Handle user name
+    handleUserName();
+    
+    // Update navigation links
+    updateNavigationLinks();
+}
             
                 // Profile Icon Color Management
                 const profileIcon = document.querySelector('.profile-icon');
