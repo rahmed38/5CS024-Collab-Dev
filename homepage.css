@@ -25,7 +25,7 @@ body.homepage {
     background: linear-gradient(135deg, #424867, #363b54);
 }
 
-/* Top section with header and search */
+/* Top section with header */
 .top-section {
     background: linear-gradient(135deg, #1E9CD7, #24C5F4);  
     padding: 15px 35px 5px 35px;                         
