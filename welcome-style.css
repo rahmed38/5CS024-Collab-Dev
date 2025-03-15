@@ -24,9 +24,6 @@ body {
     box-sizing: inherit;
 }
 
-/* Meta viewport tag should be added to HTML head:
-   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> */
-
 /* Welcome Page Container */
 .welcome-container {
     width: 90%;
@@ -105,8 +102,8 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     min-width: 200px;
     text-align: center;
-    -webkit-tap-highlight-color: transparent; /* Removes tap highlight on mobile */
-    touch-action: manipulation; /* Improves touch responsiveness */
+    -webkit-tap-highlight-color: transparent; 
+    touch-action: manipulation;
 }
 
 .start-button:hover, .button:hover {
@@ -166,7 +163,7 @@ input {
     margin-bottom: 16px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.2s ease;
-    -webkit-appearance: none; /* Removes default styling on iOS */
+    -webkit-appearance: none; 
     appearance: none;
 }
 
