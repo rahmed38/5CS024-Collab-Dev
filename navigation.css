@@ -1,7 +1,7 @@
 /* 
    BOTTOM NAVIGATION STYLES
-   This file contains standardized styles for the bottom navigation bar 
-   used across all pages of the University of Wolverhampton Open Day app
+   This file contains standardised style for the bottom navigation bar 
+   used across all pages of the app
 */
 
 /* Bottom Navigation */
@@ -33,8 +33,8 @@
     padding: 5px 8px;
     border-radius: 12px;
     width: 60px;
-    -webkit-tap-highlight-color: transparent; /* Remove touch highlight */
-    touch-action: manipulation; /* Better touch responsiveness */
+    -webkit-tap-highlight-color: transparent; 
+    touch-action: manipulation; 
 }
 
 .nav-item.active {
