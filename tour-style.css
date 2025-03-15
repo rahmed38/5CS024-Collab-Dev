@@ -16,14 +16,14 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     box-sizing: border-box;
-    -webkit-font-smoothing: antialiased; /* Smoother text rendering */
+    -webkit-font-smoothing: antialiased; 
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-x: hidden; 
     display: flex;
-    justify-content: flex-start; /* Align to top */
-    align-items: center; /* Center horizontally */
-    flex-direction: column; /* Stack elements vertically */
-    padding-bottom: 100px; /* Space for bottom navigation */
+    justify-content: flex-start; 
+    align-items: center; 
+    flex-direction: column; 
+    padding-bottom: 100px; 
 }
 
 *, *:before, *:after {
@@ -57,9 +57,9 @@ header h1 {
     backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center all flex children horizontally */
-    position: relative; /* For absolute positioning context */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Add subtle shadow */
+    align-items: center; 
+    position: relative; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); 
 }
 
 /* Tour Section Styles */
@@ -203,8 +203,8 @@ header h1 {
 
 /* Touch-friendly improvements */
 .tour-label {
-    -webkit-tap-highlight-color: transparent; /* Remove touch highlight */
-    touch-action: manipulation; /* Better touch responsiveness */
+    -webkit-tap-highlight-color: transparent; 
+    touch-action: manipulation; 
 }
 
 /* Responsive Adjustments */
@@ -306,6 +306,6 @@ header h1 {
 
 /* Touch-friendly improvements */
 .tour-label {
-    -webkit-tap-highlight-color: transparent; /* Remove touch highlight */
-    touch-action: manipulation; /* Better touch responsiveness */
+    -webkit-tap-highlight-color: transparent; 
+    touch-action: manipulation; 
 }
