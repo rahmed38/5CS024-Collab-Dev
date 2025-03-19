@@ -1,74 +1,82 @@
 /* 
    PROFILE PAGE STYLES
    This file contains specific styles for:
-   - 7profile.html
-   - 8editprofile.html
+   - 7profile.html (Main profile page)
+   - 8editprofile.html (Profile customisation page)
 */
 
-/* Base Styles */
+/* ===== BASIC SETUP ===== */
+/* Base body styles */
 body {
-    background: linear-gradient(135deg, #424867, #363b54);
+    background: linear-gradient(135deg, #424867, #363b54); /* Dark blue gradient background */
     color: white;
-    min-height: 100vh;
+    min-height: 100vh; /* Ensures content fills at least the full screen height */
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     box-sizing: border-box;
-    -webkit-font-smoothing: antialiased; 
+    -webkit-font-smoothing: antialiased; /* Makes text appear smoother on screens */
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden; 
-    -webkit-text-size-adjust: 100%; 
-    touch-action: manipulation; 
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+    -webkit-text-size-adjust: 100%; /* Prevents automatic text resizing */
+    touch-action: manipulation; /* Improves responsiveness on touch devices */
 }
 
+/* Makes sure padding doesn't increase element size */
 *, *:before, *:after {
     box-sizing: inherit;
 }
 
-/* Profile Container */
+/* ===== PROFILE CONTAINER ===== */
+/* Main container for profile content */
 .settings-container {
     padding: 20px;
     max-width: 800px;
-    margin: 0 auto;
-    padding-bottom: 100px; 
+    margin: 0 auto; /* Centres the container */
+    padding-bottom: 100px; /* Space for bottom navigation */
 }
 
-/* Profile Header */
+/* ===== PROFILE HEADER ===== */
+/* Container for profile photo and name */
 .profile-header {
     text-align: center;
     margin-bottom: 30px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
     border-radius: 20px;
     padding: 30px 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Adds shadow for depth */
 }
 
-/* Profile Image */
+/* ===== PROFILE IMAGE ===== */
+/* Circular profile image container */
 .profile-image {
     width: 120px;
     height: 120px;
-    background: linear-gradient(135deg, #24C5F4, #1E9CD7);
-    border-radius: 50%;
+    background: linear-gradient(135deg, #24C5F4, #1E9CD7); /* Blue gradient */
+    border-radius: 50%; /* Creates a circle */
     margin: 0 auto 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 8px 24px rgba(36, 197, 244, 0.3);
-    border: 4px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(36, 197, 244, 0.3); /* Blue shadow */
+    border: 4px solid rgba(255, 255, 255, 0.2); /* Semi-transparent white border */
+    transition: all 0.3s ease; /* Smooth animations */
 }
 
+/* Hover effect for profile image */
 .profile-image:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 32px rgba(36, 197, 244, 0.4);
+    transform: scale(1.05); /* Slightly enlarges on hover */
+    box-shadow: 0 12px 32px rgba(36, 197, 244, 0.4); /* Stronger shadow on hover */
 }
 
+/* User icon within profile image */
 .profile-image i {
     font-size: 48px;
     color: white;
 }
 
-/* Profile Name & Tags */
+/* ===== PROFILE NAME & TAGS ===== */
+/* User's name display */
 .profile-name {
     font-size: 32px;
     font-weight: bold;
@@ -77,23 +85,26 @@ body {
     letter-spacing: -0.5px;
 }
 
+/* "Visitor" tag below name */
 .visitor-tag {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.7); /* Slightly transparent white */
     margin-top: 5px;
     font-size: 14px;
 }
 
-/* Settings Sections */
+/* ===== SETTINGS SECTIONS ===== */
+/* Individual settings section container */
 .settings-section {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     padding: 20px;
     margin-bottom: 20px;
-    border-left: 5px solid #24C5F4;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-left: 5px solid #24C5F4; /* Blue accent on left side */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Shadow for depth */
 }
 
-/* Settings Links */
+/* ===== SETTINGS LINKS ===== */
+/* Navigation links within settings */
 .settings-link {
     display: flex;
     align-items: center;
@@ -102,22 +113,25 @@ body {
     text-decoration: none;
     border-radius: 10px;
     margin-bottom: 10px;
-    transition: background-color 0.3s ease;
-    background: rgba(255, 255, 255, 0.05);
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+    background: rgba(255, 255, 255, 0.05); /* Very light background */
 }
 
+/* Hover effect for settings links */
 .settings-link:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.15); /* Brighter background on hover */
 }
 
+/* Icons within settings links */
 .settings-link i {
     margin-right: 15px;
-    min-width: 20px; 
+    min-width: 20px; /* Ensure fixed width for icon alignment */
     text-align: center;
     font-size: 18px;
 }
 
-/* Text Size Controls */
+/* ===== TEXT SIZE CONTROLS ===== */
+/* Container for text size buttons */
 .text-size-controls {
     display: flex;
     gap: 10px;
@@ -125,6 +139,7 @@ body {
     justify-content: center;
 }
 
+/* Individual text size button */
 .text-size-btn {
     padding: 8px 15px;
     border: none;
@@ -135,15 +150,18 @@ body {
     transition: background-color 0.3s ease;
 }
 
+/* Hover effect for text size buttons */
 .text-size-btn:hover {
     background: rgba(255, 255, 255, 0.2);
 }
 
+/* Active/selected text size button */
 .text-size-btn.active {
-    background: #FF69B4;
+    background: #FF69B4; /* Pink highlight for active button */
 }
 
-/* Text Size Classes */
+/* ===== TEXT SIZE CLASSES ===== */
+/* These classes are applied to the body to change text size */
 body.normal-text {
     font-size: 16px;
 }
@@ -156,9 +174,10 @@ body.larger-text {
     font-size: 24px;
 }
 
-/* Logout Button */
+/* ===== LOGOUT BUTTON ===== */
+/* Logout button styling */
 .logout-button {
-    background: linear-gradient(to right, #FF4081, #FF1A55);
+    background: linear-gradient(to right, #FF4081, #FF1A55); /* Pink gradient */
     color: white;
     border: none;
     padding: 15px;
@@ -166,56 +185,62 @@ body.larger-text {
     width: 100%;
     font-size: 16px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; /* Smooth animations */
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 10px rgba(255, 64, 129, 0.3);
+    box-shadow: 0 4px 10px rgba(255, 64, 129, 0.3); /* Pink shadow */
     max-width: 300px;
     margin: 0 auto;
     font-weight: bold;
 }
 
+/* Icon within logout button */
 .logout-button i {
     margin-right: 10px;
     font-size: 18px;
 }
 
+/* Hover effect for logout button */
 .logout-button:hover {
-    background: linear-gradient(to right, #FF1A55, #FF4081);
-    box-shadow: 0 5px 15px rgba(255, 64, 129, 0.4);
+    background: linear-gradient(to right, #FF1A55, #FF4081); /* Reversed gradient on hover */
+    box-shadow: 0 5px 15px rgba(255, 64, 129, 0.4); /* Stronger shadow on hover */
 }
 
-/* Section Title */
+/* ===== SECTION TITLES ===== */
+/* Headings for sections */
 .section-title {
     color: white;
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 15px;
     padding-bottom: 10px;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1); /* Light bottom border */
     text-align: center;
 }
 
-/* Edit Profile Page */
+/* ===== EDIT PROFILE PAGE ===== */
+/* Main container for edit profile page */
 .page-container {
     min-height: 100vh;
-    padding: 20px 20px 100px 20px;
+    padding: 20px 20px 100px 20px; /* Extra space at bottom for navigation */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+/* Edit profile section container */
 .edit-profile-section {
     width: 100%;
     max-width: 500px;
     padding: 25px 20px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px); /* Frosted glass effect on supported browsers */
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
+/* Edit profile page title */
 .edit-title {
     font-size: 28px;
     font-weight: bold;
@@ -224,37 +249,22 @@ body.larger-text {
     color: white;
 }
 
+/* Subtitle below main title */
 .edit-subtitle {
     font-size: 15px;
     text-align: center;
     margin-bottom: 20px;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
 }
 
+/* Container for profile preview */
 .profile-preview {
     margin: 0 auto 25px;
     text-align: center;
 }
 
-.profile-image {
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(135deg, #24C5F4, #1E9CD7);
-    border-radius: 50%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 6px 16px rgba(36, 197, 244, 0.3);
-    border: 3px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
-}
-
-.profile-image i {
-    font-size: 42px;
-    color: white;
-}
-
+/* ===== THEME OPTIONS ===== */
+/* Container for colour theme options */
 .theme-options {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 16px;
@@ -262,15 +272,17 @@ body.larger-text {
     margin-bottom: 20px;
 }
 
+/* Colour picker grid layout */
 .color-picker {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* Two colours per row */
     gap: 24px;
     max-width: 300px;
     margin: 0 auto;
     padding: 10px;
 }
 
+/* Individual colour option container */
 .color-option {
     display: flex;
     flex-direction: column;
@@ -278,10 +290,12 @@ body.larger-text {
     gap: 8px;
 }
 
+/* Hide the actual radio button */
 .color-option input[type="radio"] {
     display: none;
 }
 
+/* Custom radio button style (colour circle) */
 .color-option label {
     width: 60px;
     height: 60px;
@@ -295,22 +309,26 @@ body.larger-text {
     border: 2px solid transparent;
 }
 
+/* Selected colour indicator */
 .color-option input[type="radio"]:checked + label {
-    transform: scale(1.1);
-    border-color: white;
+    transform: scale(1.1); /* Slightly enlarges the selected colour */
+    border-color: white; /* White border for the selected colour */
 }
 
+/* Checkmark icon inside the colour circle */
 .color-option label i {
     color: white;
-    opacity: 0;
+    opacity: 0; /* Hidden by default */
     transition: opacity 0.3s ease;
     font-size: 22px;
 }
 
+/* Show checkmark when colour is selected */
 .color-option input[type="radio"]:checked + label i {
     opacity: 1;
 }
 
+/* Text label below colour circle */
 .color-label {
     color: rgba(255, 255, 255, 0.9);
     font-size: 14px;
@@ -319,11 +337,12 @@ body.larger-text {
     margin-top: 5px;
 }
 
-/* Mobile-specific adjustments */
+/* ===== MOBILE ADJUSTMENTS ===== */
+/* Specific adjustments for mobile phones */
 @media (max-width: 480px) {
     .color-picker {
         grid-template-columns: repeat(2, 1fr);
-        gap: 15px 25px; 
+        gap: 15px 25px; /* More horizontal space between columns */
         max-width: 280px;
         padding: 5px;
     }
@@ -338,7 +357,7 @@ body.larger-text {
     }
 }
 
-/* Extra small screens */
+/* Adjustments for very small screens */
 @media (max-width: 350px) {
     .color-picker {
         grid-template-columns: repeat(2, 1fr);
@@ -352,7 +371,8 @@ body.larger-text {
     }
 }
 
-
+/* ===== BACK BUTTON ===== */
+/* Back button to return to profile */
 .back-button {
     width: 100%;
     padding: 14px 20px;
@@ -366,45 +386,51 @@ body.larger-text {
     justify-content: center;
     gap: 10px;
     transition: all 0.3s ease;
-    background: linear-gradient(135deg, #FF69B4, #FF4081);
+    background: linear-gradient(135deg, #FF69B4, #FF4081); /* Pink gradient */
     color: white;
     text-decoration: none;
     box-shadow: 0 4px 10px rgba(255, 105, 180, 0.2);
     margin: 15px 0 0 0;
 }
 
+/* Hover effect for back button */
 .back-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
+/* ===== NOTIFICATION POPUP ===== */
+/* Success notification for saving changes */
 .notification {
     position: fixed;
     top: 20px;
     right: 20px;
     padding: 12px 20px;
     border-radius: 10px;
-    background: #4CAF50;
+    background: #4CAF50; /* Green background for success */
     color: white;
     display: flex;
     align-items: center;
     gap: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transform: translateX(200%);
+    transform: translateX(200%); /* Hidden by default, off-screen to the right */
     transition: transform 0.3s ease-out;
     z-index: 1000;
     font-size: 14px;
 }
 
+/* Class added when notification should be visible */
 .notification.show {
     transform: translateX(0);
 }
 
+/* Icon inside notification popup */
 .notification i {
     font-size: 16px;
 }
 
-/* Responsive adjustments */
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+/* Adjustments for mobile phones */
 @media (max-width: 480px) {
     .page-container {
         padding: 15px 10px 80px 10px;
