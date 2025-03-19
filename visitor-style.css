@@ -1,47 +1,120 @@
 /* 
-   VISITOR INFORMATION PAGES CSS - IMPROVED VERSION
-   This file contains enhanced styles for visitor information pages:
-   - visitwolvo.html
-   - amenities.html
-   - contact.html
-   - faq.html
-   
+   VISITOR INFORMATION PAGES CSS
+   This file contains styles for visitor information pages:
+   - visitwolvo.html (City information)
+   - amenities.html (Campus facilities)
+   - contact.html (Contact information)
+   - faq.html (Frequently asked questions)
 */
 
-/* Base Styles */
-body {
-    background: linear-gradient(135deg, #424867, #363b54);
-    color: white;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0 0 100px 0;
-    font-family: Arial, sans-serif;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    line-height: 1.6;
-    overflow-x: hidden; 
+/* ===== SMOOTH SCROLLING ===== */
+/* Enables smooth scrolling between sections */
+html {
+    scroll-behavior: smooth;
 }
 
+/* ===== DARK MODE COMPATIBILITY ===== */
+/* Adjusts colours if user's device is in dark mode */
+@media (prefers-color-scheme: dark) {
+    .section-box, .wellbeing-content, .contact-form, .social-links a {
+        background: rgba(58, 63, 90, 0.9);
+    }
+    
+    .section-box:hover, .wellbeing-content:hover, .contact-form:hover, .social-links a:hover {
+        background: rgba(67, 73, 104, 0.95);
+    }
+    
+    /* Keep cards white even in dark mode, but slightly dimmed */
+    .card {
+        background: rgba(255, 255, 255, 0.9);
+    }
+    
+    .card:hover {
+        background: rgba(248, 248, 248, 0.95);
+    }
+}
+
+/* ===== PRINT STYLES ===== */
+/* Special styles applied when page is printed */
+@media print {
+    body {
+        background: white;
+        color: black;
+        padding: 0;
+    }
+    
+    .top-section, .header {
+        background: none;
+        color: black;
+        box-shadow: none;
+        padding: 20px 0;
+        border-bottom: 2px solid #ccc;
+    }
+    
+    .section-box, .wellbeing-content, .card, .contact-form {
+        background: white;
+        border: 1px solid #ccc;
+        box-shadow: none;
+        color: black;
+        break-inside: avoid; /* Prevents section from breaking across pages */
+        page-break-inside: avoid;
+    }
+    
+    .section-box p, .wellbeing-content p, .card p, .contact-info p {
+        color: black;
+    }
+    
+    .bottom-nav {
+        display: none; /* Hide navigation when printing */
+    }
+    
+    a {
+        color: #1E9CD7 !important;
+        text-decoration: underline !important;
+    }
+    
+    .section-box h2, .wellbeing-content h2, .section-title, .card h3 {
+        color: black;
+    }
+}
+
+/* ===== BASIC SETUP ===== */
+/* Base body styles */
+body {
+    background: linear-gradient(135deg, #424867, #363b54); /* Dark blue gradient background */
+    color: white;
+    min-height: 100vh; /* Ensures content fills at least the full screen height */
+    margin: 0;
+    padding: 0 0 100px 0; /* Extra padding at bottom for navigation */
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased; /* Makes text appear smoother on screens */
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+/* Makes sure padding doesn't increase element size */
 *, *:before, *:after {
     box-sizing: inherit;
 }
 
-/* Enhanced Top Section & Header Styles */
+/* ===== HEADER SECTION ===== */
+/* Page header with title */
 .top-section, .header {
-    background: linear-gradient(135deg, #1E9CD7, #24C5F4);
+    background: linear-gradient(135deg, #1E9CD7, #24C5F4); /* Blue gradient header */
     padding: 40px 25px;
     text-align: center;
-    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2); /* Shadow for depth */
     width: 100%;
     position: relative;
     overflow: hidden;
     margin: 0 0 35px 0;
 }
 
-/* Add subtle design element to header */
+/* Decorative line at bottom of header */
 .top-section:after, .header:after {
-    content: "";
+    content: ""; /* Creates an empty element */
     position: absolute;
     bottom: 0;
     left: 0;
@@ -50,15 +123,17 @@ body {
     background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.4), rgba(255,255,255,0.1));
 }
 
+/* Main page title */
 .welcome-text, .header h1 {
     font-size: 36px;
     font-weight: bold;
     color: white;
     margin: 0 0 10px 0;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* Shadow for better readability */
     letter-spacing: -0.5px;
 }
 
+/* Header subtitle */
 .header p {
     font-size: 18px;
     opacity: 0.9;
@@ -68,34 +143,35 @@ body {
     margin-right: auto;
 }
 
-/* Improved Section Boxes & Wellbeing Content */
+/* ===== CONTENT SECTION BOXES ===== */
+/* Main content section boxes */
 .section-box, .wellbeing-content {
-    background: rgba(66, 72, 103, 0.85);
+    background: rgba(66, 72, 103, 0.85); /* Semi-transparent dark blue */
     border-radius: 20px;
     padding: 35px 30px;
     margin: 0 auto 35px auto;
     max-width: 800px;
     width: 90%;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-left: 5px solid #24C5F4;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18); /* Shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animations */
+    border-left: 5px solid #24C5F4; /* Blue accent on left side */
     position: relative;
     overflow: hidden;
 }
 
-/* Add subtle gradient overlay to sections */
+/* Decorative gradient overlay */
 .section-box:before, .wellbeing-content:before {
-    content: "";
+    content: ""; /* Creates an empty element */
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0) 100%);
-    pointer-events: none;
+    pointer-events: none; /* Makes element non-interactive */
 }
 
-/* Card gradient decoration - lighter for white cards */
+/* Decorative gradient for white cards */
 .card:after {
     content: "";
     position: absolute;
@@ -107,33 +183,36 @@ body {
     pointer-events: none;
 }
 
+/* Hover effect for section boxes */
 .section-box:hover, .wellbeing-content:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    transform: translateY(-5px); /* Lifts box slightly */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25); /* Stronger shadow on hover */
 }
 
-/* Enhanced Headings */
+/* ===== HEADINGS ===== */
+/* Section headings with accent line */
 .section-box h2, .wellbeing-content h2, .section-title {
     color: white;
     font-size: 26px;
     margin-top: 0;
     margin-bottom: 25px;
     padding-bottom: 12px;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15); /* Light bottom border */
     position: relative;
 }
 
-/* Add accent line to headings */
+/* Coloured accent line below heading */
 .section-box h2:after, .wellbeing-content h2:after, .section-title:after {
-    content: "";
+    content: ""; /* Creates an empty element */
     position: absolute;
     bottom: -2px;
     left: 0;
     width: 80px;
     height: 2px;
-    background: #24C5F4;
+    background: #24C5F4; /* Blue accent line */
 }
 
+/* Subheadings */
 .section-box h3, .wellbeing-content h3 {
     color: white;
     font-size: 22px;
@@ -141,75 +220,83 @@ body {
     font-weight: 600;
 }
 
-/* Improved paragraph text */
+/* ===== TEXT CONTENT ===== */
+/* Paragraph text */
 .section-box p, .wellbeing-content p, .contact-info p {
-    color: rgba(255, 255, 255, 0.92);
+    color: rgba(255, 255, 255, 0.92); /* Slightly transparent white */
     line-height: 1.7;
     margin-bottom: 18px;
     font-size: 16px;
 }
 
-/* Better Lists */
+/* ===== LISTS ===== */
+/* List containers */
 .section-box ul, .wellbeing-content ul {
-    list-style: none;
+    list-style: none; /* Removes default bullets */
     padding: 0;
     margin: 22px 0;
 }
 
+/* List items */
 .section-box ul li, .wellbeing-content ul li {
     color: rgba(255, 255, 255, 0.92);
     padding: 14px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Light separator */
     line-height: 1.5;
     position: relative;
-    padding-left: 28px;
+    padding-left: 28px; /* Space for custom bullet */
 }
 
-/* Add icon to list items */
+/* Custom bullet points */
 .section-box ul li:before, .wellbeing-content ul li:before {
-    content: "•";
+    content: "•"; /* Bullet character */
     position: absolute;
     left: 8px;
     top: 13px;
-    color: #24C5F4;
+    color: #24C5F4; /* Blue bullet */
     font-size: 20px;
 }
 
+/* Remove border from last list item */
 .section-box ul li:last-child, .wellbeing-content ul li:last-child {
     border-bottom: none;
 }
 
-/* Enhanced Card Container and Cards */
+/* ===== CARD GRID ===== */
+/* Container for cards in a grid layout */
 .card-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 30px; /* Space between cards */
     margin: 30px auto;
     width: 90%;
     max-width: 1200px;
 }
 
+/* ===== CARD STYLING ===== */
+/* Individual cards (for accommodation, etc.) */
 .card {
     background: white;
     padding: 30px;
     border-radius: 18px;
     transition: all 0.4s ease;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    border-left: 5px solid #24C5F4;
+    border-left: 5px solid #24C5F4; /* Blue accent on left */
     position: relative;
     overflow: hidden;
-    height: 100%; 
+    height: 100%; /* Equal height cards */
     display: flex;
     flex-direction: column;
 }
 
-/* Card hover effect */
+/* Hover effect for cards */
 .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
-    background: #f8f8f8;
+    transform: translateY(-8px); /* Lifts card */
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25); /* Stronger shadow */
+    background: #f8f8f8; /* Slight background change */
 }
 
+/* Card heading */
 .card h3 {
     color: #333;
     font-size: 22px;
@@ -217,17 +304,19 @@ body {
     margin-top: 0;
     font-weight: 600;
     padding-bottom: 12px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Light separator */
 }
 
+/* Card paragraph text */
 .card p {
     color: #555;
     font-size: 16px;
     margin-bottom: 25px;
     line-height: 1.6;
-    flex-grow: 1; 
+    flex-grow: 1; /* Allows text to expand */
 }
 
+/* Card button/link */
 .card a {
     color: white;
     text-decoration: none;
@@ -236,21 +325,23 @@ body {
     transition: all 0.3s ease;
     display: inline-block;
     padding: 12px 24px;
-    background: linear-gradient(135deg, #24C5F4, #1E9CD7);
+    background: linear-gradient(135deg, #24C5F4, #1E9CD7); /* Blue gradient */
     border-radius: 30px;
-    margin-top: auto; 
+    margin-top: auto; /* Push button to bottom */
     text-align: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    align-self: flex-start; 
+    align-self: flex-start; /* Align button to left */
 }
 
+/* Hover effect for card button */
 .card a:hover {
-    background: linear-gradient(135deg, #1E9CD7, #0E75B0);
+    background: linear-gradient(135deg, #1E9CD7, #0E75B0); /* Darker blue on hover */
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Improved Contact Form */
+/* ===== CONTACT FORM ===== */
+/* Container for contact form */
 .contact-form-container {
     padding: 20px;
     max-width: 650px;
@@ -258,19 +349,20 @@ body {
     width: 90%;
 }
 
+/* Contact form styling */
 .contact-form {
-    background: rgba(66, 72, 103, 0.85);
+    background: rgba(66, 72, 103, 0.85); /* Semi-transparent dark blue */
     padding: 35px;
     border-radius: 20px;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
     margin-bottom: 40px;
-    border-left: 5px solid #24C5F4;
+    border-left: 5px solid #24C5F4; /* Blue accent on left */
     transition: transform 0.3s ease;
     position: relative;
     overflow: hidden;
 }
 
-/* Form decoration */
+/* Decorative gradient overlay for form */
 .contact-form:before {
     content: "";
     position: absolute;
@@ -282,11 +374,13 @@ body {
     pointer-events: none;
 }
 
+/* Hover effect for form */
 .contact-form:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.22);
 }
 
+/* Form label styling */
 .contact-form label {
     display: block;
     color: white;
@@ -295,6 +389,7 @@ body {
     font-weight: 500;
 }
 
+/* Form input and textarea styling */
 .contact-form input,
 .contact-form textarea {
     width: 100%;
@@ -303,31 +398,35 @@ body {
     border: none;
     border-radius: 12px;
     font-size: 16px;
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.12); /* Semi-transparent white */
     color: white;
     transition: all 0.3s ease;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+/* Textarea specific styles */
 .contact-form textarea {
     min-height: 160px;
-    resize: vertical;
+    resize: vertical; /* Only allows vertical resizing */
 }
 
+/* Focus state for inputs and textareas */
 .contact-form input:focus,
 .contact-form textarea:focus {
-    outline: none;
-    background: rgba(255, 255, 255, 0.18);
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 2px rgba(36, 197, 244, 0.25);
+    outline: none; /* Removes default focus outline */
+    background: rgba(255, 255, 255, 0.18); /* Slightly lighter background */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 2px rgba(36, 197, 244, 0.25); /* Highlight blue glow */
 }
 
+/* Placeholder text styling */
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
     color: rgba(255, 255, 255, 0.6);
 }
 
+/* Submit button styling */
 .contact-form button {
-    background: linear-gradient(135deg, #24C5F4, #1E9CD7);
+    background: linear-gradient(135deg, #24C5F4, #1E9CD7); /* Blue gradient */
     color: white;
     padding: 16px 30px;
     border: none;
@@ -342,13 +441,15 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
+/* Hover effect for submit button */
 .contact-form button:hover {
-    transform: translateY(-3px);
+    transform: translateY(-3px); /* Lifts button */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(135deg, #1E9CD7, #0E75B0);
+    background: linear-gradient(135deg, #1E9CD7, #0E75B0); /* Darker blue on hover */
 }
 
-/* Enhanced Contact Info Section */
+/* ===== CONTACT INFO SECTION ===== */
+/* Container for contact information */
 .contact-info {
     padding: 20px;
     max-width: 650px;
@@ -357,20 +458,22 @@ body {
     width: 90%;
 }
 
-/* Better Social Links */
+/* ===== SOCIAL LINKS ===== */
+/* Container for social media links */
 .social-links {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 14px; /* Space between links */
     margin-top: 30px;
     width: 100%;
 }
 
+/* Individual social link styling */
 .social-links a {
     display: flex;
     align-items: center;
     gap: 14px;
-    background: rgba(66, 72, 103, 0.85);
+    background: rgba(66, 72, 103, 0.85); /* Semi-transparent dark blue */
     color: white;
     padding: 16px 24px;
     border-radius: 12px;
@@ -378,19 +481,19 @@ body {
     font-weight: 500;
     transition: all 0.3s ease;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    border-left: 4px solid #24C5F4;
+    border-left: 4px solid #24C5F4; /* Blue accent on left */
     position: relative;
     overflow: hidden;
 }
 
-/* Social link hover effect */
+/* Hover effect for social links */
 .social-links a:hover {
-    transform: translateY(-4px);
+    transform: translateY(-4px); /* Lifts link */
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-    background: rgba(74, 81, 118, 0.9);
+    background: rgba(74, 81, 118, 0.9); /* Slightly lighter background */
 }
 
-/* Social link decoration */
+/* Decorative gradient overlay for social links */
 .social-links a:after {
     content: "";
     position: absolute;
@@ -402,14 +505,16 @@ body {
     pointer-events: none;
 }
 
+/* Icon within social links */
 .social-links a i {
     font-size: 22px;
-    color: #24C5F4;
+    color: #24C5F4; /* Blue icon */
     min-width: 24px;
     text-align: center;
 }
 
-/* Improved Instagram Section */
+/* ===== INSTAGRAM SECTION ===== */
+/* Container for Instagram embed */
 .instagram-section {
     padding: 20px;
     max-width: 600px;
@@ -418,6 +523,7 @@ body {
     width: 90%;
 }
 
+/* Instagram embed container */
 .instagram-container {
     margin: 0 auto;
     width: 100%;
@@ -429,22 +535,25 @@ body {
     border: 4px solid rgba(66, 72, 103, 0.9);
 }
 
+/* Hover effect for Instagram container */
 .instagram-container:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px); /* Lifts container */
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
 }
 
-/* Enhanced FAQ Accordion */
+/* ===== FAQ ACCORDION ===== */
+/* Container for FAQ accordion */
 .faq-container {
     padding: 20px;
     max-width: 800px;
-    margin: 0 auto 100px;
+    margin: 0 auto 100px; /* Extra space at bottom for navigation */
     width: 90%;
 }
 
+/* Accordion button (question) */
 .accordion-btn {
     width: 100%;
-    padding: 18px 50px 18px 22px;
+    padding: 18px 50px 18px 22px; /* Extra padding on right for plus icon */
     background: rgba(255, 255, 255, 0.08);
     border: none;
     border-radius: 12px;
@@ -458,19 +567,22 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* Hover effect for accordion button */
 .accordion-btn:hover {
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.12); /* Slightly lighter background */
     transform: translateY(-2px);
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
 }
 
+/* Focus state for accordion button */
 .accordion-btn:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(36, 197, 244, 0.5), 0 6px 18px rgba(0, 0, 0, 0.18);
+    outline: none; /* Removes default focus outline */
+    box-shadow: 0 0 0 2px rgba(36, 197, 244, 0.5), 0 6px 18px rgba(0, 0, 0, 0.18); /* Blue highlight */
 }
 
+/* Plus icon indicator */
 .accordion-btn::after {
-    content: '+';
+    content: '+'; /* Plus character */
     position: absolute;
     right: 22px;
     top: 50%;
@@ -481,10 +593,11 @@ body {
     color: rgba(255, 255, 255, 0.7);
 }
 
+/* Accordion content (answer) */
 .accordion-content {
     background: rgba(255, 255, 255, 0.05);
     padding: 22px;
-    margin-top: -8px;
+    margin-top: -8px; /* Overlaps slightly with button */
     margin-bottom: 20px;
     border-radius: 0 0 12px 12px;
     color: rgba(255, 255, 255, 0.92);
@@ -492,7 +605,8 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Enhanced Wellness & Health Page Specific */
+/* ===== WELLBEING CONTAINER ===== */
+/* Container for wellbeing content */
 .wellbeing-container {
     padding: 20px;
     max-width: 800px;
@@ -500,15 +614,18 @@ body {
     width: 90%;
 }
 
+/* ===== LINKS SECTION ===== */
+/* Grid layout for links (e.g. in amenities page) */
 .links-section {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
     gap: 18px;
     padding: 0 20px;
     max-width: 800px;
-    margin: 0 auto 100px;
+    margin: 0 auto 100px; /* Extra space at bottom for navigation */
 }
 
+/* Individual link styling */
 .links-section a {
     background: rgba(255, 255, 255, 0.08);
     color: white;
@@ -524,7 +641,7 @@ body {
     overflow: hidden;
 }
 
-/* Link decoration */
+/* Decorative gradient overlay for links */
 .links-section a:after {
     content: "";
     position: absolute;
@@ -536,20 +653,23 @@ body {
     pointer-events: none;
 }
 
+/* Hover effect for links */
 .links-section a:hover {
-    transform: translateY(-4px);
+    transform: translateY(-4px); /* Lifts link */
     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
-    background: rgba(36, 197, 244, 0.15);
+    background: rgba(36, 197, 244, 0.15); /* Light blue highlight */
 }
 
+/* Icons within links */
 .links-section a i {
     font-size: 22px;
-    color: #24C5F4;
+    color: #24C5F4; /* Blue icon */
     min-width: 24px;
     text-align: center;
 }
 
-/* Enhanced Section Title */
+/* ===== SECTION TITLE ===== */
+/* Main section title with accent line */
 .section-title {
     color: white;
     font-size: 30px;
@@ -561,25 +681,28 @@ body {
     position: relative;
 }
 
+/* Centred accent line below title */
 .section-title::after {
     content: "";
     position: absolute;
     bottom: 0;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); /* Centres the line */
     width: 80px;
     height: 3px;
-    background: #24C5F4;
+    background: #24C5F4; /* Blue accent line */
     border-radius: 2px;
 }
 
-/* Enhanced Responsive Adjustments */
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+/* Adjustments for smaller desktop/laptop screens */
 @media (max-width: 992px) {
     .card-container {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 }
 
+/* Adjustments for tablets */
 @media (max-width: 768px) {
     .top-section, .header {
         padding: 30px 20px;
@@ -607,7 +730,7 @@ body {
     }
     
     .card-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Single column on tablets */
         width: 92%;
     }
     
@@ -626,9 +749,10 @@ body {
     }
 }
 
+/* Adjustments for mobile phones */
 @media (max-width: 576px) {
     body {
-        padding-bottom: 90px; 
+        padding-bottom: 90px; /* Slightly less padding for smaller screens */
     }
     
     .top-section, .header {
