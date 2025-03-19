@@ -1,36 +1,41 @@
-/* Complete Homepage CSS with all necessary styles */
+/* 
+   HOMEPAGE STYLES
+   This file contains all the styling for the homepage (4homepage.html)
+*/
 
-/* Reset & Base Styles */
+/* ===== BASIC SETUP ===== */
+/* Reset & Base Styles - Removes browser default spacing */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Makes sure padding doesn't increase element size */
     font-family: Arial, sans-serif;
 }
 
-/* Body Styles */
+/* Body Styles - Controls the entire page background and text */
 body {
     margin: 0;
     padding: 0;
     color: white;
-    min-height: 100vh;
+    min-height: 100vh; /* Makes sure it's at least as tall as the browser window */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Stack elements vertically */
 }
 
-/* Homepage specific body style */
+/* Homepage specific body style - Overrides general body style */
 body.homepage {
     display: block;
     padding: 0;
-    background: linear-gradient(135deg, #424867, #363b54);
+    background: linear-gradient(135deg, #424867, #363b54); /* Creates a nice gradient background */
 }
 
-/* Top section with header */
+/* ===== TOP SECTION STYLES ===== */
+/* Top section with header and search */
 .top-section {
-    background: linear-gradient(135deg, #1E9CD7, #24C5F4);  
+    background: linear-gradient(135deg, #1E9CD7, #24C5F4); /* Blue gradient background */  
     padding: 15px 35px 5px 35px;                         
     margin-bottom: 24px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);  
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); /* Adds subtle shadow for depth */  
     display: flex;
     flex-direction: column;        
 }
@@ -38,7 +43,7 @@ body.homepage {
 /* Header container for logo and profile */
 .header-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Logo on left, profile on right */
     align-items: center;
     width: 100%;
     margin-bottom: 35px;                                 
@@ -48,15 +53,14 @@ body.homepage {
 .logo-welcome-container {
     display: flex;
     align-items: center;
-    gap: 15px; 
+    gap: 15px; /* Space between logo and welcome text */
 }
-
 
 /* Header logo */
 .header-logo {
     width: 120px;                                        
     height: auto;
-    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));   
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1)); /* Adds subtle shadow to logo */   
 }
 
 /* Welcome container styling */
@@ -74,7 +78,7 @@ body.homepage {
     margin-bottom: 4px;
     letter-spacing: 1px;
     text-transform: uppercase;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow for better readability */
     text-align: left;
 }
 
@@ -90,8 +94,9 @@ body.homepage {
     text-align: left;
 }
 
+/* Decorative underline after the username */
 .user-name::after {
-    content: '';
+    content: ''; /* Creates an empty element */
     position: absolute;
     bottom: -8px;
     left: 0; 
@@ -105,8 +110,8 @@ body.homepage {
 .profile-icon {
     width: 80px;                                       
     height: 80px;
-    border-radius: 50%;
-    background: #FF69B4;
+    border-radius: 50%; /* Makes it a circle */
+    background: #FF69B4; /* Pink background */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -114,7 +119,7 @@ body.homepage {
     text-decoration: none;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);         
     margin-right: 0;
-    transition: transform 0.2s ease;                    
+    transition: transform 0.2s ease; /* hover effect */                    
 }
 
 .profile-icon i {
@@ -122,7 +127,7 @@ body.homepage {
 }
 
 .profile-icon:hover {
-    transform: scale(1.05);                             
+    transform: scale(1.05); /* Slightly enlarges on hover */                             
 }
 
 /* Top section gradient placeholder */
@@ -130,14 +135,13 @@ body.homepage {
     height: 10px;
 }
 
-/* Main content section */
+/* ===== MAIN CONTENT SECTION ===== */
 .content-section {
     padding: 15px 20px; 
-    padding-bottom: 80px; 
+    padding-bottom: 80px; /* Extra space for bottom navigation */
 }
 
 /* Section titles */
-
 .section-title {
     color: white;
     font-size: 22px;
@@ -149,55 +153,58 @@ body.homepage {
     padding-left: 16px;
 }
 
+/* ===== CARDS CONTAINER ===== */
 /* Cards container for horizontal scrolling */
 .cards-container {
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: auto;
+    overflow-x: auto; /* Allows horizontal scrolling */
     gap: 10px; 
     padding: 0 15px 0 40px; 
     margin: 0 -15px 25px -15px; 
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Hides scrollbar in Firefox */
+    -ms-overflow-style: none; /* Hides scrollbar in IE and Edge */
+    scroll-snap-type: x mandatory; /* Snaps to cards when scrolling */
     padding-top: 4px;
     padding-bottom: 4px;
-    -webkit-overflow-scrolling: touch; 
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 
+/* Hides scrollbar in Chrome, Safari and newer Edge */
 .cards-container::-webkit-scrollbar {
     display: none;
 }
 
+/* ===== CARD STYLES ===== */
 /* Tour and info card styles */
 .tour-card, .info-card {
     min-width: 250px; 
     max-width: 250px;
     height: 240px; 
     background: white;
-    border-radius: 16px; 
+    border-radius: 16px; /* Rounded corners */
     overflow: hidden;
-    flex-shrink: 0;
-    scroll-snap-align: start;
-    transition: all 0.3s ease;
+    flex-shrink: 0; /* Prevents cards from shrinking */
+    scroll-snap-align: start; /* For scroll snapping */
+    transition: all 0.3s ease; /* Smooth animation */
     display: flex;
     flex-direction: column;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .tour-card:hover, .info-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px); /* Lifts card on hover */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
 }
 
-/* Make card images all have the same aspect ratio */
+/* Card image containers - maintain consistent proportions */
 .tour-card .card-image, 
 .info-card .card-image {
     height: 130px; 
     width: 100%;
     position: relative;
     overflow: hidden;
-    background-color: #f0f0f0;
+    background-color: #f0f0f0; /* Background colour in case image is slow to load */
 }
 
 .card-image img {
@@ -206,28 +213,29 @@ body.homepage {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Ensures image covers the area nicely */
     object-position: center;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease; /* Smooth zoom effect */
 }
 
+/* Image zoom effect on hover */
 .tour-card:hover .card-image img,
 .info-card:hover .card-image img {
     transform: scale(1.05);
 }
 
-/* Card content */
+/* Card content area */
 .card-content {
     padding: 28px 16px 16px 24px; 
     position: relative;
     background: white;
-    flex-grow: 1;
+    flex-grow: 1; /* Takes up remaining space */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
 
-/* Card icon */
+/* Card icon - the small circular icon on each card */
 .card-icon {
     width: 40px; 
     height: 40px;
@@ -236,7 +244,7 @@ body.homepage {
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: -20px;
+    top: -20px; /* Positions it half-way out of the content area */
     left: 16px;
     background: white;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
@@ -248,7 +256,7 @@ body.homepage {
     object-fit: contain;
 }
 
-/* Card content text */
+/* Card text styling */
 .card-content h3 {
     color: #424867;
     font-size: 18px;
@@ -266,7 +274,7 @@ body.homepage {
     padding-left: 4px; 
 }
 
-/* Text size controls */
+/* ===== TEXT SIZE CONTROLS ===== */
 .text-size-btn {
     padding: 8px 15px;
     border: none;
@@ -282,10 +290,10 @@ body.homepage {
 }
 
 .text-size-btn.active {
-    background: #FF69B4;
+    background: #FF69B4; /* Pink highlight for active button */
 }
 
-/* Text size classes */
+/* Text size classes - applied to body */
 body.normal-text {
     font-size: 16px;
 }
@@ -298,10 +306,10 @@ body.larger-text {
     font-size: 24px;
 }
 
-/* Button styles */
+/* ===== BUTTON STYLES ===== */
 .button {
     display: inline-block;
-    background: linear-gradient(135deg, #FFC107, #FFB300);
+    background: linear-gradient(135deg, #FFC107, #FFB300); /* Yellow/orange gradient */
     color: #333;
     padding: 16px 44px;
     border-radius: 28px;
@@ -318,11 +326,11 @@ body.larger-text {
 }
 
 .button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
 }
 
-/* Input and form styles */
+/* ===== INPUT STYLES ===== */
 input {
     width: 100%;
     max-width: 400px;
@@ -338,16 +346,17 @@ input {
 }
 
 input:focus {
-    outline: none;
+    outline: none; /* Removes default browser outline */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transform: translateY(-1px);
+    transform: translateY(-1px); /* Slight lift when focused */
 }
 
 input::placeholder {
     color: #666;
 }
 
-/* Responsive design adjustments */
+/* ===== RESPONSIVE DESIGN ===== */
+/* Adjusts layout for tablets */
 @media (max-width: 768px) {
     .header-container {
         min-height: 80px;
@@ -375,6 +384,7 @@ input::placeholder {
     }
 }
 
+/* Adjusts layout for mobile phones */
 @media (max-width: 480px) {
     .header-container {
         min-height: 70px;
