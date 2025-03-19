@@ -1,7 +1,7 @@
 /* 
    BOTTOM NAVIGATION STYLES
-   This file contains styles for the bottom navigation bar which is
-   used across all pages
+   This file contains styles for the bottom navigation bar 
+   used across all pages of the Open Day app
 */
 
 /* ===== BOTTOM NAVIGATION BAR ===== */
@@ -35,7 +35,6 @@
     padding: 5px 8px;
     border-radius: 12px;
     width: 60px;
-    -webkit-tap-highlight-color: transparent; /* Removes touch highlight on mobile */
     touch-action: manipulation; /* Improves touch responsiveness */
 }
 
