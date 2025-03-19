@@ -1,17 +1,17 @@
 /* 
-   WELCOME SCREENS STYLES
-   This file contains specific styles for the:
+   WELCOME SCREEN STYLES
+   This file contains specific styles for the welcome & onboarding screens:
    - 1welcome.html (Initial welcome screen)
    - 2name.html (Name entry screen)
    - 3subjectselection.html (Subject selection screen)
 */
 
 /* ===== BASIC SETUP ===== */
-/* Base styles for the entire page */
+/* Base body styling */
 body {
     background: linear-gradient(135deg, #424867, #363b54); /* Dark blue gradient background */
     color: white;
-    min-height: 100vh; /* Ensures it fills the entire viewport height */
+    min-height: 100vh; /* Ensures content fills at least the full screen height */
     margin: 0;
     padding: 0;
     display: flex;
@@ -28,14 +28,15 @@ body {
 }
 
 /* ===== WELCOME PAGE CONTAINER ===== */
+/* Container for the initial welcome screen */
 .welcome-container {
     width: 90%;
     max-width: 520px;
     text-align: center;
     padding: 40px 30px;
     background: rgba(255, 255, 255, 0.05); /* Semi-transparent white */
-    border-radius: 20px; /* Rounded corners */
-    backdrop-filter: blur(10px); /* Creates frosted glass effect */
+    border-radius: 20px;
+    backdrop-filter: blur(10px); /* Frosted glass effect on supported browsers */
     margin: 20px auto;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
@@ -85,9 +86,9 @@ body {
     max-width: 550px;
     text-align: center;
     padding: 40px 30px;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.08); /* Slightly more opaque than welcome container */
     border-radius: 24px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px); /* Frosted glass effect */
     margin: 20px auto;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
@@ -167,13 +168,14 @@ body {
 }
 
 /* ===== INPUT FIELDS ===== */
+/* Text input field styling */
 input {
     width: 100%;
     max-width: 400px;
     height: 60px;
     background: white;
     border: none;
-    border-radius: 30px;
+    border-radius: 30px; /* Very rounded */
     padding: 0 30px;
     font-size: 18px;
     margin-bottom: 16px;
@@ -200,7 +202,7 @@ input::placeholder {
 /* Container for subject buttons */
 .subject-list {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Stack buttons vertically */
     gap: 8px; /* Space between buttons */
     margin-bottom: 25px;
     width: 100%;
@@ -222,21 +224,21 @@ input::placeholder {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent; /* Removes touch highlight */
+    touch-action: manipulation; /* Better touch response */
     font-weight: 500;
 }
 
 /* Subject button hover effect */
 .subject-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px); /* Slight lift */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); /* Stronger shadow */
 }
 
 /* Subject button when pressed */
 .subject-button:active {
-    transform: translateY(1px);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transform: translateY(1px); /* Slight press down */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Less shadow when pressed */
 }
 
 /* Selected subject button */
@@ -281,7 +283,7 @@ input::placeholder {
     }
 
     .subject-button {
-        height: 55px;
+        height: 55px; /* Taller touch targets on tablets */
         font-size: 16px;
     }
 }
@@ -367,7 +369,7 @@ input::placeholder {
     }
 }
 
-/* Hidden output for sanitised data - used by the system but not visible */
+/* Hidden output for sanitized data - used by the system but not visible */
 .sanitized-output {
     display: none;
 }
