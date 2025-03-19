@@ -1,49 +1,54 @@
-/* Welcome, Name Entry, and Subject Selection Styles
-   This file contains specific styles for:
-   - 1welcome.html
-   - 2name.html
-   - 3subjectselection.html
+/* 
+   WELCOME SCREENS STYLES
+   This file contains specific styles for the:
+   - 1welcome.html (Initial welcome screen)
+   - 2name.html (Name entry screen)
+   - 3subjectselection.html (Subject selection screen)
 */
 
-/* Base Styles */
+/* ===== BASIC SETUP ===== */
+/* Base styles for the entire page */
 body {
-    background: linear-gradient(135deg, #424867, #363b54);
+    background: linear-gradient(135deg, #424867, #363b54); /* Dark blue gradient background */
     color: white;
-    min-height: 100vh;
+    min-height: 100vh; /* Ensures it fills the entire viewport height */
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Stack elements vertically */
     align-items: center;
-    justify-content: center; 
+    justify-content: center; /* Centre everything vertically */
     font-family: Arial, sans-serif;
     box-sizing: border-box;
 }
 
+/* Makes sure padding doesn't increase element size */
 *, *:before, *:after {
     box-sizing: inherit;
 }
 
-/* Welcome Page Container */
+/* ===== WELCOME PAGE CONTAINER ===== */
 .welcome-container {
     width: 90%;
     max-width: 520px;
     text-align: center;
     padding: 40px 30px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.05); /* Semi-transparent white */
+    border-radius: 20px; /* Rounded corners */
+    backdrop-filter: blur(10px); /* Creates frosted glass effect */
     margin: 20px auto;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-/* Welcome Page Elements */
+/* ===== WELCOME PAGE ELEMENTS ===== */
+/* University logo */
 .logo {
     width: 90px;
     height: auto;
     margin-bottom: 10px;
 }
 
+/* "The University of" text */
 .university-name {
     font-size: 18px;
     font-weight: normal;
@@ -51,18 +56,21 @@ body {
     letter-spacing: 0.2px;
 }
 
+/* "Wolverhampton" text */
 .wolverhampton {
     font-size: 35px;
     font-weight: bold;
     margin: 0 0 40px;
 }
 
+/* "WELCOME!" text */
 .welcome-text {
     font-size: 42px;
     font-weight: bold;
     margin: 0 0 30px;
 }
 
+/* Description paragraph */
 .description {
     font-size: 18px;
     line-height: 1.5;
@@ -70,7 +78,8 @@ body {
     max-width: 450px;
 }
 
-/* Standard Container for Name Entry and Subject Selection */
+/* ===== STANDARD CONTAINER ===== */
+/* Used for name entry and subject selection screens */
 .container {
     width: 100%;
     max-width: 550px;
@@ -83,13 +92,14 @@ body {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-/* Start/Continue Button */
+/* ===== BUTTONS ===== */
+/* Start button on welcome screen and continue buttons */
 .start-button, .button {
     display: inline-block;
-    background: linear-gradient(135deg, #FFC107, #FFB300);
-    color: #333;
+    background: linear-gradient(135deg, #FFC107, #FFB300); /* Yellow/orange gradient */
+    color: #333; /* Dark text for contrast */
     padding: 18px 48px;
-    border-radius: 30px;
+    border-radius: 30px; /* Very rounded corners */
     font-size: 18px;
     font-weight: bold;
     text-decoration: none;
@@ -98,30 +108,33 @@ body {
     cursor: pointer;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; /* Smooth hover animation */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     min-width: 200px;
     text-align: center;
-    -webkit-tap-highlight-color: transparent; 
-    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent; /* Removes blue flash on tap (mobile) */
+    touch-action: manipulation; /* Improves touch responsiveness */
 }
 
+/* Button hover effect */
 .start-button:hover, .button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px); /* Slight upward shift */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow */
 }
 
+/* Button active/press effect */
 .start-button:active, .button:active {
-    transform: translateY(1px);
+    transform: translateY(1px); /* Slight downward shift when pressed */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Icon Container */
+/* ===== ICON CONTAINER ===== */
+/* Circular container for icons */
 .icon-container {
     width: 100px;
     height: 100px;
-    background: linear-gradient(135deg, #FF69B4, #FF4081);
-    border-radius: 50%;
+    background: linear-gradient(135deg, #FF69B4, #FF4081); /* Pink gradient */
+    border-radius: 50%; /* Creates a circle */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -129,13 +142,15 @@ body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* Icon within the container */
 .icon {
     width: 50px;
     height: 50px;
-    filter: brightness(0) invert(1);
+    filter: brightness(0) invert(1); /* Makes icon white */
 }
 
-/* Name Entry Page Specific */
+/* ===== NAME ENTRY PAGE ===== */
+/* "What is your name?" heading */
 .question-text {
     font-size: 38px;
     font-weight: bold;
@@ -143,14 +158,15 @@ body {
     letter-spacing: -0.5px;
 }
 
+/* Subtitle below question */
 .subtitle {
     font-size: 18px;
-    opacity: 0.8;
+    opacity: 0.8; /* Slightly transparent */
     margin-bottom: 40px;
     line-height: 1.5;
 }
 
-/* Input Fields */
+/* ===== INPUT FIELDS ===== */
 input {
     width: 100%;
     max-width: 400px;
@@ -163,26 +179,29 @@ input {
     margin-bottom: 16px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.2s ease;
-    -webkit-appearance: none; 
+    -webkit-appearance: none; /* Removes default styling on iOS */
     appearance: none;
 }
 
+/* Input field when focused/selected */
 input:focus {
-    outline: none;
+    outline: none; /* Removes browser default outline */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transform: translateY(-1px);
+    transform: translateY(-1px); /* Slight lift when focused */
 }
 
+/* Placeholder text inside input fields */
 input::placeholder {
     color: #666;
     font-size: 18px;
 }
 
-/* Subject Selection Page Specific */
+/* ===== SUBJECT SELECTION PAGE ===== */
+/* Container for subject buttons */
 .subject-list {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 8px; /* Space between buttons */
     margin-bottom: 25px;
     width: 100%;
     padding: 0 15px;
@@ -191,6 +210,7 @@ input::placeholder {
     margin-right: auto;
 }
 
+/* Individual subject buttons */
 .subject-button {
     width: 100%;
     height: 45px;
@@ -198,7 +218,7 @@ input::placeholder {
     border: none;
     border-radius: 22px;
     font-size: 15px;
-    color: #424867;
+    color: #424867; /* Dark blue text */
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -207,22 +227,26 @@ input::placeholder {
     font-weight: 500;
 }
 
+/* Subject button hover effect */
 .subject-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
+/* Subject button when pressed */
 .subject-button:active {
     transform: translateY(1px);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+/* Selected subject button */
 .subject-button.selected {
-    background: linear-gradient(135deg, #FF69B4, #FF4081);
+    background: linear-gradient(135deg, #FF69B4, #FF4081); /* Pink gradient */
     color: white;
 }
 
-/* Responsive Adjustments */
+/* ===== RESPONSIVE DESIGN ===== */
+/* Adjustments for tablets */
 @media (max-width: 768px) {
     .container, .welcome-container {
         width: 90%;
@@ -262,7 +286,7 @@ input::placeholder {
     }
 }
 
-/* Small Mobile Devices */
+/* Adjustments for mobile phones */
 @media (max-width: 480px) {
     .container, .welcome-container {
         width: 92%;
@@ -343,7 +367,7 @@ input::placeholder {
     }
 }
 
-/* Hidden output for sanitized data */
+/* Hidden output for sanitised data - used by the system but not visible */
 .sanitized-output {
     display: none;
 }
