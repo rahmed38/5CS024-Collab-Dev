@@ -9,54 +9,59 @@
    - social.html
 */
 
-/* Base Styles */
+/* ===== BASIC SETUP ===== */
+/* Base body styling */
 body {
-    background: linear-gradient(135deg, #424867, #363b54);
+    background: linear-gradient(135deg, #424867, #363b54); /* Dark blue gradient background */
     color: white;
-    min-height: 100vh;
+    min-height: 100vh; /* Ensures content fills at least the full screen height */
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     box-sizing: border-box;
-    -webkit-font-smoothing: antialiased; 
+    -webkit-font-smoothing: antialiased; /* Makes text appear smoother on screens */
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden; 
+    overflow-x: hidden; /* Prevents horizontal scrolling */
     display: flex;
-    justify-content: center; 
-    align-items: center; 
-    flex-direction: column; 
-    padding-bottom: 80px; 
+    justify-content: center; /* Centres content horizontally */
+    align-items: center; /* Centres content vertically */
+    flex-direction: column; /* Stack elements vertically */
+    padding-bottom: 80px; /* Space for bottom navigation */
 }
 
+/* Makes sure padding doesn't increase element size */
 *, *:before, *:after {
     box-sizing: inherit;
 }
 
-/* Container for page content */
+/* ===== MAIN CONTAINER ===== */
+/* Container for all page content */
 .container {
     max-width: 800px;
     width: 90%;
     margin: 20px auto;
     padding: 30px 20px 80px 20px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
     border-radius: 20px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px); /* Frosted glass effect on supported browsers */
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    position: relative; 
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    align-items: center; /* Centre all content horizontally */
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Shadow for depth */
 }
 
+/* Main heading (subject name) */
 .container h2 {
     font-size: 32px;
     font-weight: bold;
     color: white;
     margin-bottom: 20px;
     text-align: center;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for better readability */
 }
 
+/* Subject description paragraph */
 .container > p {
     color: rgba(255, 255, 255, 0.9);
     font-size: 18px;
@@ -66,191 +71,210 @@ body {
     padding: 0 10px;
 }
 
-/* Subject header with heart icon */
+/* ===== SUBJECT HEADER WITH HEART ICON ===== */
+/* Header container that holds subject name and heart icon */
 .subject-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Subject name on the left, heart on the right */
     align-items: center;
-    width: 100%; 
-    max-width: 90%; 
+    width: 100%;
+    max-width: 90%; /* Slightly narrower than container */
     margin-bottom: 10px;
 }
 
-/* Heart icon style */
+/* ===== HEART ICON (SAVE BUTTON) ===== */
+/* Heart icon for saving/favouriting a subject */
 .heart-icon {
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 24px;
-    color: #ccc;
+    color: #ccc; /* Light grey default (not saved) */
 }
 
+/* Style when a subject is saved/favourited */
 .heart-icon.hearted {
-    color: #FF4081;
-    font-weight: 900;
+    color: #FF4081; /* Pink when active */
+    font-weight: 900; /* Bolder */
 }
 
+/* Specific for Font Awesome 6 - changes to filled heart icon */
 .heart-icon.hearted:before {
-    content: "\f004";
+    content: "\\f004"; /* Filled heart icon code */
     font-family: "Font Awesome 6 Free";
 }
 
-/* Course list */
+/* ===== COURSE LIST ===== */
+/* List containing all courses */
 .course-list {
-    list-style: none;
+    list-style: none; /* Removes default bullets */
     padding: 0;
     margin: 0;
     width: 100%;
-    max-width: 90%; 
+    max-width: 90%; /* Matches header width */
 }
 
+/* Individual course item */
 .course-item {
     margin-bottom: 20px;
     background: white;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; /* Smooth animations */
 }
 
+/* Hover effect for course item */
 .course-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px); /* Lifts item slightly */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
 }
 
+/* Hide the checkbox input (we'll create our own toggle) */
 .course-toggle {
     display: none;
 }
 
+/* ===== COURSE LABEL (CLICKABLE HEADER) ===== */
+/* Clickable label that shows/hides course details */
 .course-label {
     display: flex;
-    justify-content: center; 
-    align-items: center; 
-    padding: 20px 40px 20px 20px; 
+    justify-content: center; /* Centre text horizontally */
+    align-items: center; /* Centre text vertically */
+    padding: 20px 40px 20px 20px; /* Extra padding on right for arrow */
     color: white;
     font-size: 20px;
     font-weight: 600;
-    background: linear-gradient(135deg, #24C5F4, #1E9CD7);
+    background: linear-gradient(135deg, #24C5F4, #1E9CD7); /* Blue gradient default */
     cursor: pointer;
     position: relative;
     line-height: 1.4;
     text-align: center;
 }
 
+/* Down arrow indicator */
 .course-label::after {
-    content: "▼";
+    content: "▼"; /* Down arrow character */
     position: absolute;
     right: 20px;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%); /* Centre vertically */
     font-size: 12px;
     transition: transform 0.3s ease;
 }
 
+/* Rotate arrow when expanded */
 .course-toggle:checked + .course-label::after {
-    transform: translateY(-50%) rotate(180deg);
+    transform: translateY(-50%) rotate(180deg); /* Flip arrow to point up */
 }
 
+/* ===== COURSE CONTENT (EXPANDABLE) ===== */
+/* Container for expandable course details */
 .course-content {
-    max-height: 0;
+    max-height: 0; /* Hidden by default */
     overflow: hidden;
     transition: max-height 0.3s ease, opacity 0.3s ease;
-    opacity: 0;
-    will-change: max-height, opacity; 
+    opacity: 0; /* Invisible by default */
+    will-change: max-height, opacity; /* Optimise for animations */
 }
 
+/* Expand content when toggle is checked */
 .course-toggle:checked ~ .course-content {
-    max-height: 500px;
-    opacity: 1;
+    max-height: 500px; /* Tall enough for content */
+    opacity: 1; /* Fully visible */
 }
 
+/* Course description text */
 .course-description {
     padding: 20px;
-    color: #505779;
+    color: #505779; /* Dark blue-grey */
     font-size: 16px;
     line-height: 1.6;
     margin: 0;
     border-top: 1px solid #eee;
-    text-align: center; 
+    text-align: center;
 }
 
-/* Subject-specific colorings */
+/* ===== SUBJECT-SPECIFIC COLOURS ===== */
+/* Different colour schemes for different subjects */
 .arts-page .course-label {
-    background: linear-gradient(135deg, #FF6B6B, #FF4081);
+    background: linear-gradient(135deg, #FF6B6B, #FF4081); /* Red/pink for arts */
 }
 
 .business-page .course-label {
-    background: linear-gradient(135deg, #FFC107, #FF9800);
+    background: linear-gradient(135deg, #FFC107, #FF9800); /* Yellow/orange for business */
 }
 
 .education-page .course-label {
-    background: linear-gradient(135deg, #4CAF50, #388E3C);
+    background: linear-gradient(135deg, #4CAF50, #388E3C); /* Green for education */
 }
 
 .health-page .course-label {
-    background: linear-gradient(135deg, #2196F3, #1976D2);
+    background: linear-gradient(135deg, #2196F3, #1976D2); /* Blue for health */
 }
 
 .science-page .course-label {
-    background: linear-gradient(135deg, #9C27B0, #7B1FA2);
+    background: linear-gradient(135deg, #9C27B0, #7B1FA2); /* Purple for science */
 }
 
 .social-page .course-label {
-    background: linear-gradient(135deg, #FF5722, #E64A19);
+    background: linear-gradient(135deg, #FF5722, #E64A19); /* Orange/red for social */
 }
 
-/* Responsive adjustments */
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+/* Adjustments for tablets */
 @media (max-width: 768px) {
     .container {
         padding: 25px 15px 80px 15px;
-        margin: 0 auto; 
-        width: 90%; 
+        margin: 0 auto; /* Centre container */
+        width: 90%;
     }
     
     .subject-header,
     .course-list {
-        max-width: 95%; 
+        max-width: 95%; /* Slightly wider on mobile */
     }
     
     .container h2 {
         font-size: 28px;
         margin-bottom: 15px;
-        text-align: center; 
+        text-align: center; /* Ensure centred text */
     }
     
     .container > p {
         font-size: 16px;
         margin-bottom: 25px;
         padding: 0 5px;
-        text-align: center; 
+        text-align: center; /* Ensure centred text */
     }
     
     .course-label {
         font-size: 18px;
-        padding: 15px 40px 15px 15px; 
-        min-height: 55px; 
+        padding: 15px 40px 15px 15px; /* Adjusted padding for the dropdown icon */
+        min-height: 55px; /* Ensure adequate touch target height */
         display: flex;
         align-items: center;
-        justify-content: center; 
+        justify-content: center; /* Centre text */
     }
     
     .course-description {
         padding: 15px;
         font-size: 15px;
-        text-align: center; 
+        text-align: center; /* Ensure centred text */
     }
 }
     
+/* Adjustments for mobile phones */
 @media (max-width: 480px) {
     .container {
         padding: 20px 10px 70px 10px;
         margin: 0 auto;
         width: 95%;
-        border-radius: 15px; 
+        border-radius: 15px; /* Slightly smaller radius for small screens */
     }
     
     .subject-header,
     .course-list {
-        max-width: 98%; 
+        max-width: 98%; /* Almost full width on smallest screens */
     }
     
     .container h2 {
@@ -272,7 +296,7 @@ body {
     
     .course-label {
         font-size: 16px;
-        padding: 16px 40px 16px 16px; 
+        padding: 16px 40px 16px 16px; /* More padding on right for the dropdown icon */
         min-height: 60px; 
         text-align: center;
     }
