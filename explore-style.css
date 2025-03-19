@@ -274,7 +274,7 @@ body.explore-page {
     }
     
     .explore-page .points-grid {
-        grid-template-columns: 1fr; /* Single column on smallest screens */
+        grid-template-columns: 1fr; /* Single column on smallest screen */
         gap: 15px;
     }
     
