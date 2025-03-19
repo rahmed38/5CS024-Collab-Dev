@@ -1,78 +1,87 @@
 /* 
    EXPLORE PAGE CSS
    This file contains specific styles for the explore page (5explore.html)
+   Focused on mobile responsiveness and professional appearance
 */
 
-/* Base Styles */
+/* ===== BASIC SETUP ===== */
+/* Base styles for body */
 body.explore-page {
-    background: linear-gradient(135deg, #424867, #363b54);
+    background: linear-gradient(135deg, #424867, #363b54); /* Dark blue gradient */
     color: white;
-    min-height: 100vh;
+    min-height: 100vh; /* Ensures content fills at least the entire screen height */
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     box-sizing: border-box;
-    -webkit-font-smoothing: antialiased; 
+    -webkit-font-smoothing: antialiased; /* Makes text look smoother on screens */
     -moz-osx-font-smoothing: grayscale;
     display: flex;
     flex-direction: column;
-    overflow-x: hidden; 
+    overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 
+/* Ensures all elements use the box-sizing we set on the body */
 *, *:before, *:after {
     box-sizing: inherit;
 }
 
-/* Top Section Header */
+/* ===== TOP SECTION STYLES ===== */
+/* Header section at the top of the page */
 .explore-page .top-section {
-    background: linear-gradient(135deg, #1E9CD7, #24C5F4);
+    background: linear-gradient(135deg, #1E9CD7, #24C5F4); /* Light blue gradient header */
     padding: 30px 20px;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    width: 100%;
-    box-sizing: border-box;
-    border-radius: 0; 
-    margin: 0 0 30px 0; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Adds subtle shadow for depth */
+    width: 100%; /* Ensures full width */
+    box-sizing: border-box; /* Includes padding in width calculation */
+    border-radius: 0; /* Removes any border radius */
+    margin: 0 0 30px 0; /* Adds space below the header */
+    /* Ensures no curved corners */
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
 }
 
+/* Main title in the header */
 .explore-page .welcome-text {
     font-size: 32px;
     font-weight: bold;
     color: white;
     margin: 0;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle text shadow for better readability */
 }
 
-/* Map Container */
+/* ===== MAP CONTAINER ===== */
+/* Container for the embedded Google Map */
 .explore-page .map-container {
     width: 90%;
     max-width: 1000px;
     height: 400px;
-    margin: 0 auto 80px auto;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    margin: 0 auto 80px auto; /* Centered with space below */
+    border-radius: 20px; /* Rounded corners */
+    overflow: hidden; /* Keeps map inside the rounded corners */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Adds depth with shadow */
 }
 
+/* The actual iframe containing the map */
 .explore-page .map-container iframe {
     width: 100%;
     height: 100%;
-    border: none;
+    border: none; /* Removes the default iframe border */
 }
 
-/* Points of Interest Section */
+/* ===== POINTS OF INTEREST SECTION ===== */
+/* Section containing campus highlights */
 .explore-page .points-section {
     width: 90%;
     max-width: 1000px;
     margin: 30px auto;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
     border-radius: 20px;
     padding: 25px 20px;
-    backdrop-filter: blur(10px);
 }
 
+/* Section title styling */
 .explore-page .section-title {
     color: white;
     font-size: 24px;
@@ -81,76 +90,88 @@ body.explore-page {
     text-align: center;
 }
 
+/* Grid layout for points of interest cards */
 .explore-page .points-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive columns */
+    gap: 20px; /* Space between cards */
 }
 
+/* Individual point of interest card */
 .explore-page .point-card {
     background: white;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; /* Smooth animation for hover effect */
 }
 
+/* Hover effect for cards */
 .explore-page .point-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px); /* Lifts card slightly */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
 }
 
+/* Image container within cards */
 .explore-page .point-image {
     width: 100%;
     height: 160px;
     overflow: hidden;
 }
 
+/* Images within the image container */
 .explore-page .point-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
+    object-fit: cover; /* Ensures image covers the container nicely */
+    transition: transform 0.5s ease; /* Smooth zoom animation */
 }
 
+/* Image zoom effect on hover */
 .explore-page .point-card:hover .point-image img {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Slight zoom effect */
 }
 
+/* Text content area of cards */
 .explore-page .point-content {
     padding: 20px;
 }
 
+/* Card title */
 .explore-page .point-content h3 {
-    color: #424867;
+    color: #424867; /* Dark blue text */
     font-size: 18px;
     margin: 0 0 10px 0;
 }
 
+/* Card description text */
 .explore-page .point-content p {
-    color: #666;
+    color: #666; /* Medium grey text */
     font-size: 14px;
     margin: 0;
     line-height: 1.5;
 }
 
-/* Directions Section */
+/* ===== DIRECTIONS SECTION ===== */
+/* Section containing transport information */
 .explore-page .directions-section {
     width: 90%;
     max-width: 1000px;
-    margin: 30px auto 100px auto;
+    margin: 30px auto 100px auto; /* Extra space below for bottom nav */
     background: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     padding: 25px 20px;
     backdrop-filter: blur(10px);
 }
 
+/* Container for direction items */
 .explore-page .directions-container {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 15px; /* Space between items */
 }
 
+/* Individual direction item */
 .explore-page .direction-item {
     background: white;
     border-radius: 15px;
@@ -163,39 +184,45 @@ body.explore-page {
     transition: all 0.3s ease;
 }
 
+/* Hover effect for direction items */
 .explore-page .direction-item:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
+/* Icon container within direction items */
 .explore-page .direction-icon {
     font-size: 24px;
-    color: #1E9CD7;
+    color: #1E9CD7; /* Light blue */
     width: 40px;
     text-align: center;
-    flex-shrink: 0;
+    flex-shrink: 0; /* Prevents icon from shrinking */
 }
 
+/* Text content within direction items */
 .explore-page .direction-content {
-    flex-grow: 1;
+    flex-grow: 1; /* Takes up remaining space */
 }
 
+/* Direction title */
 .explore-page .direction-content h4 {
     margin: 0 0 5px 0;
     font-size: 16px;
 }
 
+/* Direction description */
 .explore-page .direction-content p {
     margin: 0;
     font-size: 14px;
     color: #666;
 }
 
-/* Responsive adjustments */
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+/* Adjustments for tablets */
 @media (max-width: 768px) {
     .explore-page .top-section {
         padding: 25px 15px;
-        border-radius: 0 !important; 
+        border-radius: 0 !important; /* Force override any border-radius */
         -webkit-border-radius: 0 !important;
         -moz-border-radius: 0 !important;
     }
@@ -203,7 +230,7 @@ body.explore-page {
     .explore-page .welcome-text {
         font-size: 28px;
     }
-        
+    
     .explore-page .map-container {
         height: 350px;
     }
@@ -218,6 +245,7 @@ body.explore-page {
     }
 }
 
+/* Adjustments for mobile phones */
 @media (max-width: 576px) {
     .explore-page .top-section {
         padding: 20px 15px;
@@ -228,7 +256,7 @@ body.explore-page {
     .explore-page .welcome-text {
         font-size: 24px;
     }
-        
+    
     .explore-page .map-container {
         height: 300px;
         width: 92%;
@@ -246,7 +274,7 @@ body.explore-page {
     }
     
     .explore-page .points-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Single column on smallest screens */
         gap: 15px;
     }
     
