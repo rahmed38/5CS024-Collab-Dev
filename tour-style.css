@@ -1,36 +1,39 @@
 /* 
    TOUR PAGES CSS
-   This file contains specific styles for all tour pages:
+   This file contains specific styles for all campus tour pages:
    - citytour.html
    - springfieldtour.html
    - telfordtour.html
    - walsalltour.html
 */
 
-/* Base Styles */
+/* ===== BASIC SETUP ===== */
+/* Base body styling */
 body {
-    background: linear-gradient(135deg, #414769, #323652);
+    background: linear-gradient(135deg, #414769, #323652); /* Dark blue-purple gradient */
     color: white;
-    min-height: 100vh;
+    min-height: 100vh; /* Ensures content fills at least the full screen height */
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     box-sizing: border-box;
-    -webkit-font-smoothing: antialiased; 
+    -webkit-font-smoothing: antialiased; /* Makes text appear smoother on screens */
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden; 
+    overflow-x: hidden; /* Prevents horizontal scrolling */
     display: flex;
-    justify-content: flex-start; 
-    align-items: center; 
-    flex-direction: column; 
-    padding-bottom: 100px; 
+    justify-content: flex-start; /* Align to top */
+    align-items: center; /* Centre horizontally */
+    flex-direction: column; /* Stack elements vertically */
+    padding-bottom: 100px; /* Space for bottom navigation */
 }
 
+/* Makes sure padding doesn't increase element size */
 *, *:before, *:after {
     box-sizing: inherit;
 }
 
-/* Header Styles */
+/* ===== HEADER STYLES ===== */
+/* Page header with tour title */
 header {
     text-align: center;
     margin: 40px 0 30px 0;
@@ -38,31 +41,34 @@ header {
     width: 100%;
 }
 
+/* Tour title */
 header h1 {
     font-size: 32px;
     font-weight: bold;
     color: white;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for better readability */
     margin: 0;
 }
 
-/* Container for page content */
+/* ===== MAIN CONTAINER ===== */
+/* Container for all tour sections */
 .container {
     max-width: 800px;
     width: 85%;
-    margin: 0 auto 30px auto;
+    margin: 0 auto 30px auto; /* Centred with space below */
     padding: 25px 20px 30px 20px;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.08); /* Semi-transparent white */
     border-radius: 20px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px); /* Frosted glass effect on supported browsers */
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    position: relative; 
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); 
+    align-items: center; /* Centre all content horizontally */
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Shadow for depth */
 }
 
-/* Tour Section Styles */
+/* ===== TOUR SECTION STYLES ===== */
+/* Individual expandable tour section */
 .tour-section {
     background: transparent;
     border-radius: 15px;
@@ -73,17 +79,19 @@ header h1 {
     width: 100%;
 }
 
+/* Remove margin from last section */
 .tour-section:last-child {
     margin-bottom: 0;
 }
 
-/* Tour Section Headers */
+/* ===== TOUR SECTION HEADERS ===== */
+/* Clickable header for each tour section */
 .tour-section h2 {
-    padding: 18px 50px 18px 20px;
+    padding: 18px 50px 18px 20px; /* Extra padding on right for arrow */
     color: white;
     font-size: 20px;
     font-weight: 600;
-    background: linear-gradient(90deg, #62B8FB, #3678E5);
+    background: linear-gradient(90deg, #62B8FB, #3678E5); /* Blue gradient default */
     cursor: pointer;
     position: relative;
     margin: 0;
@@ -91,32 +99,35 @@ header h1 {
     line-height: 1.4;
     text-align: center;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Shadow for depth */
 }
 
+/* Down arrow indicator */
 .tour-section h2::after {
-    content: "▼";
+    content: "▼"; /* Down arrow character */
     position: absolute;
     right: 20px;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%); /* Centre vertically */
     font-size: 12px;
     transition: transform 0.3s ease;
 }
 
-/* Tour Section Images */
+/* ===== TOUR SECTION IMAGES ===== */
+/* Images within tour sections */
 .tour-section img {
     width: 100%;
     height: auto;
     max-height: 300px;  
-    object-fit: cover;
+    object-fit: cover; /* Ensures image covers area nicely */
     display: block;
     transition: all 0.3s ease;
     border-radius: 8px;
     margin-top: 15px;
 }
 
-/* Tour Section Content */
+/* ===== TOUR SECTION TEXT CONTENT ===== */
+/* Text content within tour sections */
 .tour-section p, 
 .tour-section ul {
     padding: 20px;  
@@ -127,40 +138,46 @@ header h1 {
     font-size: 16px;
 }
 
+/* List styling */
 .tour-section ul {
-    list-style-position: inside;
+    list-style-position: inside; /* Bullets inside the container */
     padding-top: 5px;
     padding-bottom: 20px;
     text-align: left;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.08); /* Slightly lighter background */
     border-radius: 10px;
     margin: 10px 0;
 }
 
+/* List item styling */
 .tour-section ul li {
     padding: 10px 0;  
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Light divider between items */
 }
 
+/* Remove border from last list item */
 .tour-section ul li:last-child {
     border-bottom: none;
 }
 
+/* Container for expandable section content */
 .tour-section-content {
-    max-height: 2000px;  
+    max-height: 2000px; /* Tall enough for most content */
     transition: max-height 0.5s ease, opacity 0.3s ease;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.05); /* Very light background */
     border-radius: 12px;
     margin-top: 8px;
     padding: 5px 15px 15px 15px;
 }
 
-/* Accordion Toggle */
+/* ===== ACCORDION TOGGLE ===== */
+/* Hide the checkbox input (we'll create our own toggle) */
 .tour-toggle {
     display: none;
 }
 
+/* The label that wraps the header (for clicking) */
 .tour-label {
     cursor: pointer;
     display: block;
@@ -168,46 +185,51 @@ header h1 {
     margin: 0;
 }
 
+/* Collapse content when toggle is unchecked */
 .tour-toggle:not(:checked) ~ .tour-section-content {
-    max-height: 0;
-    opacity: 0;
+    max-height: 0; /* Hidden */
+    opacity: 0; /* Invisible */
     padding: 0;
     margin: 0;
 }
 
+/* Rotate arrow when expanded */
 .tour-toggle:checked ~ .tour-label h2::after {
-    transform: translateY(-50%) rotate(180deg);
+    transform: translateY(-50%) rotate(180deg); /* Flip arrow to point up */
 }
 
 /* First section is open by default */
 #tour-section-1:checked ~ .tour-section-content {
-    opacity: 1;
+    opacity: 1; /* Visible */
 }
 
-/* Campus-specific colors for headers */
+/* ===== CAMPUS-SPECIFIC COLOURS ===== */
+/* Different colours for different campus tours */
 .city-tour .tour-section h2 {
-    background: linear-gradient(90deg, #62B8FB, #3678E5);
+    background: linear-gradient(90deg, #62B8FB, #3678E5); /* Blue for city */
 }
 
 .springfield-tour .tour-section h2 {
-    background: linear-gradient(90deg, #4CAF50, #2E7D32);
+    background: linear-gradient(90deg, #4CAF50, #2E7D32); /* Green for Springfield */
 }
 
 .telford-tour .tour-section h2 {
-    background: linear-gradient(90deg, #FF9800, #E65100);
+    background: linear-gradient(90deg, #FF9800, #E65100); /* Orange for Telford */
 }
 
 .walsall-tour .tour-section h2 {
-    background: linear-gradient(90deg, #BA68C8, #7B1FA2);
+    background: linear-gradient(90deg, #BA68C8, #7B1FA2); /* Purple for Walsall */
 }
 
-/* Touch-friendly improvements */
+/* ===== TOUCH IMPROVEMENTS ===== */
+/* Make more touch-friendly */
 .tour-label {
-    -webkit-tap-highlight-color: transparent; 
-    touch-action: manipulation; 
+    -webkit-tap-highlight-color: transparent; /* Removes touch highlight on mobile */
+    touch-action: manipulation; /* Improves touch responsiveness */
 }
 
-/* Responsive Adjustments */
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+/* Adjustments for smaller desktop/laptop screens */
 @media (max-width: 992px) {
     .container {
         width: 85%;
@@ -220,6 +242,7 @@ header h1 {
     }
 }
 
+/* Adjustments for tablets */
 @media (max-width: 768px) {
     header {
         margin: 30px 0 25px 0;
@@ -257,6 +280,7 @@ header h1 {
     }
 }
 
+/* Adjustments for mobile phones */
 @media (max-width: 576px) {
     header {
         margin: 25px 0 20px 0;
@@ -302,10 +326,4 @@ header h1 {
     .tour-section img {
         max-height: 200px;
     }
-}
-
-/* Touch-friendly improvements */
-.tour-label {
-    -webkit-tap-highlight-color: transparent; 
-    touch-action: manipulation; 
 }
