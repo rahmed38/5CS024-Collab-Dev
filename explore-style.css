@@ -1,7 +1,6 @@
 /* 
    EXPLORE PAGE CSS
    This file contains specific styles for the explore page (5explore.html)
-   Focused on mobile responsiveness and professional appearance
 */
 
 /* ===== BASIC SETUP ===== */
@@ -57,7 +56,7 @@ body.explore-page {
     width: 90%;
     max-width: 1000px;
     height: 400px;
-    margin: 0 auto 80px auto; /* Centered with space below */
+    margin: 0 auto 80px auto; /* Centred with space below */
     border-radius: 20px; /* Rounded corners */
     overflow: hidden; /* Keeps map inside the rounded corners */
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Adds depth with shadow */
@@ -79,6 +78,7 @@ body.explore-page {
     background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
     border-radius: 20px;
     padding: 25px 20px;
+    backdrop-filter: blur(10px); /* Creates frosted glass effect on supported browsers */
 }
 
 /* Section title styling */
