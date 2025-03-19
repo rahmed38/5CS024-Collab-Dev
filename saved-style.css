@@ -1,65 +1,72 @@
 /* 
    SAVED SUBJECTS PAGE CSS
-   This file contains specific styles for the saved subjects page (6saved.html)
+   This file contains specific styles for the saved subject page (6saved.html)
 */
 
-/* Base Styles */
+/* ===== BASIC SETUP ===== */
+/* Base body styles */
 body {
-    background: linear-gradient(135deg, #424867, #363b54);
+    background: linear-gradient(135deg, #424867, #363b54); /* Dark blue gradient background */
     color: white;
-    min-height: 100vh;
+    min-height: 100vh; /* Ensures content fills at least the full screen height */
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased; /* Makes text appear smoother on screens */
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Top section with header */
+/* ===== HEADER SECTION ===== */
+/* Top section with page title */
 .top-section {
-    background: linear-gradient(135deg, #1E9CD7, #24C5F4);
+    background: linear-gradient(135deg, #1E9CD7, #24C5F4); /* Light blue gradient header */
     padding: 30px 20px;
     text-align: center;
     margin-bottom: 30px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Adds subtle shadow for depth */
 }
 
+/* Main page title */
 .saved-title {
     font-size: 32px;
     font-weight: bold;
     margin: 0;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle text shadow for better readability */
 }
 
-/* Saved cards container */
+/* ===== SAVED ITEMS CONTAINER ===== */
+/* Container for all saved subject cards */
 .saved-card-container {
-    padding: 10px 20px 100px 20px;
+    padding: 10px 20px 100px 20px; /* Extra padding at bottom for navigation bar */
     max-width: 800px;
-    margin: 0 auto;
+    margin: 0 auto; /* Centres the container */
     display: flex;
-    flex-direction: column;
-    gap: 16px;
+    flex-direction: column; /* Stack cards vertically */
+    gap: 16px; /* Space between cards */
 }
 
-/* Individual saved subject card styling */
+/* ===== SAVED SUBJECT CARD STYLES ===== */
+/* Individual saved subject card */
 .saved-card {
     background: white;
     padding: 25px 30px;
-    border-radius: 16px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-    color: #424867;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 16px; /* Rounded corners */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12); /* Shadow for depth */
+    color: #424867; /* Dark blue text */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animations */
     position: relative;
     overflow: hidden;
-    border-left: 5px solid #24C5F4;
+    border-left: 5px solid #24C5F4; /* Blue accent on left side */
 }
 
+/* Hover effect for cards */
 .saved-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+    transform: translateY(-5px); /* Lifts card slightly on hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18); /* More pronounced shadow on hover */
 }
 
+/* Card title */
 .saved-card h3 {
     margin-top: 0;
     margin-bottom: 12px;
@@ -68,6 +75,7 @@ body {
     font-weight: 700;
 }
 
+/* Card description text */
 .saved-card p {
     color: #555;
     margin-bottom: 20px;
@@ -75,37 +83,39 @@ body {
     font-size: 15px;
 }
 
-/* Card action buttons container */
+/* ===== CARD ACTIONS ===== */
+/* Container for card buttons */
 .card-actions {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Spaces buttons evenly */
     align-items: center;
     margin-top: 15px;
 }
 
-/* Learn More link styling */
+/* "Learn More" link styling */
 .saved-card a {
     display: inline-block;
-    color: #24C5F4;
+    color: #24C5F4; /* Light blue text */
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
     padding: 8px 16px;
     border-radius: 20px;
-    background: rgba(36, 197, 244, 0.1);
+    background: rgba(36, 197, 244, 0.1); /* Very light blue background */
     font-size: 14px;
 }
 
+/* Hover effect for link */
 .saved-card a:hover {
-    color: #1E9CD7;
-    background: rgba(36, 197, 244, 0.2);
+    color: #1E9CD7; /* Darker blue on hover */
+    background: rgba(36, 197, 244, 0.2); /* Slightly darker background on hover */
 }
 
 /* Remove button styling */
 .remove-btn {
     background: transparent;
-    color: #FF4081;
-    border: 2px solid #FF4081;
+    color: #FF4081; /* Pink text */
+    border: 2px solid #FF4081; /* Pink border */
     padding: 8px 16px;
     border-radius: 20px;
     font-size: 14px;
@@ -115,72 +125,78 @@ body {
     margin-left: 10px;
 }
 
+/* Hover effect for remove button */
 .remove-btn:hover {
-    background: #FF4081;
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(255, 64, 129, 0.3);
+    background: #FF4081; /* Pink background on hover */
+    color: white; /* White text on hover */
+    transform: translateY(-2px); /* Slight lift */
+    box-shadow: 0 4px 8px rgba(255, 64, 129, 0.3); /* Pink shadow */
 }
 
+/* Active/pressed state for remove button */
 .remove-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(255, 64, 129, 0.3);
+    transform: translateY(0); /* Returns to normal position when clicked */
+    box-shadow: 0 2px 4px rgba(255, 64, 129, 0.3); /* Less shadow when clicked */
 }
 
-/* No saved items message */
+/* ===== EMPTY STATE MESSAGE ===== */
+/* Message shown when no subjects are saved */
 .no-saved-message {
     text-align: center;
     padding: 60px 20px;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
     font-size: 18px;
     max-width: 500px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.05); /* Very light background */
     border-radius: 16px;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px); /* Frosted glass effect on supported browsers */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     line-height: 1.6;
 }
 
-/* Subject category indicators */
+/* ===== SUBJECT CATEGORY INDICATORS ===== */
+/* Decorative diagonal corner on cards */
 .saved-card::before {
-    content: "";
+    content: ""; /* Creates an empty element */
     position: absolute;
     top: 0;
     right: 0;
     width: 50px;
     height: 50px;
-    background: #F5F5F5;
-    transform: rotate(45deg) translate(15px, -30px);
+    background: #F5F5F5; /* Light grey triangle */
+    transform: rotate(45deg) translate(15px, -30px); /* Creates diagonal corner */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Category-specific styling */
+/* ===== CATEGORY-SPECIFIC STYLING ===== */
+/* Different colour accents for different subject categories */
 .saved-card.arts {
-    border-left-color: #FF6B6B;
+    border-left-color: #FF6B6B; /* Red for arts */
 }
 
 .saved-card.business {
-    border-left-color: #FFC107;
+    border-left-color: #FFC107; /* Yellow for business */
 }
 
 .saved-card.education {
-    border-left-color: #4CAF50;
+    border-left-color: #4CAF50; /* Green for education */
 }
 
 .saved-card.health {
-    border-left-color: #2196F3;
+    border-left-color: #2196F3; /* Blue for health */
 }
 
 .saved-card.science {
-    border-left-color: #9C27B0;
+    border-left-color: #9C27B0; /* Purple for science */
 }
 
 .saved-card.social {
-    border-left-color: #FF5722;
+    border-left-color: #FF5722; /* Orange for social sciences */
 }
 
-/* Responsive styles */
+/* ===== RESPONSIVE STYLES ===== */
+/* Adjustments for tablets */
 @media (max-width: 768px) {
     .saved-card-container {
         padding: 10px 15px 100px 15px;
@@ -208,9 +224,10 @@ body {
     }
 }
 
+/* Adjustments for mobile phones */
 @media (max-width: 480px) {
     .card-actions {
-        flex-direction: column;
+        flex-direction: column; /* Stack buttons vertically on small screen */
         align-items: stretch;
         gap: 10px;
     }
@@ -218,9 +235,9 @@ body {
     .saved-card a, 
     .remove-btn {
         display: block;
-        width: 100%;
+        width: 100%; /* Full width buttons */
         text-align: center;
-        margin: 0;
+        margin: 0; /* Remove margin between stacked buttons */
     }
     
     .saved-card {
