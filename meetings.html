@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WLV Open Day - Meet & Greet Sessions with Faculty</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .faculty-member {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+        .faculty-member h3 {
+            color: #333;
+        }
+        .faculty-member p {
+            font-size: 16px;
+            color: #666;
+        }
+        .faculty-member .bio {
+            font-size: 14px;
+            color: #888;
+        }
+        .session-section {
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 40px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+        .session-section h2 {
+            color: #333;
+        }
+        .session-form input,
+        .session-form select,
+        .session-form button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+        .session-form button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        .session-form button:hover {
+            background-color: #45a049;
+        }
+        .session-form label {
+            font-size: 16px;
+            color: #333;
+        }
+        .confirmation-message {
+            background-color: #e7f3e7;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            color: #2c6b2f;
+        }
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>WLV University - Meet & Greet Sessions with Faculty</h1>
+        <p>Connect with faculty members to learn more about your course of interest.</p>
+    </header>
+
+    <div class="container">
+        <!-- Faculty Members Section -->
+        <div class="faculty-member">
+            <h3>Dr. John Doe</h3>
+            <p><strong>Course: Computer Science</strong></p>
+            <p class="bio">Dr. John Doe is a senior lecturer in the Department of Computer Science with expertise in Artificial Intelligence and Machine Learning. He has published over 20 papers in top-tier journals and is passionate about teaching the next generation of computer scientists.</p>
+            <p><strong>Available for:</strong> Virtual or In-person Sessions</p>
+        </div>
+
+        <div class="faculty-member">
+            <h3>Professor Jane Smith</h3>
+            <p><strong>Course: Business Management</strong></p>
+            <p class="bio">Professor Jane Smith has over 15 years of experience in Business Management and has worked with numerous international companies. She specializes in corporate strategy and leadership, and enjoys mentoring future business leaders.</p>
+            <p><strong>Available for:</strong> Virtual or In-person Sessions</p>
+        </div>
+
+        <!-- Add more faculty members here in similar format -->
+
+        <!-- Session Scheduling Form -->
+        <div class="session-section">
+            <h2>Schedule Your Meet & Greet Session</h2>
+            <form class="session-form" id="session-form">
+                <label for="faculty">Choose Faculty Member:</label>
+                <select id="faculty" required>
+                    <option value="Dr. John Doe">Dr. John Doe - Computer Science</option>
+                    <option value="Professor Jane Smith">Professor Jane Smith - Business Management</option>
+                    <!-- Add more faculty options here -->
+                </select>
+
+                <label for="session-type">Session Type:</label>
+                <select id="session-type" required>
+                    <option value="Virtual">Virtual (via Zoom)</option>
+                    <option value="In-person">In-person (WLV Campus)</option>
+                </select>
+
+                <label for="date-time">Preferred Date and Time:</label>
+                <input type="datetime-local" id="date-time" required>
+
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+
+                <button type="submit">Schedule Session</button>
+            </form>
+        </div>
+
+        <!-- Confirmation Message (hidden by default) -->
+        <div class="confirmation-message" id="confirmation-message" style="display: none;">
+            <h3>Your Meet & Greet Session is Scheduled!</h3>
+            <p>Thank you for scheduling a session with your chosen faculty member. You will receive a confirmation email shortly with the details.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 WLV University | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Handle session form submission
+        document.getElementById('session-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Collect data from form
+            let faculty = document.getElementById('faculty').value;
+            let sessionType = document.getElementById('session-type').value;
+            let dateTime = document.getElementById('date-time').value;
+            let email = document.getElementById('email').value;
+
+            // Display confirmation message
+            document.getElementById('confirmation-message').style.display = 'block';
+
+            // In a real-world scenario, you would save this information to a database or send it to a server.
+            console.log(`Scheduled Session - Faculty: ${faculty}, Type: ${sessionType}, Date/Time: ${dateTime}, Email: ${email}`);
+
+            // Clear the form
+            document.getElementById('session-form').reset();
+        });
+    </script>
+
+</body>
+</html>

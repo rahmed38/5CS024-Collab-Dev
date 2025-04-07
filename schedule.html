@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WLV Open Day - My Schedule</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .event-card {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .event-card h3 {
+            color: #333;
+        }
+        .event-card p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .event-card button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            border: none;
+        }
+        .event-card button:hover {
+            background-color: #45a049;
+        }
+        .my-schedule-section {
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 40px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+        .my-schedule-section h2 {
+            color: #333;
+        }
+        .my-schedule-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .my-schedule-section ul li {
+            padding: 10px;
+            background-color: #e7f3e7;
+            margin: 10px 0;
+            border-radius: 5px;
+            color: #2c6b2f;
+        }
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>WLV University - My Schedule</h1>
+        <p>Plan your day at WLV Open Day by adding events to your schedule.</p>
+    </header>
+
+    <div class="container">
+        <!-- Schedule of Events -->
+        <div class="event-card" id="event1">
+            <h3>Welcome Session</h3>
+            <p><strong>Time:</strong> 09:00 AM - 09:30 AM</p>
+            <p><strong>Location:</strong> Main Auditorium</p>
+            <p>This is the opening session where we introduce you to the university, its history, and key facilities.</p>
+            <button onclick="addToSchedule('Welcome Session')">Add to My Day</button>
+        </div>
+
+        <div class="event-card" id="event2">
+            <h3>Postgraduate Programs Overview</h3>
+            <p><strong>Time:</strong> 10:00 AM - 11:00 AM</p>
+            <p><strong>Location:</strong> Room 101</p>
+            <p>Learn about postgraduate programs, how to apply, and opportunities for research.</p>
+            <button onclick="addToSchedule('Postgraduate Programs Overview')">Add to My Day</button>
+        </div>
+
+        <div class="event-card" id="event3">
+            <h3>Undergraduate Courses Information</h3>
+            <p><strong>Time:</strong> 11:30 AM - 12:30 PM</p>
+            <p><strong>Location:</strong> Room 202</p>
+            <p>Explore the undergraduate courses offered by the university and the benefits of each program.</p>
+            <button onclick="addToSchedule('Undergraduate Courses Information')">Add to My Day</button>
+        </div>
+
+        <div class="event-card" id="event4">
+            <h3>Clubs & Societies Showcase</h3>
+            <p><strong>Time:</strong> 01:00 PM - 02:00 PM</p>
+            <p><strong>Location:</strong> Sports Hall</p>
+            <p>Join us for a fun and engaging showcase of the student clubs and societies at WLV University.</p>
+            <button onclick="addToSchedule('Clubs & Societies Showcase')">Add to My Day</button>
+        </div>
+
+        <div class="event-card" id="event5">
+            <h3>Campus Tour</h3>
+            <p><strong>Time:</strong> 02:30 PM - 03:30 PM</p>
+            <p><strong>Location:</strong> Meet at the Main Entrance</p>
+            <p>Explore the campus, including our libraries, sports facilities, and student accommodations.</p>
+            <button onclick="addToSchedule('Campus Tour')">Add to My Day</button>
+        </div>
+
+        <!-- My Schedule Section -->
+        <div class="my-schedule-section">
+            <h2>Your Schedule</h2>
+            <p>Here are the events you've added to your day:</p>
+            <ul id="my-schedule-list">
+                <!-- User's added events will appear here -->
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 WLV University | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Initialize an array to store the user's selected events
+        let mySchedule = [];
+
+        // Function to add events to the schedule
+        function addToSchedule(eventName) {
+            // Check if the event is already in the schedule
+            if (!mySchedule.includes(eventName)) {
+                mySchedule.push(eventName);
+                updateScheduleDisplay();
+                alert(`${eventName} has been added to your schedule.`);
+            } else {
+                alert(`${eventName} is already in your schedule.`);
+            }
+        }
+
+        // Function to update the display of the user's schedule
+        function updateScheduleDisplay() {
+            const scheduleList = document.getElementById('my-schedule-list');
+            scheduleList.innerHTML = ''; // Clear the existing list
+            mySchedule.forEach(function(event) {
+                const listItem = document.createElement('li');
+                listItem.textContent = event;
+                scheduleList.appendChild(listItem);
+            });
+        }
+    </script>
+
+</body>
+</html>

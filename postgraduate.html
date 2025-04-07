@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WLV Open Day - Postgraduate Programs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .programs ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .programs li {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+        .program-detail {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .testimonial-item {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+        .faq {
+            margin-top: 30px;
+        }
+        .faq .faq-item {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+        .faq-item h4 {
+            cursor: pointer;
+            font-size: 18px;
+        }
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .contact-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background-color: #45a049;
+        }
+        .button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .program-filter {
+            margin-bottom: 30px;
+        }
+        .program-filter select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to WLV Open Day</h1>
+        <p>Explore Postgraduate Programs</p>
+    </header>
+
+    <div class="container">
+        <h2>Postgraduate Programs</h2>
+
+        <!-- Program Filter Dropdown -->
+        <div class="program-filter">
+            <label for="program-filter">Filter by Faculty: </label>
+            <select id="program-filter">
+                <option value="all">All Programs</option>
+                <option value="business">Business</option>
+                <option value="computer-science">Computer Science</option>
+                <option value="engineering">Engineering</option>
+                <option value="arts">Arts</option>
+                <option value="law">Law</option>
+                <option value="medicine">Medicine</option>
+                <option value="education">Education</option>
+            </select>
+        </div>
+
+        <div class="programs">
+            <ul>
+                <!-- Business Program -->
+                <li class="business">
+                    <h3>Master of Business Administration (MBA)</h3>
+                    <div class="program-detail">
+                        <p>This MBA program provides advanced knowledge in business, management, and leadership, ideal for professionals looking to advance their careers.</p>
+                        <p><strong>Duration:</strong> 1-2 years</p>
+                        <p><strong>Entry Requirements:</strong> Bachelor’s degree and at least 2 years of professional work experience.</p>
+                        <p><strong>Career Paths:</strong> Senior Manager, Executive Director, Entrepreneur</p>
+                        <p><strong>Core Modules:</strong> Leadership, Strategic Management, Marketing, Finance</p>
+                    </div>
+                </li>
+
+                <!-- Computer Science Program -->
+                <li class="computer-science">
+                    <h3>Master of Science in Computer Science</h3>
+                    <div class="program-detail">
+                        <p>This program provides a deep understanding of computer systems, algorithms, and software engineering principles. It is designed for individuals looking to enhance their technical expertise.</p>
+                        <p><strong>Duration:</strong> 1-2 years</p>
+                        <p><strong>Entry Requirements:</strong> A Bachelor’s degree in Computer Science or related field.</p>
+                        <p><strong>Career Paths:</strong> Software Engineer, Data Scientist, IT Consultant</p>
+                        <p><strong>Core Modules:</strong> Data Structures, Artificial Intelligence, Machine Learning, Software Engineering</p>
+                    </div>
+                </li>
+
+                <!-- Engineering Program -->
+                <li class="engineering">
+                    <h3>Master of Engineering</h3>
+                    <div class="program-detail">
+                        <p>This program offers advanced studies in various engineering disciplines such as civil, mechanical, and electrical engineering. It prepares graduates for leadership roles in the engineering industry.</p>
+                        <p><strong>Duration:</strong> 1-2 years</p>
+                        <p><strong>Entry Requirements:</strong> Bachelor’s degree in Engineering or related field.</p>
+                        <p><strong>Career Paths:</strong> Senior Engineer, Engineering Manager, Research Scientist</p>
+                        <p><strong>Core Modules:</strong> Structural Engineering, Advanced Thermodynamics, Robotics</p>
+                    </div>
+                </li>
+
+                <!-- Arts Program -->
+                <li class="arts">
+                    <h3>Master of Arts</h3>
+                    <div class="program-detail">
+                        <p>This program focuses on developing advanced skills in critical thinking, creativity, and research within the arts, humanities, and social sciences.</p>
+                        <p><strong>Duration:</strong> 1-2 years</p>
+                        <p><strong>Entry Requirements:</strong> A Bachelor’s degree in Arts or related field.</p>
+                        <p><strong>Career Paths:</strong> Researcher, Educator, Cultural Manager</p>
+                        <p><strong>Core Modules:</strong> Research Methods, Art Theory, Cultural Policy</p>
+                    </div>
+                </li>
+
+                <!-- Law Program -->
+                <li class="law">
+                    <h3>Master of Laws (LLM)</h3>
+                    <div class="program-detail">
+                        <p>The LLM program offers in-depth knowledge in various branches of law, such as international law, human rights law, and commercial law, providing a strong foundation for a career in legal practice or academia.</p>
+                        <p><strong>Duration:</strong> 1-2 years</p>
+                        <p><strong>Entry Requirements:</strong> A Bachelor’s degree in Law or related field.</p>
+                        <p><strong>Career Paths:</strong> Lawyer, Legal Advisor, Judge</p>
+                        <p><strong>Core Modules:</strong> Constitutional Law, International Law, Legal Research</p>
+                    </div>
+                </li>
+
+                <!-- Medicine Program -->
+                <li class="medicine">
+                    <h3>Master of Public Health (MPH)</h3>
+                    <div class="program-detail">
+                        <p>This program provides advanced knowledge in public health issues, including epidemiology, biostatistics, and health policy, preparing graduates for leadership roles in healthcare.</p>
+                        <p><strong>Duration:</strong> 1-2 years</p>
+                        <p><strong>Entry Requirements:</strong> A Bachelor’s degree in Health Sciences, Medicine, or related field.</p>
+                        <p><strong>Career Paths:</strong> Public Health Consultant, Healthcare Manager, Epidemiologist</p>
+                        <p><strong>Core Modules:</strong> Epidemiology, Health Economics, Public Health Policy</p>
+                    </div>
+                </li>
+
+                <!-- Education Program -->
+                <li class="education">
+                    <h3>Master of Education (MEd)</h3>
+                    <div class="program-detail">
+                        <p>This program is designed for educators who wish to enhance their teaching and leadership skills. It covers advanced topics in educational theory and practice.</p>
+                        <p><strong>Duration:</strong> 1-2 years</p>
+                        <p><strong>Entry Requirements:</strong> A Bachelor’s degree in Education or related field.</p>
+                        <p><strong>Career Paths:</strong> Educational Leader, Curriculum Developer, School Administrator</p>
+                        <p><strong>Core Modules:</strong> Educational Leadership, Curriculum Design, Teacher Development</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Student Testimonials -->
+        <h3>What Our Postgraduate Students Say</h3>
+        <div class="testimonial-item">
+            <h4>Laura - MBA Graduate</h4>
+            <p>"The MBA program provided me with the knowledge and confidence to take on senior leadership roles in global organizations." - Laura</p>
+        </div>
+        <div class="testimonial-item">
+            <h4>David - MSc Computer Science Graduate</h4>
+            <p>"The MSc Computer Science program gave me the technical skills I needed to work in cutting-edge technology fields, including AI and machine learning." - David</p>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq">
+            <h3>Frequently Asked Questions</h3>
+            <div class="faq-item">
+                <h4>What are the entry requirements for postgraduate programs?</h4>
+                <p>Entry requirements vary depending on the program. Generally, a relevant Bachelor's degree is required, along with professional experience for certain programs (e.g., MBA).</p>
+            </div>
+            <div class="faq-item">
+                <h4>Are there scholarships available for postgraduate students?</h4>
+                <p>Yes, WLV offers a variety of scholarships for postgraduate students based on academic achievement and financial need. Please visit our scholarships page for more details.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What career services are available for postgraduate students?</h4>
+                <p>WLV provides dedicated career services to postgraduate students, including job placement assistance, internships, and career counseling.</p>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <h3>Contact Us for More Information</h3>
+        <div class="contact-form">
+            <form action="#">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 WLV University | All Rights Reserved</p>
+        </footer>
+    </div>
+
+    <script>
+        // Toggle FAQ answers
+        const faqItems = document.querySelectorAll('.faq-item h4');
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const answer = item.nextElementSibling;
+                answer.style.display = (answer.style.display === 'none' || answer.style.display === '') ? 'block' : 'none';
+            });
+        });
+
+        // Filter programs based on the selected faculty
+        const filter = document.getElementById('program-filter');
+        filter.addEventListener('change', function() {
+            const selectedValue = filter.value;
+            const allPrograms = document.querySelectorAll('.programs li');
+            allPrograms.forEach(program => {
+                if (selectedValue === 'all' || program.classList.contains(selectedValue)) {
+                    program.style.display = 'block';
+                } else {
+                    program.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

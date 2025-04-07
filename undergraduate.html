@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WLV Open Day - Undergraduate Subjects</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .subjects ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .subjects li {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+        .subject-detail {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .testimonial-item {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+        .faq {
+            margin-top: 30px;
+        }
+        .faq .faq-item {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+        .faq-item h4 {
+            cursor: pointer;
+            font-size: 18px;
+        }
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .contact-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background-color: #45a049;
+        }
+        .button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .subject-filter {
+            margin-bottom: 30px;
+        }
+        .subject-filter select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to WLV Open Day</h1>
+        <p>Explore Undergraduate Subjects</p>
+    </header>
+
+    <div class="container">
+        <h2>Undergraduate Subjects</h2>
+
+        <!-- Course Filter Dropdown -->
+        <div class="subject-filter">
+            <label for="subject-filter">Filter by Faculty: </label>
+            <select id="subject-filter">
+                <option value="all">All Subjects</option>
+                <option value="business">Business</option>
+                <option value="computer-science">Computer Science</option>
+                <option value="engineering">Engineering</option>
+                <option value="arts">Arts</option>
+                <option value="law">Law</option>
+                <option value="medicine">Medicine</option>
+            </select>
+        </div>
+
+        <div class="subjects">
+            <ul>
+                <!-- Business Program -->
+                <li class="business">
+                    <h3>Bachelor of Business Administration</h3>
+                    <div class="subject-detail">
+                        <p>This program provides a comprehensive understanding of business and management principles. It prepares you for leadership roles in various sectors.</p>
+                        <p><strong>Career Paths:</strong> Business Manager, Marketing Executive, Entrepreneur</p>
+                        <p><strong>Program Duration:</strong> 3-4 years</p>
+                        <p><strong>Specializations:</strong> Marketing, Finance, International Business</p>
+                    </div>
+                </li>
+
+                <!-- Computer Science Program -->
+                <li class="computer-science">
+                    <h3>Bachelor of Computer Science</h3>
+                    <div class="subject-detail">
+                        <p>This program provides in-depth knowledge of computer systems, programming, and software development. You will learn to create innovative technology solutions for real-world problems.</p>
+                        <p><strong>Career Paths:</strong> Software Developer, Web Developer, IT Specialist</p>
+                        <p><strong>Program Duration:</strong> 3-4 years</p>
+                        <p><strong>Core Modules:</strong> Programming, Data Structures, Algorithms, Networking</p>
+                    </div>
+                </li>
+
+                <!-- Engineering Program -->
+                <li class="engineering">
+                    <h3>Bachelor of Engineering</h3>
+                    <div class="subject-detail">
+                        <p>This program covers a wide range of engineering disciplines, providing a solid foundation in mathematics, physics, and engineering principles.</p>
+                        <p><strong>Career Paths:</strong> Civil Engineer, Mechanical Engineer, Electrical Engineer</p>
+                        <p><strong>Program Duration:</strong> 3-4 years</p>
+                        <p><strong>Core Modules:</strong> Thermodynamics, Structural Analysis, Fluid Mechanics</p>
+                    </div>
+                </li>
+
+                <!-- Arts Program -->
+                <li class="arts">
+                    <h3>Bachelor of Arts</h3>
+                    <div class="subject-detail">
+                        <p>Gain a strong understanding of arts and humanities, and develop critical thinking, creativity, and communication skills.</p>
+                        <p><strong>Career Paths:</strong> Journalist, Content Creator, Art Director</p>
+                        <p><strong>Program Duration:</strong> 3 years</p>
+                        <p><strong>Specializations:</strong> Literature, Philosophy, History, Sociology</p>
+                    </div>
+                </li>
+
+                <!-- Law Program -->
+                <li class="law">
+                    <h3>Bachelor of Laws (LLB)</h3>
+                    <div class="subject-detail">
+                        <p>This program provides the foundational knowledge required for a career in law. It will prepare you for further studies in law school or professional law certification.</p>
+                        <p><strong>Career Paths:</strong> Lawyer, Legal Consultant, Corporate Lawyer</p>
+                        <p><strong>Program Duration:</strong> 3 years</p>
+                        <p><strong>Core Modules:</strong> Constitutional Law, Criminal Law, Contract Law</p>
+                    </div>
+                </li>
+
+                <!-- Medicine Program -->
+                <li class="medicine">
+                    <h3>Bachelor of Medicine, Bachelor of Surgery (MBBS)</h3>
+                    <div class="subject-detail">
+                        <p>This medical program trains students to become doctors and healthcare professionals with comprehensive knowledge in medicine, surgery, and clinical practice.</p>
+                        <p><strong>Career Paths:</strong> General Practitioner, Surgeon, Specialist Doctor</p>
+                        <p><strong>Program Duration:</strong> 5-6 years</p>
+                        <p><strong>Core Modules:</strong> Human Anatomy, Pathology, Pharmacology, Surgery</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Student Testimonials -->
+        <h3>What Our Students Say</h3>
+        <div class="testimonial-item">
+            <h4>Anna - BBA Graduate</h4>
+            <p>"The Business Administration program was excellent! It helped me develop strong leadership and managerial skills that prepared me for the real world." - Anna</p>
+        </div>
+        <div class="testimonial-item">
+            <h4>John - Computer Science Graduate</h4>
+            <p>"I loved the hands-on experience and the exposure to real-world problems in the Computer Science program. It was a fantastic experience!" - John</p>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq">
+            <h3>Frequently Asked Questions</h3>
+            <div class="faq-item">
+                <h4>How long does the undergraduate program take?</h4>
+                <p>The typical duration for an undergraduate program is 3 to 4 years, depending on the course and whether you choose full-time or part-time study.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Can I apply for a scholarship?</h4>
+                <p>Yes, WLV offers a variety of scholarships for undergraduate students based on academic excellence, financial need, and other criteria. Check out our scholarships page for more information.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What are the entry requirements?</h4>
+                <p>Entry requirements vary depending on the program. Generally, you'll need a high school diploma or equivalent, and sometimes specific subject qualifications or standardized test scores.</p>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <h3>Contact Us for More Information</h3>
+        <div class="contact-form">
+            <form action="#">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 WLV University | All Rights Reserved</p>
+        </footer>
+    </div>
+
+    <script>
+        // Toggle FAQ answers
+        const faqItems = document.querySelectorAll('.faq-item h4');
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const answer = item.nextElementSibling;
+                answer.style.display = (answer.style.display === 'none' || answer.style.display === '') ? 'block' : 'none';
+            });
+        });
+
+        // Filter courses based on the selected faculty
+        const filter = document.getElementById('subject-filter');
+        filter.addEventListener('change', function() {
+            const selectedValue = filter.value;
+            const allCourses = document.querySelectorAll('.subjects li');
+            allCourses.forEach(course => {
+                if (selectedValue === 'all' || course.classList.contains(selectedValue)) {
+                    course.style.display = 'block';
+                } else {
+                    course.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

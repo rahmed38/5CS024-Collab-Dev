@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WLV Open Day - Interactive Clubs and Societies Showcase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .filter-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .filter-section select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 20%;
+        }
+        .club-card {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .club-card img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .club-card h3 {
+            color: #333;
+        }
+        .club-card p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .club-card button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            border: none;
+        }
+        .club-card button:hover {
+            background-color: #45a049;
+        }
+        .testimonial {
+            font-size: 14px;
+            color: #888;
+            margin-top: 10px;
+        }
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>WLV University - Interactive Clubs and Societies Showcase</h1>
+        <p>Explore the wide variety of clubs and societies at WLV University and express your interest in joining them today!</p>
+    </header>
+
+    <div class="container">
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <label for="category">Filter by Category:</label>
+            <select id="category" onchange="filterClubs()">
+                <option value="all">All Clubs</option>
+                <option value="sports">Sports</option>
+                <option value="drama">Drama</option>
+                <option value="stem">STEM</option>
+                <option value="music">Music</option>
+                <option value="debate">Debate</option>
+            </select>
+        </div>
+
+        <!-- Clubs Directory -->
+        <div id="clubs-directory">
+            <!-- Club 1 -->
+            <div class="club-card" data-category="sports">
+                <img src="https://via.placeholder.com/400x250" alt="Football Club">
+                <h3>Football Club</h3>
+                <p>The Football Club brings together students with a passion for football, whether for competitive play or recreational fun.</p>
+                <button onclick="joinClub('Football Club')">Join This Club</button>
+                <p class="testimonial">"Being part of the Football Club is like being part of a family. We play hard and have fun!" - Alex, Member</p>
+            </div>
+
+            <!-- Club 2 -->
+            <div class="club-card" data-category="drama">
+                <img src="https://via.placeholder.com/400x250" alt="Drama Club">
+                <h3>Drama Club</h3>
+                <p>The Drama Club is a community of students passionate about theatre, performance arts, and creativity.</p>
+                <button onclick="joinClub('Drama Club')">Join This Club</button>
+                <p class="testimonial">"The Drama Club has been a wonderful way to explore my passion for acting and meet like-minded people." - Emma, Member</p>
+            </div>
+
+            <!-- Club 3 -->
+            <div class="club-card" data-category="stem">
+                <img src="https://via.placeholder.com/400x250" alt="STEM Club">
+                <h3>STEM Club</h3>
+                <p>The STEM Club is perfect for students who love science, technology, engineering, and mathematics, and want to participate in various challenges and events.</p>
+                <button onclick="joinClub('STEM Club')">Join This Club</button>
+                <p class="testimonial">"Being a member of the STEM Club has opened doors to internships, networking, and exciting projects!" - John, Member</p>
+            </div>
+
+            <!-- Add more clubs here by following the same structure -->
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 WLV University | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Function to filter clubs based on category
+        function filterClubs() {
+            let selectedCategory = document.getElementById('category').value;
+            let clubCards = document.querySelectorAll('.club-card');
+            
+            clubCards.forEach(function(card) {
+                if (selectedCategory === "all" || card.dataset.category === selectedCategory) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Function to handle "Join Club" button
+        function joinClub(clubName) {
+            alert(`You have expressed interest in joining the ${clubName}. A representative will contact you shortly!`);
+            // In a real-world application, this could send an email or save data to a server
+        }
+    </script>
+
+</body>
+</html>

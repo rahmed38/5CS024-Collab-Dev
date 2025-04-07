@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WLV Open Day - University News and Updates</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .news-section {
+            margin-top: 30px;
+        }
+        .news-article {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+        .news-article h3 {
+            color: #333;
+        }
+        .news-article p {
+            font-size: 16px;
+            color: #666;
+        }
+        .news-article .category {
+            font-size: 14px;
+            color: #888;
+            margin-top: 10px;
+        }
+        .news-article a {
+            display: inline-block;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .news-article a:hover {
+            background-color: #45a049;
+        }
+        .subscribe-section {
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 40px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+        .subscribe-section h2 {
+            color: #333;
+        }
+        .subscribe-section select,
+        .subscribe-section input[type="email"] {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+        .subscribe-section button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .subscribe-section button:hover {
+            background-color: #45a049;
+        }
+        .search-bar {
+            margin-top: 20px;
+        }
+        .search-bar input {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>WLV University - News and Updates</h1>
+        <p>Stay updated with the latest news and announcements from the university</p>
+    </header>
+
+    <div class="container">
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" id="news-search" placeholder="Search news..." onkeyup="searchNews()">
+        </div>
+
+        <!-- News Section -->
+        <div class="news-section">
+            <h2>Latest News</h2>
+
+            <div class="news-article" data-category="academic">
+                <h3>New Master's Program in Data Science</h3>
+                <p>WLV University is excited to announce the launch of a new Master’s program in Data Science, starting this September. This program will cover advanced topics in artificial intelligence, machine learning, and data analytics.</p>
+                <p class="category">Category: Academic News | Published on: April 7, 2025</p>
+                <a href="#">Read More</a>
+            </div>
+
+            <div class="news-article" data-category="events">
+                <h3>WLV Open Day 2025 - Register Now!</h3>
+                <p>Join us for the WLV Open Day 2025! Explore our undergraduate and postgraduate programs, attend live demos, and get a feel of the WLV campus.</p>
+                <p class="category">Category: Campus Events | Published on: April 6, 2025</p>
+                <a href="#">Read More</a>
+            </div>
+
+            <div class="news-article" data-category="research">
+                <h3>Groundbreaking Research in Environmental Science</h3>
+                <p>Our researchers in the Environmental Science department have made a major breakthrough in sustainable agriculture, with new techniques that could change the future of food production worldwide.</p>
+                <p class="category">Category: Research Highlights | Published on: April 5, 2025</p>
+                <a href="#">Read More</a>
+            </div>
+
+            <!-- More articles can be added here -->
+        </div>
+
+        <!-- Subscription Section -->
+        <div class="subscribe-section">
+            <h2>Subscribe for Updates</h2>
+            <p>Stay informed by subscribing to specific types of news. Choose the categories you're most interested in, and we'll notify you when there’s a new update!</p>
+            <form id="subscribe-form">
+                <select id="news-category" required>
+                    <option value="academic">Academic News</option>
+                    <option value="events">Campus Events</option>
+                    <option value="research">Research Updates</option>
+                    <option value="all">All News</option>
+                </select>
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 WLV University | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Function for search bar
+        function searchNews() {
+            let input = document.getElementById('news-search').value.toLowerCase();
+            let articles = document.querySelectorAll('.news-article');
+            articles.forEach(article => {
+                let title = article.querySelector('h3').textContent.toLowerCase();
+                let content = article.querySelector('p').textContent.toLowerCase();
+                if (title.includes(input) || content.includes(input)) {
+                    article.style.display = 'block';
+                } else {
+                    article.style.display = 'none';
+                }
+            });
+        }
+
+        // Handling the subscribe form
+        document.getElementById('subscribe-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let category = document.getElementById('news-category').value;
+            let email = document.getElementById('email').value;
+
+            alert(`Thank you for subscribing! You will now receive ${category} updates at ${email}.`);
+            // In a real app, you would send the data to a server here
+        });
+    </script>
+
+</body>
+</html>

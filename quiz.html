@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WLV Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .quiz-container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 6px;
+        }
+
+        .question p {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .instructions {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+
+        .instructions h3 {
+            color: #333;
+        }
+
+        .instructions ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>WLV Quiz</h1>
+
+        <!-- Instructions Section -->
+        <div class="instructions">
+            <h3>Quiz Instructions</h3>
+            <ul>
+                <li>Answer all 25 questions.</li>
+                <li>Each question has four possible answers.</li>
+                <li>Select the answer you believe is correct.</li>
+                <li>Click on the "Submit Quiz" button when you're done.</li>
+            </ul>
+        </div>
+
+        <!-- Quiz Form -->
+        <form id="quiz-form">
+            <!-- Question 1 -->
+            <div class="question">
+                <p>1. What is the capital of France?</p>
+                <input type="radio" name="q1" value="a"> a. Berlin<br>
+                <input type="radio" name="q1" value="b"> b. Madrid<br>
+                <input type="radio" name="q1" value="c"> c. Paris<br>
+                <input type="radio" name="q1" value="d"> d. Rome<br>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question">
+                <p>2. What is the largest ocean on Earth?</p>
+                <input type="radio" name="q2" value="a"> a. Atlantic Ocean<br>
+                <input type="radio" name="q2" value="b"> b. Indian Ocean<br>
+                <input type="radio" name="q2" value="c"> c. Pacific Ocean<br>
+                <input type="radio" name="q2" value="d"> d. Arctic Ocean<br>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question">
+                <p>3. Who wrote 'To Kill a Mockingbird'?</p>
+                <input type="radio" name="q3" value="a"> a. Mark Twain<br>
+                <input type="radio" name="q3" value="b"> b. Harper Lee<br>
+                <input type="radio" name="q3" value="c"> c. J.K. Rowling<br>
+                <input type="radio" name="q3" value="d"> d. Jane Austen<br>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question">
+                <p>4. What is the square root of 64?</p>
+                <input type="radio" name="q4" value="a"> a. 6<br>
+                <input type="radio" name="q4" value="b"> b. 7<br>
+                <input type="radio" name="q4" value="c"> c. 8<br>
+                <input type="radio" name="q4" value="d"> d. 9<br>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question">
+                <p>5. What is the largest planet in our solar system?</p>
+                <input type="radio" name="q5" value="a"> a. Jupiter<br>
+                <input type="radio" name="q5" value="b"> b. Earth<br>
+                <input type="radio" name="q5" value="c"> c. Mars<br>
+                <input type="radio" name="q5" value="d"> d. Saturn<br>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="question">
+                <p>6. Who was the first president of the United States?</p>
+                <input type="radio" name="q6" value="a"> a. Abraham Lincoln<br>
+                <input type="radio" name="q6" value="b"> b. George Washington<br>
+                <input type="radio" name="q6" value="c"> c. Thomas Jefferson<br>
+                <input type="radio" name="q6" value="d"> d. John Adams<br>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="question">
+                <p>7. What is the chemical symbol for water?</p>
+                <input type="radio" name="q7" value="a"> a. H2O<br>
+                <input type="radio" name="q7" value="b"> b. O2<br>
+                <input type="radio" name="q7" value="c"> c. CO2<br>
+                <input type="radio" name="q7" value="d"> d. H2<br>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="question">
+                <p>8. What is the largest continent by land area?</p>
+                <input type="radio" name="q8" value="a"> a. Africa<br>
+                <input type="radio" name="q8" value="b"> b. Asia<br>
+                <input type="radio" name="q8" value="c"> c. Europe<br>
+                <input type="radio" name="q8" value="d"> d. North America<br>
+            </div>
+
+            <!-- Question 9 -->
+            <div class="question">
+                <p>9. Who painted the Mona Lisa?</p>
+                <input type="radio" name="q9" value="a"> a. Vincent van Gogh<br>
+                <input type="radio" name="q9" value="b"> b. Pablo Picasso<br>
+                <input type="radio" name="q9" value="c"> c. Claude Monet<br>
+                <input type="radio" name="q9" value="d"> d. Leonardo da Vinci<br>
+            </div>
+
+            <!-- Question 10 -->
+            <div class="question">
+                <p>10. What is the capital of Japan?</p>
+                <input type="radio" name="q10" value="a"> a. Beijing<br>
+                <input type="radio" name="q10" value="b"> b. Tokyo<br>
+                <input type="radio" name="q10" value="c"> c. Seoul<br>
+                <input type="radio" name="q10" value="d"> d. Bangkok<br>
+            </div>
+
+            <!-- Question 11 -->
+            <div class="question">
+                <p>11. Which planet is closest to the Sun?</p>
+                <input type="radio" name="q11" value="a"> a. Earth<br>
+                <input type="radio" name="q11" value="b"> b. Mars<br>
+                <input type="radio" name="q11" value="c"> c. Mercury<br>
+                <input type="radio" name="q11" value="d"> d. Venus<br>
+            </div>
+
+            <!-- Question 12 -->
+            <div class="question">
+                <p>12. What is the main ingredient in guacamole?</p>
+                <input type="radio" name="q12" value="a"> a. Tomatoes<br>
+                <input type="radio" name="q12" value="b"> b. Avocados<br>
+                <input type="radio" name="q12" value="c"> c. Peppers<br>
+                <input type="radio" name="q12" value="d"> d. Onions<br>
+            </div>
+
+            <!-- Question 13 -->
+            <div class="question">
+                <p>13. Which ocean is the largest?</p>
+                <input type="radio" name="q13" value="a"> a. Indian Ocean<br>
+                <input type="radio" name="q13" value="b"> b. Atlantic Ocean<br>
+                <input type="radio" name="q13" value="c"> c. Pacific Ocean<br>
+                <input type="radio" name="q13" value="d"> d. Arctic Ocean<br>
+            </div>
+
+            <!-- Question 14 -->
+            <div class="question">
+                <p>14. How many continents are there?</p>
+                <input type="radio" name="q14" value="a"> a. 5<br>
+                <input type="radio" name="q14" value="b"> b. 6<br>
+                <input type="radio" name="q14" value="c"> c. 7<br>
+                <input type="radio" name="q14" value="d"> d. 8<br>
+            </div>
+
+            <!-- Question 15 -->
+            <div class="question">
+                <p>15. Who developed the theory of relativity?</p>
+                <input type="radio" name="q15" value="a"> a. Albert Einstein<br>
+                <input type="radio" name="q15" value="b"> b. Isaac Newton<br>
+                <input type="radio" name="q15" value="c"> c. Galileo Galilei<br>
+                <input type="radio" name="q15" value="d"> d. Nikola Tesla<br>
+            </div>
+
+            <!-- Question 16 -->
+            <div class="question">
+                <p>16. What is the chemical symbol for gold?</p>
+                <input type="radio" name="q16" value="a"> a. Ag<br>
+                <input type="radio" name="q16" value="b"> b. Au<br>
+                <input type="radio" name="q16" value="c"> c. Fe<br>
+                <input type="radio" name="q16" value="d"> d. Pb<br>
+            </div>
+
+            <!-- Question 17 -->
+            <div class="question">
+                <p>17. What year did World War II end?</p>
+                <input type="radio" name="q17" value="a"> a. 1940<br>
+                <input type="radio" name="q17" value="b"> b. 1945<br>
+                <input type="radio" name="q17" value="c"> c. 1950<br>
+                <input type="radio" name="q17" value="d"> d. 1960<br>
+            </div>
+
+            <!-- Question 18 -->
+            <div class="question">
+                <p>18. What is the largest desert in the world?</p>
+                <input type="radio" name="q18" value="a"> a. Sahara Desert<br>
+                <input type="radio" name="q18" value="b"> b. Arabian Desert<br>
+                <input type="radio" name="q18" value="c"> c. Kalahari Desert<br>
+                <input type="radio" name="q18" value="d"> d. Gobi Desert<br>
+            </div>
+
+            <!-- Question 19 -->
+            <div class="question">
+                <p>19. What is the longest river in the world?</p>
+                <input type="radio" name="q19" value="a"> a. Nile River<br>
+                <input type="radio" name="q19" value="b"> b. Amazon River<br>
+                <input type="radio" name="q19" value="c"> c. Yangtze River<br>
+                <input type="radio" name="q19" value="d"> d. Mississippi River<br>
+            </div>
+
+            <!-- Question 20 -->
+            <div class="question">
+                <p>20. Who invented the light bulb?</p>
+                <input type="radio" name="q20" value="a"> a. Nikola Tesla<br>
+                <input type="radio" name="q20" value="b"> b. Thomas Edison<br>
+                <input type="radio" name="q20" value="c"> c. Alexander Graham Bell<br>
+                <input type="radio" name="q20" value="d"> d. Benjamin Franklin<br>
+            </div>
+
+            <!-- Question 21 -->
+            <div class="question">
+                <p>21. What is the largest city in the world by population?</p>
+                <input type="radio" name="q21" value="a"> a. Tokyo<br>
+                <input type="radio" name="q21" value="b"> b. New York City<br>
+                <input type="radio" name="q21" value="c"> c. Beijing<br>
+                <input type="radio" name="q21" value="d"> d. Mumbai<br>
+            </div>
+
+            <!-- Question 22 -->
+            <div class="question">
+                <p>22. What is the most common gas in the Earth's atmosphere?</p>
+                <input type="radio" name="q22" value="a"> a. Oxygen<br>
+                <input type="radio" name="q22" value="b"> b. Carbon dioxide<br>
+                <input type="radio" name="q22" value="c"> c. Nitrogen<br>
+                <input type="radio" name="q22" value="d"> d. Argon<br>
+            </div>
+
+            <!-- Question 23 -->
+            <div class="question">
+                <p>23. Who was the first man to step on the Moon?</p>
+                <input type="radio" name="q23" value="a"> a. Buzz Aldrin<br>
+                <input type="radio" name="q23" value="b"> b. Neil Armstrong<br>
+                <input type="radio" name="q23" value="c"> c. Michael Collins<br>
+                <input type="radio" name="q23" value="d"> d. John Glenn<br>
+            </div>
+
+            <!-- Question 24 -->
+            <div class="question">
+                <p>24. What is the most spoken language in the world?</p>
+                <input type="radio" name="q24" value="a"> a. Mandarin Chinese<br>
+                <input type="radio" name="q24" value="b"> b. English<br>
+                <input type="radio" name="q24" value="c"> c. Spanish<br>
+                <input type="radio" name="q24" value="d"> d. Hindi<br>
+            </div>
+
+            <!-- Question 25 -->
+            <div class="question">
+                <p>25. What is the name of the largest reef in the world?</p>
+                <input type="radio" name="q25" value="a"> a. Great Barrier Reef<br>
+                <input type="radio" name="q25" value="b"> b. Red Sea Coral Reef<br>
+                <input type="radio" name="q25" value="c"> c. Galapagos Reef<br>
+                <input type="radio" name="q25" value="d"> d. Belize Barrier Reef<br>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+        </form>
+
+        <!-- Result Section -->
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // Define correct answers for each question
+        const correctAnswers = {
+            q1: 'c',
+            q2: 'c',
+            q3: 'b',
+            q4: 'c',
+            q5: 'a',
+            q6: 'b',
+            q7: 'a',
+            q8: 'b',
+            q9: 'd',
+            q10: 'b',
+            q11: 'c',
+            q12: 'b',
+            q13: 'c',
+            q14: 'c',
+            q15: 'a',
+            q16: 'b',
+            q17: 'b',
+            q18: 'a',
+            q19: 'a',
+            q20: 'b',
+            q21: 'a',
+            q22: 'c',
+            q23: 'b',
+            q24: 'a',
+            q25: 'a'
+        };
+
+        function submitQuiz() {
+            let score = 0;
+            const form = document.getElementById('quiz-form');
+            const answers = form.elements;
+            
+            // Loop through all questions and check if the selected answer matches the correct answer
+            for (let i = 1; i <= 25; i++) {
+                const question = `q${i}`;
+                const selectedAnswer = form.querySelector(`input[name="${question}"]:checked`);
+                if (selectedAnswer && selectedAnswer.value === correctAnswers[question]) {
+                    score++;
+                }
+            }
+            
+            // Show the result
+            document.getElementById('result').innerHTML = `You scored ${score} out of 25.`;
+        }
+    </script>
+</body>
+</html>
