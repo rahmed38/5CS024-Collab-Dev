@@ -1,0 +1,22 @@
+SET @key_str = 'your_secret_key_here';
+
+INSERT INTO `users` (`UserID`, `FullName`, `Surname`, `Postgraduate`, `Undergraduate`, `Password`)
+VALUES (
+  AES_ENCRYPT('1', @key_str),
+  AES_ENCRYPT('ruqaiyyah', @key_str),
+  AES_ENCRYPT('yasir', @key_str),
+  1,
+  1,
+  AES_ENCRYPT('MyPassword123!', @key_str)
+);
+
+SET @key_str = 'your_secret_key_here';
+
+SELECT 
+  CONVERT(AES_DECRYPT(`UserID`, @key_str) USING utf8mb4) AS UserID,
+  CONVERT(AES_DECRYPT(`FullName`, @key_str) USING utf8mb4) AS FullName,
+  CONVERT(AES_DECRYPT(`Surname`, @key_str) USING utf8mb4) AS Surname,
+  `Postgraduate`,
+  `Undergraduate`,
+  CONVERT(AES_DECRYPT(`Password`, @key_str) USING utf8mb4) AS Password
+FROM `users`; 
