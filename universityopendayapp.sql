@@ -123,12 +123,13 @@ CREATE TABLE `userredemptions` (
 --
 
 CREATE TABLE `users` (
-  `UserID` int(11) NOT NULL,
-  `FullName` varchar(100) NOT NULL,
-  `Surname` varchar(100) NOT NULL,
-  `Postgraduate` tinyint(1) NOT NULL,
-  `Undergraduate` tinyint(1) NOT NULL,
-  `Password` varchar(255) NOT NULL
+  `UserID` VARBINARY(20) NOT NULL,
+  `FullName` VARBINARY(100) NOT NULL,
+  `Surname` VARBINARY(100) NOT NULL,
+  `Postgraduate` TINYINT(1) NOT NULL,
+  `Undergraduate` TINYINT(1) NOT NULL,
+  `Password` VARBINARY(60) NOT NULL,
+  PRIMARY KEY (`UserID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
