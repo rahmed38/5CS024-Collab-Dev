@@ -1,0 +1,461 @@
+/* 
+   POSTGRADUATE PAGE STYLES
+   This file contains styling for the postgraduate.html page,
+   matching the homepage layout while keeping specific postgraduate styling
+*/
+
+/* ===== BASIC SETUP ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body Styles - Controls the entire page background and text */
+body {
+    margin: 0;
+    padding: 0;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Postgraduate specific body style */
+body.homepage {
+    display: block;
+    padding: 0;
+    background: linear-gradient(135deg, #424867, #363b54); /* Dark blue gradient background */
+}
+
+/* ===== TOP SECTION STYLES ===== */
+/* Top section with header */
+.top-section {
+    background: linear-gradient(135deg, #9C27B0, #7B1FA2); /* Purple gradient for academic theme */
+    padding: 15px 35px 5px 35px;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header container for logo and profile */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+/* Logo and welcome text container */
+.logo-welcome-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Header logo */
+.header-logo {
+    width: 120px;
+    height: auto;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+/* Welcome container styling */
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Welcome text styling */
+.welcome-text {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+/* User name styling */
+.user-name {
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    display: block;
+    text-align: left;
+}
+
+/* Decorative underline after the username */
+.user-name::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 2px;
+}
+
+/* Home icon styling (using postgrad-icon class for consistency) */
+.postgrad-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #9C27B0, #7B1FA2); /* Purple academic gradient by default */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    margin-right: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+}
+
+/* Icon within postgrad-icon */
+.postgrad-icon i {
+    font-size: 36px;
+}
+
+/* Arrow indicator showing this is a navigation link */
+.postgrad-icon::before {
+    content: "←"; /* Left arrow character to show it navigates back */
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #FF4081;
+    color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    animation: pulse 2s infinite;
+}
+
+/* Pulsing animation for the arrow */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+/* Postgrad icon hover effects */
+.postgrad-icon:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Tooltip for back link */
+.postgrad-icon::after {
+    content: "Back to Home";
+    position: absolute;
+    bottom: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: white;
+    background: rgba(156, 39, 176, 0.9);
+    padding: 4px 12px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    white-space: nowrap;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 5;
+}
+
+.postgrad-icon:hover::after {
+    opacity: 1;
+}
+
+/* Top section gradient placeholder */
+.top-section-gradient {
+    height: 10px;
+}
+
+/* ===== MAIN CONTENT SECTION ===== */
+.content-section {
+    padding: 15px 20px;
+    padding-bottom: 80px; /* Extra space for bottom navigation */
+}
+
+/* Section titles */
+.section-title {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    padding-left: 16px;
+}
+
+/* ===== CARDS CONTAINER ===== */
+/* Cards container for horizontal scrolling */
+.cards-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 0 15px 0 40px;
+    margin: 0 -15px 25px -15px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-snap-type: x mandatory;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Hides scrollbar in Chrome, Safari and newer Edge */
+.cards-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* ===== CARD STYLES ===== */
+/* Tour and info card styles */
+.tour-card, .info-card {
+    min-width: 250px;
+    max-width: 250px;
+    height: 240px;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tour-card:hover, .info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Card image containers */
+.tour-card .card-image,
+.info-card .card-image {
+    height: 130px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+.card-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+/* Image zoom effect on hover */
+.tour-card:hover .card-image img,
+.info-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+/* Card content area */
+.card-content {
+    padding: 28px 16px 16px 24px;
+    position: relative;
+    background: white;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Card icon - the small circular icon on each card */
+.card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -20px;
+    left: 16px;
+    background: white;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+/* Card text styling */
+.card-content h3 {
+    color: #424867;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    line-height: 1.3;
+    padding-left: 4px;
+}
+
+.card-content p {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.5;
+    padding-left: 4px;
+}
+
+/* ===== SPECIFIC CARD STYLES FOR POSTGRADUATE PAGE ===== */
+/* Programme cards can have faculty-specific colors */
+.tour-card.business {
+    border-left: 5px solid #FFC107; /* Yellow for business */
+}
+
+.tour-card.computer-science {
+    border-left: 5px solid #2196F3; /* Blue for computer science */
+}
+
+.tour-card.engineering {
+    border-left: 5px solid #FF5722; /* Orange for engineering */
+}
+
+.tour-card.education {
+    border-left: 5px solid #4CAF50; /* Green for education */
+}
+
+.tour-card.health {
+    border-left: 5px solid #F44336; /* Red for health */
+}
+
+/* Research area cards */
+.info-card.research {
+    border-left: 5px solid #9C27B0; /* Purple for research */
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+/* Adjustments for tablets */
+@media (max-width: 768px) {
+    .header-container {
+        min-height: 80px;
+    }
+    
+    .header-logo {
+        width: 80px;
+    }
+    
+    .welcome-text {
+        font-size: 20px;
+    }
+    
+    .user-name {
+        font-size: 28px;
+    }
+    
+    .postgrad-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .postgrad-icon i {
+        font-size: 28px;
+    }
+
+    .postgrad-icon::after {
+        bottom: -20px;
+        font-size: 11px;
+        padding: 2px 10px;
+    }
+}
+
+/* Adjustments for mobile phones */
+@media (max-width: 480px) {
+    .header-container {
+        min-height: 70px;
+    }
+    
+    .header-logo {
+        width: 60px;
+    }
+    
+    .welcome-text {
+        font-size: 18px;
+    }
+    
+    .user-name {
+        font-size: 24px;
+    }
+    
+    .postgrad-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .postgrad-icon i {
+        font-size: 22px;
+    }
+
+    .postgrad-icon::after {
+        bottom: -18px;
+        font-size: 10px;
+        padding: 2px 8px;
+        content: "Back"; /* Shorter text for small screens */
+    }
+    
+    .postgrad-icon::before {
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+        top: -5px;
+        right: -5px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 320px) {
+    .section-title {
+        font-size: 20px;
+    }
+    
+    .card-content h3 {
+        font-size: 16px;
+    }
+    
+    .card-content p {
+        font-size: 13px;
+    }
+    
+    .card-icon {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .card-icon img {
+        width: 24px;
+        height: 24px;
+    }
+}
