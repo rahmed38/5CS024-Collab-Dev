@@ -1,76 +1,60 @@
-/* 
-   HOMEPAGE STYLES
-   This file contains all the styling for the homepage (4homepage.html)
-*/
+/* Homepage Styles - University of Wolverhampton Open Day App */
 
-/* ===== BASIC SETUP ===== */
-/* Reset & Base Styles - Removes browser default spacing */
+/* Base Styles */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Makes sure padding doesn't increase element size */
+    box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
 
-/* Body Styles - Controls the entire page background and text */
 body {
-    margin: 0;
-    padding: 0;
     color: white;
-    min-height: 100vh; /* Makes sure it's at least as tall as the browser window */
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
+    min-height: 100vh;
 }
 
-/* Homepage specific body style - Overrides general body style */
 body.homepage {
-    display: block;
+    background: linear-gradient(135deg, #424867, #363b54);
     padding: 0;
-    background: linear-gradient(135deg, #424867, #363b54); /* Creates a nice gradient background */
 }
 
-/* ===== TOP SECTION STYLES ===== */
-/* Top section with header and search */
+/* Top Section */
 .top-section {
-    background: linear-gradient(135deg, #1E9CD7, #24C5F4); /* Blue gradient background */  
-    padding: 15px 35px 5px 35px;                         
+    background: linear-gradient(135deg, #1E9CD7, #24C5F4);
+    padding: 15px 35px 5px 35px;
     margin-bottom: 24px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); /* Adds subtle shadow for depth */  
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     display: flex;
-    flex-direction: column;        
+    flex-direction: column;
 }
 
-/* Header container for logo and profile */
 .header-container {
     display: flex;
-    justify-content: space-between; /* Logo on left, profile on right */
+    justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-bottom: 35px;                                 
+    margin-bottom: 35px;
 }
 
-/* Logo and welcome text container */
+/* Logo and Welcome */
 .logo-welcome-container {
     display: flex;
     align-items: center;
-    gap: 15px; /* Space between logo and welcome text */
+    gap: 15px;
 }
 
-/* Header logo */
 .header-logo {
-    width: 120px;                                        
+    width: 120px;
     height: auto;
-    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1)); /* Adds subtle shadow to logo */   
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
 }
 
-/* Welcome container styling */
 .welcome-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; 
+    align-items: flex-start;
 }
 
-/* Welcome text styling */
 .welcome-text {
     color: rgba(255, 255, 255, 0.9);
     font-size: 24px;
@@ -78,11 +62,10 @@ body.homepage {
     margin-bottom: 4px;
     letter-spacing: 1px;
     text-transform: uppercase;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow for better readability */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     text-align: left;
 }
 
-/* User name styling */
 .user-name {
     color: white;
     font-size: 32px;
@@ -94,117 +77,153 @@ body.homepage {
     text-align: left;
 }
 
-/* Decorative underline after the username */
 .user-name::after {
-    content: ''; /* Creates an empty element */
+    content: '';
     position: absolute;
     bottom: -8px;
-    left: 0; 
+    left: 0;
     width: 60px;
     height: 3px;
     background-color: rgba(255, 255, 255, 0.4);
     border-radius: 2px;
 }
 
-/* Profile icon styling */
-.profile-icon {
-    width: 80px;                                       
+/* Postgrad Icon */
+.postgrad-icon {
+    width: 80px;
     height: 80px;
-    border-radius: 50%; /* Makes it a circle */
-    background: #FF69B4; /* Pink background */
+    border-radius: 50%;
+    background: linear-gradient(135deg, #9C27B0, #7B1FA2);
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     text-decoration: none;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);         
-    margin-right: 0;
-    transition: transform 0.2s ease; /* Smooth hover effect */                    
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    border: 2px solid rgba(255, 255, 255, 0.7);
 }
 
-.profile-icon i {
-    font-size: 36px; 
+.postgrad-icon i {
+    font-size: 36px;
 }
 
-.profile-icon:hover {
-    transform: scale(1.05); /* Slightly enlarges on hover */                             
+.postgrad-icon::before {
+    content: "→";
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #FF4081;
+    color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    animation: pulse 2s infinite;
 }
 
-/* Top section gradient placeholder */
-.top-section-gradient {
-    height: 10px;
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
 }
 
-/* ===== MAIN CONTENT SECTION ===== */
+.postgrad-icon:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.postgrad-icon::after {
+    content: "Postgraduate";
+    position: absolute;
+    bottom: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: white;
+    background: rgba(156, 39, 176, 0.9);
+    padding: 4px 12px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    white-space: nowrap;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 5;
+}
+
+.postgrad-icon:hover::after {
+    opacity: 1;
+}
+
+/* Main Content */
 .content-section {
-    padding: 15px 20px; 
-    padding-bottom: 80px; /* Extra space for bottom navigation */
+    padding: 15px 20px;
+    padding-bottom: 80px;
 }
 
-/* Section titles */
 .section-title {
     color: white;
     font-size: 22px;
     font-weight: bold;
-    margin-bottom: 12px; 
+    margin-bottom: 12px;
     letter-spacing: -0.5px;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: left;
     padding-left: 16px;
 }
 
-/* ===== CARDS CONTAINER ===== */
-/* Cards container for horizontal scrolling */
+/* Cards Container */
 .cards-container {
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: auto; /* Allows horizontal scrolling */
-    gap: 10px; 
-    padding: 0 15px 0 40px; 
-    margin: 0 -15px 25px -15px; 
-    scrollbar-width: none; /* Hides scrollbar in Firefox */
-    -ms-overflow-style: none; /* Hides scrollbar in IE and Edge */
-    scroll-snap-type: x mandatory; /* Snaps to cards when scrolling */
-    padding-top: 4px;
-    padding-bottom: 4px;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    overflow-x: auto;
+    gap: 10px;
+    padding: 4px 15px 4px 40px;
+    margin: 0 -15px 25px -15px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
 }
 
-/* Hides scrollbar in Chrome, Safari and newer Edge */
 .cards-container::-webkit-scrollbar {
     display: none;
 }
 
-/* ===== CARD STYLES ===== */
-/* Tour and info card styles */
+/* Card Styles */
 .tour-card, .info-card {
-    min-width: 250px; 
+    min-width: 250px;
     max-width: 250px;
-    height: 240px; 
+    height: 240px;
     background: white;
-    border-radius: 16px; /* Rounded corners */
+    border-radius: 16px;
     overflow: hidden;
-    flex-shrink: 0; /* Prevents cards from shrinking */
-    scroll-snap-align: start; /* For scroll snapping */
-    transition: all 0.3s ease; /* Smooth animation */
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .tour-card:hover, .info-card:hover {
-    transform: translateY(-5px); /* Lifts card on hover */
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-/* Card image containers - maintain consistent proportions */
-.tour-card .card-image, 
-.info-card .card-image {
-    height: 130px; 
+.card-image {
+    height: 130px;
     width: 100%;
     position: relative;
     overflow: hidden;
-    background-color: #f0f0f0; /* Background colour in case image is slow to load */
+    background-color: #f0f0f0;
 }
 
 .card-image img {
@@ -213,57 +232,53 @@ body.homepage {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures image covers the area nicely */
+    object-fit: cover;
     object-position: center;
-    transition: transform 0.5s ease; /* Smooth zoom effect */
+    transition: transform 0.5s ease;
 }
 
-/* Image zoom effect on hover */
 .tour-card:hover .card-image img,
 .info-card:hover .card-image img {
     transform: scale(1.05);
 }
 
-/* Card content area */
 .card-content {
-    padding: 28px 16px 16px 24px; 
+    padding: 28px 16px 16px 24px;
     position: relative;
     background: white;
-    flex-grow: 1; /* Takes up remaining space */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
 
-/* Card icon - the small circular icon on each card */
 .card-icon {
-    width: 40px; 
+    width: 40px;
     height: 40px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: -20px; /* Positions it half-way out of the content area */
+    top: -20px;
     left: 16px;
     background: white;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card-icon img {
-    width: 28px; 
-    height: 28px; 
+    width: 28px;
+    height: 28px;
     object-fit: contain;
 }
 
-/* Card text styling */
 .card-content h3 {
     color: #424867;
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 6px;
     line-height: 1.3;
-    padding-left: 4px; 
+    padding-left: 4px;
 }
 
 .card-content p {
@@ -271,92 +286,10 @@ body.homepage {
     font-size: 14px;
     margin: 0;
     line-height: 1.5;
-    padding-left: 4px; 
+    padding-left: 4px;
 }
 
-/* ===== TEXT SIZE CONTROLS ===== */
-.text-size-btn {
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.text-size-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.text-size-btn.active {
-    background: #FF69B4; /* Pink highlight for active button */
-}
-
-/* Text size classes - applied to body */
-body.normal-text {
-    font-size: 16px;
-}
-
-body.large-text {
-    font-size: 20px;
-}
-
-body.larger-text {
-    font-size: 24px;
-}
-
-/* ===== BUTTON STYLES ===== */
-.button {
-    display: inline-block;
-    background: linear-gradient(135deg, #FFC107, #FFB300); /* Yellow/orange gradient */
-    color: #333;
-    padding: 16px 44px;
-    border-radius: 28px;
-    font-size: 16px;
-    font-weight: bold;
-    text-decoration: none;
-    margin-top: 20px;
-    border: none;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.button:hover {
-    transform: translateY(-2px); /* Slight lift on hover */
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
-}
-
-/* ===== INPUT STYLES ===== */
-input {
-    width: 100%;
-    max-width: 400px;
-    height: 56px;
-    background: white;
-    border: none;
-    border-radius: 28px;
-    padding: 0 30px;
-    font-size: 16px;
-    margin-bottom: 16px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.2s ease;
-}
-
-input:focus {
-    outline: none; /* Removes default browser outline */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transform: translateY(-1px); /* Slight lift when focused */
-}
-
-input::placeholder {
-    color: #666;
-}
-
-/* ===== RESPONSIVE DESIGN ===== */
-/* Adjusts layout for tablets */
+/* Responsive Design */
 @media (max-width: 768px) {
     .header-container {
         min-height: 80px;
@@ -374,17 +307,30 @@ input::placeholder {
         font-size: 28px;
     }
     
-    .profile-icon {
+    .postgrad-icon {
         width: 60px;
         height: 60px;
     }
     
-    .profile-icon i {
+    .postgrad-icon i {
         font-size: 28px;
+    }
+
+    .postgrad-icon::before {
+        width: 22px;
+        height: 22px;
+        font-size: 12px;
+        top: -6px;
+        right: -6px;
+    }
+
+    .postgrad-icon::after {
+        bottom: -20px;
+        font-size: 11px;
+        padding: 3px 10px;
     }
 }
 
-/* Adjusts layout for mobile phones */
 @media (max-width: 480px) {
     .header-container {
         min-height: 70px;
@@ -402,13 +348,46 @@ input::placeholder {
         font-size: 24px;
     }
     
-    .profile-icon {
+    .postgrad-icon {
         width: 50px;
         height: 50px;
     }
     
-    .profile-icon i {
+    .postgrad-icon i {
         font-size: 22px;
     }
+
+    .postgrad-icon::before {
+        width: 18px;
+        height: 18px;
+        font-size: 10px;
+        top: -5px;
+        right: -5px;
+    }
+
+    .postgrad-icon::after {
+        content: "Postgrad →";
+        bottom: -18px;
+        font-size: 10px;
+        padding: 2px 8px;
+    }
+}
+
+@media (max-width: 320px) {
+    .postgrad-icon {
+        width: 45px;
+        height: 45px;
+    }
     
+    .postgrad-icon i {
+        font-size: 20px;
+    }
+    
+    .postgrad-icon::before {
+        width: 16px;
+        height: 16px;
+        font-size: 9px;
+        top: -4px;
+        right: -4px;
+    }
 }
