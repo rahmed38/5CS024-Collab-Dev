@@ -125,11 +125,11 @@ CREATE TABLE `userredemptions` (
 
 CREATE TABLE `users` (
   `UserID` int(11) NOT NULL AUTO_INCREMENT,
-  `FullName` VARBINARY(100) NOT NULL,
-  `Surname` VARBINARY(100) NOT NULL,
+  `FullName` varchar(100) NOT NULL,
+  `Surname` varchar(100) NOT NULL,
   `Postgraduate` TINYINT(1) NOT NULL,
   `Undergraduate` TINYINT(1) NOT NULL,
-  `Password` VARBINARY(60) NOT NULL,
+  `Password` varchar(60) NOT NULL,
   PRIMARY KEY (`UserID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -143,7 +143,7 @@ INSERT INTO `users` (`UserID`, `FullName`, `Surname`, `Postgraduate`, `Undergrad
 (10003, 'Ruqaiyyah', 'Yasir', 1, 0, 'ilovespongebob'),
 (10004, 'Ramzaan', 'Sharaz', 1, 0, 'ilovepineapplepizza'),
 (10005, 'Mohammed Nadeem', 'Bauker', 1, 0, 'ilovebeyonce'),
-(10006, 'Rehan ', 'Ahmed ', 1, 0, 'ilovehereventhoshegay');
+(10006, 'Rehan ', 'Ahmed ', 1, 0, 'ilovemymacbook');
 
 -- --------------------------------------------------------
 
@@ -156,9 +156,6 @@ ALTER TABLE `postgraduatesubjects`
 
 ALTER TABLE `undergradsubjects`
   ADD PRIMARY KEY (`SubjectID`);
-
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`UserID`);
 
 ALTER TABLE `userredemptions`
   ADD PRIMARY KEY (`RedemptionID`);
