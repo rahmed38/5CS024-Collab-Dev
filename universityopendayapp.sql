@@ -11,11 +11,10 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+ /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+ /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+ /*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `universityopendayapp`
@@ -59,13 +58,14 @@ INSERT INTO `postgraduatesubjects` (`SubjectID`, `SubjectName`, `Duration`, `Cou
 --
 
 CREATE TABLE `qrcodes` (
-  `QRID` int(11) DEFAULT NULL,
+  `QRID` int(11) NOT NULL AUTO_INCREMENT,
   `QRCode` varchar(200) NOT NULL,
   `RewardName` varchar(200) NOT NULL,
   `RewardDetails` text NOT NULL,
   `RedeemLink` varchar(200) NOT NULL,
   `IsActive` tinyint(1) NOT NULL,
-  `CreatedAt` datetime NOT NULL
+  `CreatedAt` datetime NOT NULL,
+  PRIMARY KEY (`QRID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -109,11 +109,12 @@ INSERT INTO `undergradsubjects` (`SubjectID`, `SubjectName`, `Duration`, `Course
 --
 
 CREATE TABLE `userredemptions` (
-  `RedemptionID` int(11) NOT NULL,
+  `RedemptionID` int(11) NOT NULL AUTO_INCREMENT,
   `UserID` int(11) NOT NULL,
   `QRID` int(11) NOT NULL,
   `RedeemedAt` datetime NOT NULL,
-  `WasSuccessful` tinyint(1) NOT NULL
+  `WasSuccessful` tinyint(1) NOT NULL,
+  PRIMARY KEY (`RedemptionID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -123,7 +124,7 @@ CREATE TABLE `userredemptions` (
 --
 
 CREATE TABLE `users` (
-  `UserID` VARBINARY(20) NOT NULL,
+  `UserID` int(11) NOT NULL AUTO_INCREMENT,
   `FullName` VARBINARY(100) NOT NULL,
   `Surname` VARBINARY(100) NOT NULL,
   `Postgraduate` TINYINT(1) NOT NULL,
@@ -144,57 +145,41 @@ INSERT INTO `users` (`UserID`, `FullName`, `Surname`, `Postgraduate`, `Undergrad
 (10005, 'Mohammed Nadeem', 'Bauker', 1, 0, 'ilovebeyonce'),
 (10006, 'Rehan ', 'Ahmed ', 1, 0, 'ilovehereventhoshegay');
 
+-- --------------------------------------------------------
+
 --
 -- Indexes for dumped tables
 --
 
---
--- Indexes for table `postgraduatesubjects`
---
 ALTER TABLE `postgraduatesubjects`
   ADD PRIMARY KEY (`SubjectID`);
 
---
--- Indexes for table `undergradsubjects`
---
 ALTER TABLE `undergradsubjects`
   ADD PRIMARY KEY (`SubjectID`);
 
---
--- Indexes for table `userredemptions`
---
-ALTER TABLE `userredemptions`
-  ADD PRIMARY KEY (`RedemptionID`);
-
---
--- Indexes for table `users`
---
 ALTER TABLE `users`
   ADD PRIMARY KEY (`UserID`);
 
---
--- AUTO_INCREMENT for dumped tables
---
+ALTER TABLE `userredemptions`
+  ADD PRIMARY KEY (`RedemptionID`);
+
+-- --------------------------------------------------------
 
 --
--- AUTO_INCREMENT for table `postgraduatesubjects`
+-- AUTO_INCREMENT for tables
 --
+
 ALTER TABLE `postgraduatesubjects`
   MODIFY `SubjectID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=221;
 
---
--- AUTO_INCREMENT for table `userredemptions`
---
 ALTER TABLE `userredemptions`
   MODIFY `RedemptionID` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `users`
---
 ALTER TABLE `users`
   MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10007;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+ /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+ /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
