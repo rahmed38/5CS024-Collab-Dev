@@ -1,0 +1,603 @@
+/* 
+   SUPPORT.CSS
+   financial aid advice, and university life resources pages
+*/
+
+/* ===== BASIC SETUP ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #424867, #363b54); /* Dark blue gradient */
+    color: white;
+    min-height: 100vh;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* ===== HEADER SECTION ===== */
+header {
+    background: linear-gradient(135deg, #1E9CD7, #24C5F4); /* Blue gradient header */
+    padding: 35px 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 25px;
+    position: relative;
+    width: 100%;
+}
+
+/* Decorative line at bottom of header */
+header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.4), rgba(255,255,255,0.1));
+}
+
+header h1 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    line-height: 1.2;
+}
+
+header p {
+    font-size: 16px;
+    opacity: 0.9;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.4;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    max-width: 900px;
+    width: 92%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* ===== SECTION STYLING ===== */
+section {
+    background: rgba(66, 72, 103, 0.85);
+    border-radius: 16px;
+    padding: 25px 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 5px solid #24C5F4; /* Blue accent on left side */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative gradient overlay */
+section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0) 100%);
+    pointer-events: none;
+}
+
+/* Hover effect for sections */
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Color variants for sections */
+section:nth-child(3n+1) {
+    border-left-color: #24C5F4; /* Blue */
+}
+
+section:nth-child(3n+2) {
+    border-left-color: #FF4081; /* Pink */
+}
+
+section:nth-child(3n+3) {
+    border-left-color: #FFC107; /* Yellow */
+}
+
+/* ===== TYPOGRAPHY ===== */
+h2 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+    position: relative;
+    line-height: 1.3;
+}
+
+/* Colored accent line below h2 */
+h2::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 70px;
+    height: 2px;
+    background: #24C5F4;
+}
+
+h3 {
+    color: white;
+    font-size: 20px;
+    margin: 22px 0 12px;
+    line-height: 1.3;
+}
+
+p {
+    margin-bottom: 16px;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 15px;
+}
+
+/* ===== LISTS ===== */
+ul, ol {
+    margin: 18px 0;
+    padding-left: 20px;
+}
+
+ul li, ol li {
+    margin-bottom: 12px;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 15px;
+    padding-left: 5px; /* Give some space after bullet/number */
+}
+
+/* Prevent list overflows on small screens */
+ul, ol, li {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-word;
+}
+
+/* ===== SCHOLARSHIP ITEMS ===== */
+.scholarship-item {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.scholarship-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.scholarship-item h3 {
+    margin-top: 0;
+    color: white;
+    font-size: 20px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.scholarship-item p {
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+/* ===== TESTIMONIALS ===== */
+.testimonial {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-bottom: 18px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border-left: 4px solid #FF4081;
+}
+
+.testimonial p {
+    position: relative;
+    z-index: 1;
+    font-size: 15px;
+}
+
+.testimonial p:first-child {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* ===== FAQ ITEMS ===== */
+.faq-item {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    padding: 18px 20px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.faq-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+}
+
+.faq-item h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: white;
+}
+
+.faq-item p {
+    margin-bottom: 0;
+    font-size: 15px;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #24C5F4, #1E9CD7);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px; /* Ensure good tap target size */
+    min-width: 120px; /* Minimum width for better tapping */
+    text-align: center;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #1E9CD7, #0E75B0);
+}
+
+/* Improve tap targets */
+.btn, a {
+    touch-action: manipulation;
+}
+
+/* ===== FORM STYLING ===== */
+form {
+    margin: 25px 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+select, input[type="text"], input[type="email"] {
+    width: 100%;
+    padding: 14px 15px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    font-size: 16px;
+    margin-top: 5px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    min-height: 48px; /* Ensure good tap target size */
+    -webkit-appearance: none; /* Fix for iOS */
+    appearance: none;
+}
+
+select:focus, input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(36, 197, 244, 0.25);
+}
+
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px;
+    padding-right: 30px; /* Space for the arrow */
+}
+
+/* Make form elements more touch-friendly */
+button, input, select, textarea {
+    touch-action: manipulation;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 30px;
+    width: 100%;
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer p {
+    margin-bottom: 12px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    gap: 15px;
+}
+
+footer ul li {
+    margin: 0;
+    padding: 0;
+}
+
+footer ul li a {
+    color: white;
+    opacity: 0.8;
+    text-decoration: none;
+    font-size: 14px;
+    transition: opacity 0.3s ease;
+    padding: 5px; /* Larger tap target */
+}
+
+footer ul li a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* ===== LINKS ===== */
+a {
+    color: #24C5F4;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #FF4081;
+    text-decoration: underline;
+}
+
+/* These styles will ensure better mobile experience */
+@media (max-width: 768px) {
+    header {
+        padding: 25px 15px;
+    }
+    
+    header h1 {
+        font-size: 26px;
+    }
+    
+    header p {
+        font-size: 15px;
+    }
+    
+    section {
+        padding: 20px 15px;
+        border-radius: 14px;
+        margin-bottom: 25px;
+    }
+    
+    h2 {
+        font-size: 22px;
+    }
+    
+    h3 {
+        font-size: 19px;
+    }
+    
+    .scholarship-item, .testimonial, .faq-item {
+        padding: 18px;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+    }
+    
+    /* Increase form tap targets for mobile */
+    select, input[type="text"], input[type="email"] {
+        font-size: 16px; /* Prevent iOS zoom on focus */
+    }
+}
+
+/* Enhanced styles for small mobile screens */
+@media (max-width: 576px) {
+    body {
+        padding-bottom: 90px; /* Reduce bottom padding slightly */
+    }
+    
+    .container {
+        width: 94%;
+        padding: 0 12px;
+    }
+    
+    header {
+        padding: 20px 15px;
+        margin-bottom: 20px;
+    }
+    
+    header h1 {
+        font-size: 24px;
+    }
+    
+    header p {
+        font-size: 14px;
+    }
+    
+    section {
+        padding: 18px 15px;
+        margin-bottom: 20px;
+        border-radius: 12px;
+        border-left-width: 4px; /* Slightly thinner accent */
+    }
+    
+    h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+        padding-bottom: 8px;
+    }
+    
+    h2::after {
+        width: 50px;
+        height: 2px;
+    }
+    
+    h3 {
+        font-size: 17px;
+        margin: 18px 0 10px;
+    }
+    
+    p, ul li, ol li {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    ul, ol {
+        margin: 15px 0;
+        padding-left: 18px;
+    }
+    
+    ul li, ol li {
+        margin-bottom: 10px;
+    }
+    
+    .scholarship-item, .testimonial, .faq-item {
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+    }
+    
+    .scholarship-item h3, .faq-item h3 {
+        font-size: 17px;
+        margin-bottom: 10px;
+        padding-bottom: 6px;
+    }
+    
+    /* Make buttons full width on mobile for easier tapping */
+    .btn {
+        width: 100%;
+        max-width: 100%;
+        padding: 12px 0;
+        font-size: 14px;
+        min-height: 48px; /* Larger tap target */
+    }
+    
+    /* Better forms for mobile */
+    .form-group {
+        margin-bottom: 16px;
+    }
+    
+    label {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+    
+    select, input[type="text"], input[type="email"] {
+        padding: 12px 15px;
+        min-height: 46px;
+    }
+    
+    /* Adjust spacing for scholarship items */
+    .scholarship-item p {
+        margin-bottom: 8px;
+    }
+    
+    /* Fix footer for small screens */
+    footer {
+        padding: 15px 0;
+    }
+    
+    footer ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    footer ul li a {
+        display: inline-block;
+        padding: 8px;
+    }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    body {
+        background: white;
+        color: black;
+        padding: 0;
+    }
+    
+    header {
+        background: none;
+        color: black;
+        box-shadow: none;
+        border-bottom: 2px solid #ccc;
+    }
+    
+    section {
+        background: white;
+        border: 1px solid #ccc;
+        box-shadow: none;
+        color: black;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+    
+    h2, h3 {
+        color: black;
+    }
+    
+    p, li {
+        color: black;
+    }
+    
+    .btn, footer {
+        display: none;
+    }
+    
+    a {
+        color: black;
+        text-decoration: underline;
+    }
+    
+    .scholarship-item, .testimonial, .faq-item {
+        border: 1px solid #ccc;
+        background: white;
+    }
+}
