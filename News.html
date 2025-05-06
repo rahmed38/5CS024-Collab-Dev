@@ -4,107 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WLV Open Day - University News and Updates</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .news-section {
-            margin-top: 30px;
-        }
-        .news-article {
-            background-color: #fff;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 5px;
-            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-        }
-        .news-article h3 {
-            color: #333;
-        }
-        .news-article p {
-            font-size: 16px;
-            color: #666;
-        }
-        .news-article .category {
-            font-size: 14px;
-            color: #888;
-            margin-top: 10px;
-        }
-        .news-article a {
-            display: inline-block;
-            margin-top: 10px;
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-        .news-article a:hover {
-            background-color: #45a049;
-        }
-        .subscribe-section {
-            background-color: #fff;
-            padding: 20px;
-            margin-top: 40px;
-            border-radius: 5px;
-            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-        }
-        .subscribe-section h2 {
-            color: #333;
-        }
-        .subscribe-section select,
-        .subscribe-section input[type="email"] {
-            padding: 10px;
-            font-size: 16px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            width: 100%;
-        }
-        .subscribe-section button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .subscribe-section button:hover {
-            background-color: #45a049;
-        }
-        .search-bar {
-            margin-top: 20px;
-        }
-        .search-bar input {
-            padding: 10px;
-            font-size: 16px;
-            width: 100%;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        footer {
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="navigation.css">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -114,11 +17,7 @@
     </header>
 
     <div class="container">
-        <!-- Search Bar -->
-        <div class="search-bar">
-            <input type="text" id="news-search" placeholder="Search news..." onkeyup="searchNews()">
-        </div>
-
+        
         <!-- News Section -->
         <div class="news-section">
             <h2>Latest News</h2>
@@ -164,10 +63,25 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 WLV University | All Rights Reserved</p>
-    </footer>
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+        <a href="postgraduate.html" class="nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="5explore.html" class="nav-item">
+            <i class="fas fa-search"></i>
+            <span>Explore</span>
+        </a>
+        <a href="6saved.html" class="nav-item">
+            <i class="fas fa-bookmark"></i>
+            <span>Saved</span>
+        </a>
+        <a href="7profile.html" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </a>
+    </nav>
 
     <script>
         // Function for search bar
