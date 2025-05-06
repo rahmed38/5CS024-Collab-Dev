@@ -7,7 +7,9 @@
     <meta name="description" content="Comprehensive Financial Aid Advice for Students at the University of Wolverhampton.">
     <meta name="author" content="University of Wolverhampton">
     <title>Financial Aid Advice - University of Wolverhampton Open Day</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="support.css">
+    <link rel="stylesheet" href="navigation.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -130,13 +132,144 @@
         </div>
     </section>
 
-    <!-- Footer Section -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 University of Wolverhampton. All rights reserved.</p>
-        </div>
-    </footer>
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+        <a href="postgraduate.html" class="nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="5explore.html" class="nav-item">
+            <i class="fas fa-search"></i>
+            <span>Explore</span>
+        </a>
+        <a href="6saved.html" class="nav-item">
+            <i class="fas fa-bookmark"></i>
+            <span>Saved</span>
+        </a>
+        <a href="7profile.html" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </a>
+    </nav>
 
+    <script> 
+        // Common user name handling functions
+        function handleUserName() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlName = urlParams.get('userName');
+            const storedName = localStorage.getItem('userName');
+            const userName = urlName || storedName;
+            
+            if (userName) {
+                const userNameElement = document.getElementById('userName');
+                if (userNameElement) {
+                    userNameElement.textContent = userName;
+                }
+                localStorage.setItem('userName', userName);
+            }
+        }
+        
+        function appendUserNameToUrl(url) {
+            const userName = localStorage.getItem('userName');
+            if (userName) {
+                const separator = url.includes('?') ? '&' : '?';
+                return `${url}${separator}userName=${encodeURIComponent(userName)}`;
+            }
+            return url;
+        }
+        
+        function updateNavigationLinks() {
+            const userName = localStorage.getItem('userName');
+            if (userName) {
+                document.querySelectorAll('a').forEach(link => {
+                    if (link.href.includes(window.location.origin) && 
+                        !link.href.includes('userName=')) {
+                        link.href = appendUserNameToUrl(link.href);
+                    }
+                });
+            }
+        }
+        
+        // Initialize everything when the page loads
+        window.onload = function() {
+            // Handle colors (preserving existing functionality)
+            const savedBgColor = localStorage.getItem('bgColor');
+            const savedTextColor = localStorage.getItem('textColor');
+            const savedBtnColor = localStorage.getItem('btnColor');
+        
+            if (savedBgColor) {
+                document.body.style.backgroundColor = savedBgColor;
+            }
+            if (savedTextColor) {
+                document.body.style.color = savedTextColor;
+            }
+            if (savedBtnColor) {
+                document.querySelectorAll('.nav-button, .nav-item').forEach(
+                    button => button.style.backgroundColor = savedBtnColor
+                );
+            }
+        
+            // Handle user name
+            handleUserName();
+            
+            // Update navigation links
+            updateNavigationLinks();
+
+            // Apply postgrad icon color
+            const postgradIcon = document.querySelector('.postgrad-icon');
+            const savedColor = localStorage.getItem('profileIconColor');
+
+            if (savedColor) {
+                switch(savedColor) {
+                    case '#24C5F4':
+                        postgradIcon.style.background = 'linear-gradient(135deg, #24C5F4, #1E9CD7)';
+                        break;
+                    case '#FF69B4':
+                        postgradIcon.style.background = 'linear-gradient(135deg, #FF69B4, #FF4081)';
+                        break;
+                    case '#FFD700':
+                        postgradIcon.style.background = 'linear-gradient(135deg, #FFD700, #FFA500)';
+                        break;
+                    case '#A2D460':
+                        postgradIcon.style.background = 'linear-gradient(135deg, #A2D460, #7CB342)';
+                        break;
+                    default:
+                        postgradIcon.style.background = 'linear-gradient(135deg, #9C27B0, #7B1FA2)';
+                }
+            }
+            
+            // Set active navigation item
+            setActiveNavItem();
+        };
+        
+        // Highlight active navigation item
+        function setActiveNavItem() {
+            const currentPath = window.location.pathname;
+            const filename = currentPath.split('/').pop();
+            
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            if (filename.includes('homepage') || filename === '' || filename === 'index.html') {
+                document.querySelector('.nav-item[href*="homepage"]').classList.add('active');
+            } else if (filename.includes('explore')) {
+                document.querySelector('.nav-item[href*="explore"]').classList.add('active');
+            } else if (filename.includes('saved')) {
+                document.querySelector('.nav-item[href*="saved"]').classList.add('active');
+            } else if (filename.includes('profile')) {
+                document.querySelector('.nav-item[href*="profile"]').classList.add('active');
+            } else if (filename.includes('arts') || filename.includes('business') || 
+                      filename.includes('education') || filename.includes('health') || 
+                      filename.includes('science') || filename.includes('social') ||
+                      filename.includes('tour') || filename.includes('contact') ||
+                      filename.includes('faq') || filename.includes('visitwolvo') ||
+                      filename.includes('amenities')) {
+                // For content pages, keep Home as active
+                document.querySelector('.nav-item[href*="homepage"]').classList.add('active');
+            }
+        }
+    </script>
+    
 </body>
-
 </html>
