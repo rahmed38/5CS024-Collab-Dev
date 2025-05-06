@@ -1,7 +1,5 @@
-/* 
-   POSTGRADUATE PAGE STYLES
-   This file contains styling for the postgraduate.html page,
-   matching the homepage layout while keeping specific postgraduate styling
+bod/* 
+ POSTGRADUATE PAGE STYLE
 */
 
 /* Basic Setup */
@@ -546,6 +544,40 @@ body.homepage {
     text-decoration: none;
 }
 
+/* Contact Card Styles - NEW */
+.contact-card {
+    text-decoration: none;
+    display: block;
+    min-width: 280px;
+    max-width: 280px;
+}
+
+/* Card buttons - NEW */
+.card-button {
+    background: linear-gradient(to right, #FF416C, #FF4B2B);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(to right, #FF1A55, #FF3C28);
+}
+
+.card-button:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
 /* Bottom Navigation */
 .bottom-nav {
     position: fixed;
@@ -639,6 +671,16 @@ body.homepage {
     .stat-number {
         font-size: 30px;
     }
+
+    .contact-card {
+        min-width: 240px;
+        max-width: 240px;
+    }
+
+    .card-button {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -722,5 +764,16 @@ body.homepage {
     
     .stat-label {
         font-size: 14px;
+    }
+
+    .contact-card {
+        min-width: 220px;
+        max-width: 220px;
+    }
+
+    .card-button {
+        padding: 6px 14px;
+        font-size: 12px;
+        margin-top: 8px;
     }
 }
